@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			main {
+				width: 200px;
+				border: 1px solid black;
+				margin: 10px auto;
+				border-radius: 5px;
+				text-align: center;
+			}
+			
+			dl>dd {
+				margin-left: 0;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+
+	<body>
+		<main>
+			<dl>
+				<dt>
+					<input type="checkbox" />
+					<label for="">全选</label>
+					<a href="#">反选</a>
+				</dt>
+				<dd>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(一)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(二)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(三)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(四)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(五)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(六)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(七)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(八)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(九)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(十)</label>
+					</p>
+				</dd>
+			</dl>
+
+		</main>
+
+		<script type="text/javascript">
+			//功能一：全选 全不选 的逻辑
+			$("dt input").click(function() {
+				var result = $(this).prop("checked")
+				$(this).parent().siblings().children().children("input").prop("checked", result)
+
+			})
+
+			//功能二：反选
+			$("dt a").click(function() {
+				$("dd input").each(function(index, ele) {
+					var value = $(ele).prop("checked")
+					$(ele).prop("checked", !value)
+				})
+				updateHeaderContent(isAllChecked())
+			})
+			
+			//点击 子复选框 
+			$("dd input").click(function() {
+
+				updateHeaderContent(isAllChecked())
+
+			})
+			
+			//判断是否全部都选中了的函数
+			function isAllChecked() {
+				//是否全部都选中了
+				var checkedNumber = $("dd input:checked").length
+				var totolNumber = $("dd input").length
+				//如果选中的checkbox的数量和checkbox的总数量相等就认为是全部选中了
+				if(checkedNumber == totolNumber) {
+					return true
+				}
+				return false
+			}
+
+			//根据是否全部选中，修改标题内容
+			function updateHeaderContent(allChecked) {
+				if(allChecked) {
+					$("dt input").prop("checked", true)
+					$("dt label").text("全不选")
+				} else {
+					$("dt input").prop("checked", false)
+					$("dt label").text("全选")
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

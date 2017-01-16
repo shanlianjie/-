@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<ul id="myUl"  class="red green">
+			<li id ="myLi">HTML <span>好人</span> </li>
+			<li>css</li>
+			<li>JS</li>
+			<li>Php</li>
+		</ul>
+		
+		<script type="text/javascript">
+			
+			/*
+			 *  节点类型：12种
+			 * 				节点类型（nodeType）  节点名(nodeName)  节点值(nodeValue)
+			 *  
+			 * 1.元素节点        1                   标签名            null
+			 * 2.文本节点        3  					#text            文字内容
+			 * 3.属性节点        2					属性名            属性值
+			 * 
+			 * Node.ELEMENT_NODE   代表数字 1 
+			 * Node.TEXT_NODE      代表数字 3
+			 * Node.ATTRIBUTE_NODE 代表数字 2
+			 */
+			
+			var ul = document.getElementById("myUl")
+			
+			//获取子节点（不包括孙子节点）  nodelist
+			var nodes = ul.childNodes //9
+			
+			//遍历子节点
+			for (var i=0;i<nodes.length;i++) {
+				
+				 var nodeItem = nodes[i]
+				 
+				 //获取 节点类型 和 节点名
+				 //console.log(nodeItem.nodeType,nodeItem.nodeName)
+				 
+				 //根据节点类型判断是否是 元素节点
+				 if(nodeItem.nodeType == Node.ELEMENT_NODE){
+				 	 nodeItem.style.backgroundColor = "red"
+				 }
+				 
+			}
+					
+				  //获取ul的所有的属性节点(是一个集合)	
+		  	      var  attrs =  ul.attributes
+ 
+		  	     var li = document.getElementById("myLi")
+		  	     console.log(li.childNodes)
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

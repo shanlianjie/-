@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<ul></ul>
+
+		<input type="button" name="" id="" value="按钮" />
+
+		<script type="text/javascript">
+			var btn = document.querySelector("input")
+			var ul = document.querySelector("ul")
+			var i = 1
+
+			btn.onclick = function() {
+
+				var li = document.createElement("li")
+				
+				var lis = ul.ElementChild
+
+				var a = document.createElement("a")
+			
+			    var as = li.ElementChild
+				  a.textContent = "点我就会删除这一行"
+				  
+				  
+				  li.textContent ="第" + i + "行"
+				   i ++
+				
+				ul.insertBefore(li,lis)
+				
+				li.insertBefore(a,as)
+				
+				
+				li.style.listStyle="none"      
+				
+				a.setAttribute("href","#")
+				
+
+
+ 			a.onclick = function(){
+ 				
+ 				var li = a.parentElement
+ 			ul.removeChild(li)
+ 				
+ 			}
+			}
+			
+			
+			
+			
+			
+			
+			
+				
+				
+			
+		</script>
+
+	</body>
+
+</html>

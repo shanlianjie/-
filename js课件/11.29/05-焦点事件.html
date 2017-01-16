@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			.highlighted{
+				
+				background-color: pink;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<label for="username">用户名</label>
+		<input type="text" id="username"/> 
+		<br />
+		<br />	
+		<label for="psw">密&#x3000;码</label>
+		<input type="text" id="psw"/> 
+		
+		<input type="button" value="按钮" id="btn"/>
+		
+		<script type="text/javascript">
+			
+			var userInput  = document.getElementById("username")
+//1. onfocus 和 onblur 			
+			//userInput 事件源
+			// focus 事件名
+			// 事件函数
+			//告诉 事件源，当他身上发生focus事件的时，去做什么事
+			//onfocus 当元素获取焦点的时候触发
+			userInput.onfocus = function(){
+				
+				this.classList.add("highlighted")
+			}
+			
+			//onblur: 当元素失去焦点的时候触发
+			userInput.onblur = function(){
+				this.classList.remove("highlighted")
+			}
+			
+			/*
+			 * 怎么样让文本框获取焦点
+			 * 1.点击文本框
+			 * 2.tab 键
+			 * 3.js代码
+			 * 不是所有的元素都有焦点的，一般那些可用和用户交互的元素是有焦点的
+			 */
+			//给元素添加焦点focus
+			//userInput.focus()
+			//移除元素身上的焦点
+			//userInput.blur()
+			
+    //2. 点击按钮，让密码文本框不可用
+    			 var btn = document.getElementById("btn")
+    			 var pswInput = document.getElementById("psw")
+    			 console.dir(pswInput)
+    			 
+    			 btn.onclick = function(){
+    			 	//让密码文本框不可用
+    			 	pswInput.disabled = true;
+    			 	//让按钮也不可用
+    			 	this.disabled = true;
+    			 	
+    			 	//选中input中文本
+    			 	userInput.select()
+    			 }
+
+		</script>
+	</body>
+</html>

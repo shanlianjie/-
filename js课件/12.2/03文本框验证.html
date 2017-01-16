@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			span{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="userName"/> <span></span>
+
+		<script type="text/javascript">
+			
+			var input = document.getElementById("userName")
+			
+			input.onkeyup = function(){
+				if(this.value.length<6 || this.value.length>10){
+					
+					this.nextElementSibling.innerText = "用户名必须在6~10位之间"
+				}else{
+					this.nextElementSibling.innerText = ""
+				}
+			}
+			
+		</script>
+	</body>
+</html>

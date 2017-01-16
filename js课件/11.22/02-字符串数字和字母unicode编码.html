@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var str = "az"
+			for (var i=0;i<str.length;i++) {
+				
+				var code = str.charCodeAt(i)
+				//console.log(code) 
+				//数字对应的unicode编码范围48~57
+				//大写英语字母A~Z  范围65~90
+				//小写英语字母a~z  范围97~122
+			}
+			
+			  
+			  
+			//怎么判断一个字符串，是不是全是数字
+			function isAllNumber (str){
+				
+				for(var i=0;i<str.length;i++){
+					//取出每一个字符对应的unicode编码
+					var chCode = str.charCodeAt(i)
+					if(chCode<48 || chCode>57){ //不是个数字
+						
+						return false
+					}
+				}
+				//如果整个for循环都没有return false，说明全部都是数字
+				return true;
+			}
+			
+		var result =	isAllNumber("997566")
+		console.log(result)
+			
+		</script>
+
+	</body>
+</html>

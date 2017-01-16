@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="text"/>
+		<input type="button" value="按钮" id="btn"/>
+		<p id="p">文本框中的内容在此显示</p>
+		
+		<script type="text/javascript">
+
+			//获取按钮btn
+			var btn = document.getElementById("btn")
+			
+			//给btn绑定单击事件
+			btn.onclick = function(){
+				
+				 //1.获取文本框的value属性值
+			    var str	= document.getElementById("text").value
+		      	
+		      	 //对象.属性名 既可以赋值也可以获取值
+		         //console.log(document.getElementById("p").innerHTML)
+				 
+				 //2.将获取的文本框的值赋值给p
+				 document.getElementById("p").innerHTML = str
+				 
+				 //console.dir(document.getElementById("p"))
+				 
+			}
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div class="box">
+			<!--<table>
+				 <thead></thead>
+				 <tbody></tbody>
+			</table>-->
+
+		</div>
+
+		<script type="text/javascript">
+			var box = document.getElementsByClassName("box")[0]
+
+			var dataArr = [{
+				name: "zhangSan",
+				age: 22,
+				sex: true,
+				phone: 1398787878,
+				邮箱: "@163.com"
+			}, {
+				name: "xiaohong",
+				age: 22,
+				sex: false,
+				phone: 1398787878,
+				邮箱: "@163.com"
+			}, {
+				name: "wangwu",
+				age: 22,
+				sex: true,
+				phone: 1398787878,
+				邮箱: "@163.com"
+			}, {
+				name: "xiaohua",
+				age: 22,
+				sex: false,
+				phone: 1398787878,
+				邮箱: "@163.com"
+			}]
+			var headArr = ["姓名", "年龄", "性别", "手机号", "邮箱"]
+
+			createTable(headArr, dataArr)
+
+			//创建表
+			function createTable(headArr, dataArr) {
+
+				//创建表头
+				var table = createThead(headArr)
+
+				//创建表正文
+				createTbody(table, dataArr)
+
+				return table
+			}
+
+			//创建表头
+			function createThead(headArr) {
+				//创建table
+				var table = document.createElement("table")
+				table.style.border = "1px solid black"
+				box.appendChild(table)
+
+				//创建table的表头
+				var thead = document.createElement("thead")
+				var tr = thead.insertRow()
+				for(var i = 0; i < headArr.length; i++) {
+					var th = document.createElement("th")
+					th.innerText = headArr[i]
+					tr.appendChild(th)
+				}
+				th = document.createElement("th")
+				th.innerText = "操作"
+				tr.appendChild(th)
+				thead.appendChild(tr)
+				table.appendChild(thead)
+
+				return table;
+
+			}
+
+			//创建表正文
+			function createTbody(table, dataArr) {
+				var tbody = document.createElement("tbody")
+				table.appendChild(tbody)
+					//创建行
+				for(var i = 0; i < dataArr.length; i++) {
+					var tr = tbody.insertRow()
+					tbody.appendChild(tr)
+
+					//学生
+					var student = dataArr[i]
+					for(var k in student) {
+						var td = tr.insertCell()
+						td.innerText = student[k]
+					}
+					//删除单元格的创建
+					td = tr.insertCell()
+					td.innerHTML = '<a href="#">删除</a>'
+
+					//隔行变色
+					if(i % 2 == 0) {
+						tr.style.backgroundColor = "gray"
+					} else {
+						tr.style.backgroundColor = "burlywood"
+					}
+
+					//删除的超链接
+					var link = td.children[0]
+						//给超链接添加自定义属性，记录自己所在行的索引(数据在数据源数组中的索引)
+					link.index = i;
+
+					//给删除超链接 注册点击事件
+					link.onclick = function() {
+
+						//	alert(this.index)
+						//删除点击的超链接所在的那一行
+						tbody.removeChild(this.parentElement.parentElement)
+
+						//界面将一行删除，数据源数组也需要将该行对应的数据删除
+						dataArr.splice(this.index, 1)
+
+						//删除一个数据之后，需要重新修改剩下的超链接的index属性值，否则再次删除的时候，数据会发生错乱出问题
+						var links = tbody.getElementsByTagName("a")
+						for(var i = 0; i < links.length; i++) {
+							var link = links[i]
+							link.index = i
+						}
+						console.log(dataArr)
+						
+						//删除一行之后，重新获取所有行，设置隔行变色
+						var trs = tbody.getElementsByTagName("tr")
+						for(var i = 0; i < trs.length; i++) {
+							var tr = trs[i]
+							//隔行变色
+							if(i % 2 == 0) {
+								tr.style.backgroundColor = "gray"
+							} else {
+								tr.style.backgroundColor = "burlywood"
+							}
+
+						}
+
+					}
+				}
+
+			}
+		</script>
+	</body>
+
+</html>

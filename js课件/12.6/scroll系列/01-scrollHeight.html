@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div style="height: 100px;">我是好人我是我是好人我是好人人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人</div>
+		
+		<script type="text/javascript">
+			var div = document.querySelector("div")
+			console.log(div.style.height)
+			console.log(div.offsetHeight) //内容高+ padding + border
+			
+			//scrollHeight指的是实际内容的高度。（div中的内容高有可能超出div盒子）
+			console.log(div.scrollHeight)
+			
+			//scrollHeight  和 scrollWidth
+			//scrollLeft 和 scrollTop
+		</script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<img src="gwc-ds.jpg" alt="" />
+	<img src="gwc-ds.jpg" alt="" />
+	<img src="gwc-ds.jpg" alt="" />
+	
+	<script type="text/javascript">
+		var imgs =document.getElementsByTagName("img")
+		for(var i=0;i<imgs.length;i++){
+			
+			var img =imgs[i]
+			
+		    var isTrue = img.dataset.isBaoMa = true
+			
+			img.onclick=function(){
+				
+			if(isTrue){
+				this.src = "touxiang.png"
+				
+			}else{
+				this.src = "gwc-ds.jpg"
+			}
+			
+		    isTrue = !isTrue
+			}
+			
+		}
+		
+	</script>
+	
+</body>
+</html>

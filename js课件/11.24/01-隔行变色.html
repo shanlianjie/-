@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<ul id="myUl">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+		
+		<script type="text/javascript">
+			
+			//获取所有的li
+			var lis = document.querySelectorAll("#myUl li")
+			
+			//内容数组
+			var  contentArr =["aa","bb","cc","dd","ee","ff"]
+			//颜色数组，只有两种颜色可供选择
+			var  colorArr = ["red","green"]
+			
+			//遍历lis, 拿到每一个li,对每一个li进行赋值
+			for (var i=0;i<lis.length;i++) {
+				
+				 var li = lis[i]
+				
+				//A:内容有规律时，直接用变量i的值拼接内容
+				// li.innerHTML = "第"+(i+1)+"名"
+				
+				 //B：内容无规律时，将内容放入数组中	
+				 //以i作为索引，从contentArr中将每给li对应的字符串取出来
+				 li.innerHTML = contentArr[i]
+//隔行变色方法一：				 
+				 //各行变色，i%2,余数为0，1。用数字0代表一种状态，数字1代表一种状态
+//				 if(i%2==0){
+//				 	li.style.backgroundColor = "red"
+//				 }else{
+//				 	li.style.backgroundColor = "green"
+//				 }
+
+//隔行变色方法二：
+				 //三目元素符和if语句表达的意义是一样的	
+				 //三目运算符：条件？表达式1:表达式2（如果条件成立，就会执行表达式1，如果条件不成立，就会执行表达式2）
+				 //li.style.backgroundColor =  (i%2==0)?"red":"green"
+//隔行变色方法三：				 
+				 li.style.backgroundColor = colorArr[i%2]
+			}
+			
+			
+		</script>
+	</body>
+</html>

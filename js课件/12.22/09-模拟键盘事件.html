@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			var event = new KeyboardEvent("keyboarddown1",{
+				bubbles:true,
+				cancelable:true,
+				ctrlKey:true,
+				key:"p",
+			})
+			
+			document.addEventListener("keyboarddown1",function(ev){
+				 alert("ooooo")
+				 console.log(ev)
+			})
+			
+			//分发事件
+			document.dispatchEvent(event)
+			
+			//模拟键盘事件时，不会触发浏览器自身的快捷键，如Ctrl + P打印
+			
+		</script>
+	</body>
+</html>

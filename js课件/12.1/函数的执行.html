@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn"/>
+		
+		<script type="text/javascript">
+			var btn = document.getElementById("btn")
+			
+			var num = 0
+			btn.onclick = function(){
+				var a =99
+				num++
+				console.log(num)	 //1
+			}
+			console.log(num) //0
+			
+		</script>
+	</body>
+</html>

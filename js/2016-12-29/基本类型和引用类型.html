@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>基本类型和引用类型</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			/*
+			 * 在js中,变量按照引用类型划分大致可以把变量划分两大类型：
+			 * 1,基本类型变量。基本类型的变量又叫原始类型或是原始值。它在声明的时候是把变量的值保存在内存区的栈区(stack)。常用的基本类型：String、Number、Boolean、Undefined、null。
+			 * 2,引用类型变量。引用类型变量其实指的是构造出来的实例对象。除了基本类型的变量其他都是引用类型变量。引用类型变量在保存的时候是保存在内存区的堆区(heap).
+			 */
+			
+			//基本类型的变量保存在栈区(stack).栈区的变量在相互引用的时候引用的变量的值本身，相当于把变量的值copy一份，所以引用的变量的值在放生改变之后不会影响到引用者的值。
+			//例子1
+			var str = 'hello HTML5'
+			
+			var newStr =  str.toUpperCase()
+			
+			console.log(newStr)
+			
+			str = 'hello world'
+			
+			console.log(newStr)
+			
+			//例子2
+			var a = 5
+			
+			var b = a
+			
+			console.log(b)
+			
+			a = 10
+			
+			console.log(b)
+			
+			//例子3
+			
+			var x = 5
+			
+			var y = 10
+			
+			function test(m,n){
+				
+				console.log(m + "|" + n)
+				
+				m = 20
+				
+				n = 30
+				
+				console.log(m + "|" + n)
+				
+				console.log(x + "|" + y)
+				
+			}
+			
+			test(x,y)
+			
+			//例子4
+			var z = 5
+			
+			var zStr = '5'
+			
+			if(z == zStr){
+				
+				alert('相等')
+			}
+			else{
+				
+				alert('不相等')
+			}
+			
+			//额外例子
+			
+			var num = 5
+			
+			console.log(num++)
+			
+			console.log(++num)
+			
+			for(var i = 0;i < 10;++i){
+				
+				console.log(i++)
+			}
+			
+			
+			//引用类型的变量在相互引用的时候是引用的对象的内存地址，所以一旦引用的对象发生改变会影响到其他的引用者。
+			var obj = new Object()
+			
+			obj.name = 'roy'
+			
+			var obj2 = obj
+			
+			console.log(obj2.name)
+			
+			obj2.name = 'tom'
+			
+			console.log(obj2.name)
+			
+			console.log(obj.name)
+		</script>
+	</body>
+</html>

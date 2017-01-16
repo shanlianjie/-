@@ -1,0 +1,38 @@
+1，全局安装(不要cd...)
+npm install -g grunt-cli
+
+2，cd 到项目目录
+npm init 安装配置文件
+注意：name：不要为grunt
+
+3，把grunt安装到package.json文件中
+两种方式
+方式1：
+在package.json文件中配置devDependencies属性，例如 "devDependencies": {"grunt": "^1.0.1"}。然后 使用npm install 安装
+
+方式2：(推荐)
+npm install grunt --save-dev
+会自动下载安装grunt 并且会在package.json文件中增加 "devDependencies": {"grunt": "^1.0.1"}属性以及属性值。
+
+在项目目录中创建gruntfile.js编写执行的操作代码。
+
+4，按照需求安装需要的模块
+npm install grunt-contrib-concat --save-dev  //js文件合并模块
+
+npm install grunt-contrib-uglify --save-dev  //js文件压缩模块
+
+npm install grunt-contrib-cssmin --save-dev  //css文件合并压缩
+
+npm install grunt-contrib-watch --save-dev    //文件监听模块
+
+更多模块查看http://gruntjs.com/plugins
+
+
+加载模块：
+grunt.loadNpmTasks(模块名称)
+
+注册任务：
+grunt.registerTask('任务名称'，[操作列表])
+5，最后grunt命令运行执行操作
+     使用grunt 任务名称  代表执行该任务。
+     default任务不要名称，直接grunt 就可以

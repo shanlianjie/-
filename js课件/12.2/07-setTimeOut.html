@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="按钮" />
+		<div></div>
+		<script type="text/javascript">
+			var btn = document.querySelector("input")
+			var div = document.querySelector("div")
+			
+			btn.onclick = function(){
+				
+				div.innerText = "我是一个div"
+				
+				//应用场景：几秒之后做某件事  延迟做某件事的时候
+				//开启一个定时器
+			   var timer = setTimeout(function(){
+					//console.log("pppppp")
+					console.log(this)//window
+					div.style.backgroundImage = "url(img/1.jpg)"
+					
+				 },5000)
+			  
+			  	//清除定时器
+			    //clearTimeout(timer)
+			}
+			
+			/*
+			 * timer =setInterval(函数，时间间隔)--->clearInterval(timer)  发动机 一直调用
+			 * timer =setTimeOut(函数，时间间隔) ---->clearTimeout(timer)   只会调用一次
+			 * 
+			 */
+			
+		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			section{
+				 margin: 100px;
+				 width: 200px;
+				 height: 200px;
+				 background-color: gray;
+				 padding: 50px;
+				 position: relative;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<section>
+			<div></div>
+		</section>
+		<script>
+			//offset()获取的是元素相对于文档的坐标，与定位无关
+			//console.log($("div").offset().top) //number类型 纯数字 没有px单位
+		
+			//offset() 也可以对left和top进行赋值
+			//$("div").offset({left:200,top:300})
+			
+			
+			//positon() 与定位有关系
+			//获取的值是相对于距离该盒子最近的有定位的父级元素
+			console.log( $("div").position() )
+			
+			//positon() 只能获取值，不能赋值
+			//$("div").position({left:100,top:100})
+			
+			console.log( $("div").position() )
+			
+			//获取距离元素最近的有定位的父级元素
+			//console.log($("div").offsetParent())
+		</script>
+	</body>
+</html>

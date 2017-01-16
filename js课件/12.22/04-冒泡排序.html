@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		//按升序排列，从小到大
+			var arr = [0,11,5,9,2]
+			//5个数据，需要比较4趟；4个数据比较3趟；2个数据比较一趟
+			
+			//先假设已经排好序了
+			var sortOk = true
+			for (var i=0; i<arr.length-1;i++) { //一共要走多少趟	
+				for (var j=0;j<arr.length-1-i;j++) { //每一趟，数据两两比较
+					console.log("11111")
+					 if(arr[j]>arr[j+1]){ 
+					 	//如果进了if语句，说明数据没有排好序
+					 	sortOk = false
+					 	var temp = arr[j]
+					 	arr[j] =arr[j+1]
+					 	arr[j+1] =temp
+					 }
+				}	
+				console.log("xxxxx",i)
+				//如果走了一趟，执行完整个小for循环，sortOk都没有变为false,说明数据就是排好的，没必要再走其他趟了
+				if(sortOk ==true){
+					break
+				}
+			}
+			
+			console.log(arr)
+			
+		</script>
+	</body>
+</html>

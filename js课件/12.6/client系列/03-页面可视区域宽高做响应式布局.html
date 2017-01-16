@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+				
+			//获取页面可视区域的宽度
+			//获取页面可视区域的高度
+		    //var clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+			//var clientWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+				
+			responsive()	
+			
+		    window.onresize = function(){
+		    		
+		    		responsive()
+				
+		    }
+		    
+		    //响应式布局
+		    function responsive(){
+	
+		    		//获取页面可视区域的宽度
+		    		var clientWidth = client().width
+		    		
+		    		var body = document.body
+		    		if(clientWidth>1200){
+		    			body.innerText = "超大屏幕";
+		    			body.style.backgroundColor = "red"
+		    		}else if(clientWidth>980){
+		    			body.innerText = "大屏幕";
+		    			body.style.backgroundColor = "green"
+		    		}else if(clientWidth>400){
+		    			body.innerText = "中等屏幕";
+		    			body.style.backgroundColor = "blue"
+		    		}else{
+		    			body.innerText = "小屏幕";
+		    			body.style.backgroundColor = "gray"
+		    		}
+		    }
+		    
+
+		    function client(){
+		    	
+		    	   return{
+		    	   	width:window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+		    	   	height: window.innerHeight || document.documentElement.clientHeight || document.body.clientWidth
+		    	   }
+		    }
+				
+			//console.log(clientWidth+"|"+clientHeight)	
+		
+		
+		</script>
+	</body>
+</html>

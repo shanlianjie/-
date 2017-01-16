@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    body{
+		    	   display: flex;
+		    	   justify-content: space-around;
+		    } 
+			input{
+				width: 80px;
+				height: 50px ;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button"  value="红" >
+		<input type="button"  value="绿" >
+		<input type="button"  value="蓝" >
+		<input type="button"  value="红" >
+		<input type="button"  value="绿" >
+		<input type="button"  value="蓝" >
+		<input type="button"  value="红" >
+		<input type="button"  value="绿" >
+		<input type="button"  value="蓝" >
+		
+	    <script type="text/javascript">
+	    	  
+	    	  //1.找到九个按钮
+	    	  var btns = document.getElementsByTagName("input") //伪数组
+	    	  
+	    	  //2.创建存放颜色的数组
+	    	  var arrColor = ["red","green","blue"]
+	    	  
+	    	  //2.给每一个按钮注册点击事件
+	    	  for(var i=0; i<btns.length;i++){
+	    	  	
+	    	  	  var btn = btns[i]
+	    	  	   //给btn增加自定义属性myIndex,自定义属性用来记录属于该对象的一些信息（保存一些数据）
+	    	  	   btn.myIndex = i
+	    	
+	    	  	   btn.onclick = function(){
+	    	  	   	   //2.判断，根据index的值，设置body的背景颜色
+	    	  	   	   document.body.style.backgroundColor =arrColor[this.myIndex%3]
+	    	  	   	   
+	    	  	   	   //0 %3 --->0      
+	    	  	   	   //1 %3----->1
+	    	  	   	   //2 %3------>2
+	    	  	   	   //3 %3----->0
+	    	  	   	   //4 %3----->1
+	    	  	   	   //........
+	    	  	   	  
+	    	  	   }
+	    	  }
+	    	  
+	    	 
+	    	
+	    	
+	    </script>
+	</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>唯品会demo</title>
+		<script src="jQuery.js"></script>
+		<script src="artTemplate.js"></script>
+		<style type="text/css">
+			body {
+				font-size: 0;
+			}
+			
+			.content {
+				width: 1170px;
+				margin: 0 auto;
+			}
+			
+			.aGoods {
+				width: 50%;
+				height: 350px;
+				/*background-color: red;*/
+				position: relative;
+				display: inline-block;
+			}
+			
+			.aGoods:nth-child(2n) {
+				text-align: right;
+			}
+			
+			.aGoods .small {
+				position: absolute;
+				width: 60%;
+				height: 100px;
+				background-color: rgba(255, 255, 255, 0.7);
+				left: 20%;
+				bottom: 30px;
+				text-align: center;
+				border-radius: 5px;
+			}
+			
+			.small p {
+				margin: 0;
+				font-size: 14px;
+				font-weight: bold;
+			}
+			
+			.small span {
+				font-size: 10px;
+			}
+			
+			.aGoods .large {
+				width: 80%;
+				height: 300px;
+				background-color: white;
+				position: absolute;
+				left: 10%;
+				top: 25px;
+				display: none;
+			}
+			
+			.large .top {
+				width: 100%;
+				height: 240px;
+				/*background-color: orange;*/
+				/*行内块元素会有一个间隙，使用该属性可以解决该问题*/
+				font-size: 0;
+				border-bottom: 1px dotted black;
+			}
+			
+			.large .top div {
+				width: calc(100% / 3);
+				display: inline-block;
+				text-align: center;
+				font-size: 14px;
+				font-weight: bold;
+			}
+			
+			.large .top div>img {
+				width: 100%;
+			}
+			
+			.large .top div>p {
+				margin: 0;
+			}
+			
+			.large .bottom {
+				width: 100%;
+				height: 60px;
+				/*background-color: red;*/
+				font-size: 0;
+			}
+			
+			.large .bottom div {
+				display: inline-block;
+				width: 33.33%;
+				height: 100%;
+				text-align: center;
+			}
+			
+			.large .bottom span,
+			.large .bottom a {
+				display: inline-block;
+				width: 33.33%;
+				height: 100%;
+				line-height: 60px;
+				/*background-color: blue;*/
+				vertical-align: bottom;
+				text-align: center;
+				font-size: 16px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<script type="text/html" id="myTemplate">
+			<header class="content">
+				<img src={{headImg}} />
+			</header>
+			<!--
+			main标签用来定义页面的主要内容区域，但是一个文档中不能包含一个以上main标签，并且main标签不能是header、footer、aside、article、nav等元素的子元素。
+			更重要的是IE不支持main标签，其他大部分浏览器都支持。
+		-->
+			<footer class="content box">
+				{{each goods as aGood}}
+				<!--商品1-->
+				<section class="aGoods">
+					<!--背景图-->
+					<img src={{aGood.bgImg}} />
+
+					<!--悬浮小块-->
+					<div class="small">
+						<img src={{aGood.brand}} alt="" />
+						<p>{{aGood.desc}}</p>
+						<span>{{aGood.sale}}}</span>
+					</div>
+
+					<!--悬浮大块-->
+					<div class="large">
+
+						<!--上半部分-->
+						<section class="top">
+							
+							{{each aGood.detail as aDetail}}
+								<div>
+									<img src={{aDetail.img}} alt="" />
+									<p>￥{{aDetail.price}}</p>
+								</div>
+							{{/each}}
+							
+							
+						</section>
+
+						<!--下半部分-->
+						<section class="bottom">
+							<div>
+								<img src={{aGood.brand}} />
+							</div>
+							<span>收藏商品</span>
+							<a href={{aGood.link}}>进入专场</a>
+						</section>
+					</div>
+				</section>
+				{{/each}}
+				
+			</footer>
+
+		</script>
+
+	</body>
+
+	<script type="text/javascript">
+		var data = {
+			headImg:'http://a.vpimg2.com/upload/dop/2016/03/17/166/today_DDp.png',
+			goods: [{
+				bgImg: 'http://c.vpimg1.com/upcb/2016/12/26/168/43151175.jpg',
+				desc: 'GIRDEAR简约至尚 精品女装',
+				sale: '满999享受8折优惠',
+				brand: 'http://c.vpimg1.com/upcb/2016/12/26/129/43159716.png',
+				link:'http://list.vip.com/998805.html?ff=6|11|1|1&_mars_ref=01|6|11|1|1|1482805800',
+				detail: [{
+					img: 'http://a.vpimg3.com/upload/merchandise/pdc/078/757/357880243757078/0/GIRD-A400022-4000211-735-5.jpg',
+					price: '499'
+				}, {
+					img: 'http://a.vpimg3.com/upload/merchandise/pdc/078/757/357880243757078/0/GIRD-A400022-4000211-735-5.jpg',
+					price: '599'
+				}, {
+					img: 'http://a.vpimg3.com/upload/merchandise/pdc/441/416/99718552671416441/0/A400022-4000261-735-5.jpg',
+					price: '699'
+				}]
+			}]
+		}
+
+		var html =  template('myTemplate', data)
+		
+		document.body.innerHTML = html
+		
+		
+
+		$('.aGoods').hover(function() {
+
+			//使用jQuery动画的时候，一般会在动画之前先执行stop()方法结束上次动画
+			$(this).find('.large').stop().fadeIn(500)
+
+			$(this).find('img:first').css('filter', 'blur(2px)')
+
+		}, function() {
+
+			//end()方法是jQuery提供的一个回退的方法，会退到上一次筛选到的对象
+			$(this).find('.large').stop().fadeOut(500).end().find('img:first').css('filter', 'blur(0px)')
+
+		})
+	</script>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax的异步问题</title>
+	</head>
+	<body>
+		<button onclick="sendRequest()">request</button>
+	</body>
+	
+	<script type="text/javascript">
+		
+		function sendRequest(){
+			
+			var xhr = new XMLHttpRequest()
+			
+			xhr.onreadystatechange = function(){
+				
+				if(xhr.readyState == 4){
+					
+					console.log('请求结束了')
+					alert(xhr.responseText)
+				}
+			}
+			
+			//open()方法有三个参数
+			//参1：请求方式 request Method
+			//参2：请求url
+			//参3：是否发送异步请求。true/false.默认值：true。
+			xhr.open('GET','/test',true)
+			
+			xhr.send()
+			
+			console.log('请求还没有完成我是否能执行')
+		}
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>第一个页面</title>
+		<style>
+			div{
+				color: blue;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="html2.html">跳转到第二页面</a>
+		<div onclick="history.forward()">前进</div>
+		<div onclick="history.go(2)">go(2)</div>
+		
+		<script type="text/javascript">
+		  //  window.history
+		  /*
+		   * histoy对象也是window的一部分，是window的属性
+		   * history对象中包含了浏览器窗口访问的url历史记录
+		   * history.length 返回的是浏览器历史记录的长度
+		   * history.forward() 加载history历史记录中的下一个页面
+		   * history.back() 加载history历史记录中的上一个页面
+		   * history.go(n)  参数：数字。 如果是正数，表示前进n个页面；负数，后退n个页面
+		   */
+		   window.onclick = function(){
+		   	   console.dir(history)
+		   }
+			
+		</script>
+	</body>
+</html>

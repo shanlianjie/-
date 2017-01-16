@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box {
+				width: 400px;
+				height: 500px;
+				margin: 100px auto;
+				background-color: gray;
+				position: relative;
+			}
+			
+			.box img {
+				width: 400px;
+				height: 500px;
+			}
+			
+			.box span {
+				position: absolute;
+				left: 0;
+				top: 0;
+				line-height: 40px;
+				background-color: black;
+				text-align: center;
+				width: 100%;
+				color: white;
+			}
+			
+			.box p {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				line-height: 40px;
+				width: 100%;
+				text-align: center;
+				color: white;
+				background-color: black;
+			}
+			
+			.box ul {
+				position: absolute;
+				top: 0;
+				right: -50px;
+				list-style: none;
+			}
+			
+			.box ul li {
+				width: 40px;
+				height: 40px;
+				margin-bottom: 10px;
+				background-color: gray;
+			}
+			
+			.box ul li.current {
+				background-color: pink;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="box">
+			<img src="" alt="" />
+			<span>展示图片数量</span>
+			<p>展示图片标题</p>
+			<ul>
+			</ul>
+		</div>
+
+		<script type="text/javascript">
+			//准备数据
+			var imgArr = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg"]
+			var titleArr = ["图片一", "图片二", "图片三", "图片四"]
+
+			//找元素
+			var img = document.querySelector("img")
+			var span = document.querySelector("span")
+			var p = document.querySelector("p")
+			var ul = document.querySelector("ul")
+
+			//1.根据数组中元素个数，动态创建li
+			for(var i = 0; i < imgArr.length; i++) {
+
+				var li = document.createElement("li")
+
+				//把li添加的ul中
+				ul.appendChild(li)
+
+				if(i == 0) {
+					li.classList.add("current")
+
+				}
+			}
+
+			//2.对img/span/p进行初始化
+			//			img.src = imgArr[0]
+			//			span.innerText = "1/" +imgArr.length
+			//			p.innerText = titleArr[0]
+			//将高亮显示的li的索引传到updateContent（）函数中去
+			updateContent(0)
+
+			var num = 0
+			var timer = null
+			
+			autoPlay()
+			
+			//将自动播放的代码 封装成一个函数
+			function autoPlay() {
+			     timer = setInterval(function() {
+					num++
+					//num = num % imgArr.length	
+					num %= imgArr.length
+
+					updateContent(num)
+
+				}, 1000)
+			}
+
+			img.onmouseover = function() {
+				clearInterval(timer)
+			}
+
+			img.onmouseout = function() {
+				 autoPlay()
+			}
+
+			//3.获取ul中的所有li
+			var lis = ul.children
+
+			//遍历，给每个li注册点击事件
+			for(var i = 0; i < lis.length; i++) {
+
+				var li = lis[i]
+
+				//增加自定义属性，每个li记录自己在lis中的索引 
+				li.index = i
+
+				li.onclick = function() {
+
+					//高亮显示
+
+					//1.让所有的li变为 非高亮
+					for(var i = 0; i < lis.length; i++) {
+
+						lis[i].classList.remove("current")
+					}
+
+					//2.让点击的li高亮
+					this.classList.add("current")
+
+					//内容修改
+					//this.index  高亮显示的li的索引
+					updateContent(this.index)
+				}
+
+			}
+
+			//将修改内容的逻辑 封装成一个函数
+			//修改内容 与当前高亮显示的li在lis伪数组的中索引有关
+			function updateContent(index) {
+
+				img.src = imgArr[index]
+				span.innerText = index + 1 + "/" + imgArr.length
+				p.innerText = titleArr[index]
+				
+				if(!lis){
+					return
+				}
+				
+				//li的高亮显示
+				//1.让所有的li变为 非高亮
+					for(var i = 0; i <lis.length; i++) {
+
+						lis[i].classList.remove("current")
+					}
+				//2.让index索引对应的li高亮显示
+				lis[index].classList.add("current")
+					
+			}
+		</script>
+	</body>
+
+</html>

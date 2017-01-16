@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			var str ="今天有点冷，冻死人了"
+			
+			//length 获取字符串长度
+			console.log(str.length)
+			
+			//遍历，取出字符串中的每一个字符，字符串中每一个字符存在一个“索引”，索引是从0开始
+			for(var i=0;i<str.length;i++){
+				var ch =str[i]
+				//console.log(ch)
+			}
+			
+			//根据索引取出某一个字符	
+		     ch = str.charAt(2)
+		     ch = str[2]
+		     //获取某个索引对应字符的unicode编码
+		     ch = str.charCodeAt(2)
+		     ch = String.fromCharCode(26377)
+			//console.log(ch)
+			
+			var totalStr =""
+			for (var i=0; i<2000;i++) {
+				var str1 = String.fromCharCode(i)
+
+				//字符串拼接
+				totalStr += str1  //totalStr = totalStr + str1
+				
+				//console.log(str1)
+	
+				//document.body.innerHTML +=  str1  性能低
+			}
+			document.body.innerHTML = totalStr
+			
+		</script>
+
+	</body>
+</html>

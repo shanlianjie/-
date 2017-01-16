@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+		
+		/*
+		 *  函数的声明：
+		 *    function 函数名 (参数1，参数2，..){
+		 * 			 函数体
+		 * 
+		 *   }
+		 * 
+		 * 函数的调用：
+		 *    函数名()
+		 *  
+		 *  1.有参数有返回值的函数
+		 *  2.有参数无返回值的函数
+		 *  3.无参数有返回值的函数
+		 *  4.无参数无返回值的函数。
+		 * 
+		 * 当我们想向函数中传值的时候，函数需要带参数
+		 * 当我们调用完成函数之后，想在调用函数的位置从函数里获取一个结果时，这个函数就需要带返回值
+		 * 
+		 */
+			
+			//求两个数的和  封装一个函数 （有参数有返回值的函数）		
+			//function 关键字 表示声明一个函数
+			//mySum 函数名，函数名要起的有意义。
+			//mySum(), 后面的小括号就是参数列表，可以带多个参数，参数与参数之间用逗号“,”隔开,如果没有参数，小括号中就什么都不写
+			//（a,b）,参数其实就是变量。参数数值是不确定的，由函数调用时决定。是形式上的参数叫做形参
+			//形参就是用来接收传递过来的数值的
+			function mySum (a,b){
+			 	 var sum = a + b
+			 	 
+			 	 //return 关键字  返回一个结果
+			 	 return sum
+			 }
+			 
+			 //调用函数
+		   var result =  mySum(3,4)
+		   //一个函数可以被调用多次
+		       result = mySum(7,9)
+		   console.log(result)
+			 
+  // 例子2:  求圆的面积的函数
+             function myArea (r){
+             	  var s = 3.14*r*r
+             	  console.log(s)
+				   return s
+             }
+             
+			  console.log( myArea(5) ) //调用的函数没有返回值，获取的结果undefined
+			
+			
+ 
+			
+		</script>
+	</body>
+</html>

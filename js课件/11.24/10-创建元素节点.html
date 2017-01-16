@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			
+		</ul>
+		<input type="button" value="添加li"/>
+		
+		<script type="text/javascript">
+			var ul = document.querySelector("ul")
+			var btn = document.querySelector("input")
+			
+			btn.onclick = function(){
+				
+				//createElement("标签名")，创建元素节点
+				var li = document.createElement("li")
+				
+				//createTextNode("文本节点的内容") 创建文本节点
+			    var textNode =document.createTextNode("我是一个li")
+				
+				//父级.addendChild(子节点)  添加子节点
+				li.appendChild(textNode)
+				 
+				//将li添加到ul中
+				ul.appendChild(li)
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

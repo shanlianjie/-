@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			li,p{
+				margin: 10px;
+				width: 200px;
+				text-align: center;
+				/*list-style: none;*/
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>li*1</li>
+			<li>li*2</li>
+			<li>li*3</li>
+			<li>li*4</li>
+			<li>li*5</li>
+			<li>li*6</li>
+		</ul>
+		<script type="text/javascript">
+			
+			
+			
+			var ul = document.getElementsByTagName("ul")[0]
+			var lis = ul.children
+			for (var i=0;i<lis.length;i++) {
+				 var li = lis[i]
+				 //给每个li添加一个自定义属性，记录自己的索引
+				 li.index = i
+			}
+			
+			
+			ul.onclick = function(ev){
+				
+				//ev.target  点击的目标对象（点在谁身上）		
+			    var li = ev.target
+				
+				//通过li的索引区分点击的是哪个li
+				console.log(li.index)
+
+			}
+			
+			
+		</script>
+	</body>
+</html>

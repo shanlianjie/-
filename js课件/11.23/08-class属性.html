@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.font{
+				font-size: 30px;
+				font-style: italic;
+			}
+			.bgColor{
+				background-color: pink;
+			}
+			.fontColor{
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<p class="font fontColor">这是一段文字</p>
+		
+		<script type="text/javascript">
+			
+			var p = document.getElementsByTagName("p")[0]
+			
+		
+			//p.className = "font fontColor bgColor"
+			
+			//p.setAttribute("class","font fontColor bgColor")
+			
+			 
+			 //增加一个类样式
+			 p.classList.add("bgColor")
+
+			 //删除一个类样式
+			 p.classList.remove("font")
+			 
+			 //是否包含某一个类样式，如果包含，返回值为true;不包含，返回值为false
+		    var result = p.classList.contains("bgColor")
+			
+			//切换类样式，如果有类样式，会删除该样式；如果没有，会添加
+			p.classList.toggle("fontColor")
+			
+			console.dir(result)
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

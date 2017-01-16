@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+
+	<body>
+		<input type="button" value="克隆" id="btn" />
+		<div></div>
+		<p>我是一个p标签 <span class="bg">uuuuuuu</span> </p>
+		
+		<script>
+
+			/*
+			 * clone(参数1，参数2) 克隆
+			 * 克隆所选元素
+			 * 参数1：boolean 可选 表示是否复制元素的附加数据和绑定事件 默认为false
+			 * 参数2：boolean 可选 表示是否复制子元素的附加数据和绑定事件 默认值为第一个参数的值
+			 * */
+			$("#btn").click(function() {
+				$("p").clone(true).appendTo($("div"))
+			})
+			
+			$(".bg").click(function() {
+				alert("p被点击了")
+			})
+
+		</script>
+	</body>
+
+</html>

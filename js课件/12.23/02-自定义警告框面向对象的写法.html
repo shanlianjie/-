@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			p {
+				background-color: pink;
+			}
+			
+		</style>
+		<script src="alert1.js"></script>
+		<script src="confirm.js"></script>
+	</head>
+
+	<body>
+		<div id="box">
+			<p>我是p标签，点击我弹出警告框</p>
+			<p>我是p标签，点击我弹出警告框</p>
+			<p>我是p标签，点击我弹出警告框</p>
+			<p>我是p标签，点击我弹出警告框</p>
+			<p>我是p标签，点击我弹出警告框</p>
+			<p>我是p标签，点击我弹出警告框</p>
+			<div>ooooooo</div>
+		</div>
+		<script>
+		    var div = document.querySelector("#box")
+		    div.onclick = function(ev){
+		    	    if(ev.target.tagName == "P"){
+//		    	    	    var alert = new Alert("你要去吃饭吗")
+//		    	    	    alert.show()
+					
+					var confirm = new Confirm("你要去唱歌吗？",function(index){
+						    document.body.style.backgroundColor = "blue"
+						   if(index==0){
+						   	alert("点击的是取消按钮")
+						   }else{
+						   	 alert("点击的是确定按钮")
+						   }
+					})
+					confirm.show()
+		    	    }
+		    }
+		    
+		</script>
+	</body>
+
+</html>

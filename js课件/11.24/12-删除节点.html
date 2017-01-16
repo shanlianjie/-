@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			
+		</ul>
+		<input type="button" value="添加li"/>
+		<input type="button" value="删除li"/>
+		
+		<script type="text/javascript">
+			var ul = document.querySelector("ul")
+			var inputs = document.querySelectorAll("input")
+			
+			//添加按钮
+			var num =0
+			inputs[0].onclick = function(){
+				 
+				 //通过numb变量，组装li元素的内容“第1个”、"第2个"
+				 num++
+				
+				//createElement("标签名")，创建元素节点
+				var li = document.createElement("li")
+				
+				//createTextNode("文本节点的内容") 创建文本节点
+			    var textNode =document.createTextNode("我是第"+num+"个li")
+				
+				//父级.addendChild(子节点)  添加子节点
+				li.appendChild(textNode)
+				 
+				//将li添加到ul中
+				ul.appendChild(li)
+			}
+			
+		 //删除按钮
+		 inputs[1].onclick = function(){
+		 	
+		 	//获取第1个li元素
+		   var firstLi =	ul.firstElementChild
+		 	
+		 	if(!firstLi){ //firstLi是null,结束当前方法
+		 	 	return
+		 	 }
+		 	
+		 	//父级.removeChild(子节点) 删除子节点
+		 	ul.removeChild(firstLi)
+		 }
+			
+			
+		</script>
+	</body>
+</html>

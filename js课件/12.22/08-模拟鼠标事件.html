@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			//创建鼠标事件
+			var event = new MouseEvent("click1",{
+				bubbles:true,
+				cancelable:true,
+				screenX:600,
+				screenY:600,
+				clientX:200,
+				clientY:200,
+				ctrlKey:true,
+
+			})
+			//监听事件
+			document.addEventListener("click1",function(ev){
+				 alert("xxxxx")
+				 console.log(ev)
+			})
+			
+			//分发事件
+			document.dispatchEvent(event)
+			
+			//可以模拟任意事件，通过模拟事件可以欺骗代码，让代码认为真的发生了一个事件
+			//模拟事件的方法：
+			//1.创建相应的事件，如鼠标事件MouseEvent（可以通过init...查到事件的名字）
+			//2.初始化事件，可以虚拟各种数据（参考MDN文档）
+			//3.使用dispatchEvent派发事件给指定元素
+		</script>
+	</body>
+</html>

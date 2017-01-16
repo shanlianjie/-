@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<form action="" id="form">
+			
+			<input type="text" name="username" placeholder="请输入用户名"/>
+			<input type="text" name="psw" placeholder="请输入密码"/>
+			
+			<input type="reset" />
+			<input type="submit" />
+		</form>
+		
+		<script type="text/javascript">
+			//找到form表单元素
+			var form = document.getElementById("form")
+			
+			//表单提交的时候触发
+			form.onsubmit = function(){
+				alert("ppppppp")
+				
+			}
+			
+			//重置的时候触发
+			form.onreset = function(){
+				
+				//作用：就是弹出一个 带"取消"和"确定"按钮的对话框
+				//参数：字符串 
+				//返回值：点击确定按钮，返回值true;点击取消按钮，返回值false
+//			     var result = confirm("你确认要重置吗")
+//			     if(result==true){
+//			     	
+//			     }else{
+//			     	return false
+//			     }
+				return confirm("你确认要重置吗")
+
+			}
+			
+			
+			//作用：弹出一个带文本框的对话框
+			//No1:字符串
+			//NO2：文本框中默认值， 可以不写
+			//如果点击“确定”按钮，方法的返回值就是文本框中的内容,如果文本框中没有内容，就是空字符""；
+			//如果点击“取消”按钮，方法的返回值就是null
+		 var  result	 =  prompt("请输入数字",123)
+		 console.log(result)
+			
+		</script>
+		
+	</body>
+</html>

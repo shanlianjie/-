@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/blue.css"/>
+		<link rel="stylesheet" type="text/css" href="css/yellow.css"/>
+		<link rel="stylesheet" type="text/css" href="css/green.css"/>
+		<link rel="stylesheet" type="text/css" href="css/red.css"/>
+		<style>
+		    body{
+		    	margin: 0;
+		    }
+			div{
+				height: 50px;
+				background-color: lightgray;
+			}
+			span{
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				background-color: blueviolet;
+				margin: 0 30px;
+				cursor: pointer;
+			}
+			span.active{
+				background-color: mediumspringgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="nav">
+			 <span class="active" data-color="red">红</span>
+			 <span data-color="green">绿</span>
+			 <span data-color="blue">蓝</span>
+			 <span data-color="yellow">黄</span>
+		</div>
+		<script>
+			//获取所有的span
+			var spans = document.querySelectorAll("#nav span")
+			//获取所有的link
+			var links = document.querySelectorAll("link[rel=stylesheet]")
+
+		    Array.prototype.slice.call(spans).forEach(function(item,index){
+		    	     //给每个span注册点击事件
+		    	     item.onclick = function(){
+		    	     	 //1.取出点击的item中保存的颜色
+		    	     	 var color = this.dataset.color
+		    	     	 //2.遍历所有的link,判断link的href属性是否包含color
+		    	     	for (var i =0;i<links.length;i++) {
+		    	     		var link = links[i]
+		    	     		if(link.href.indexOf(color)== -1){
+		    	     			//如果不包含，则让样式表不可用
+		    	     			 link.sheet.disabled = true
+		    	     		}else{
+		    	     			//包含则样式表也可用
+		    	     			 link.sheet.disabled = false
+		    	     		}
+		    	     	}
+		    	     	
+		    	     	//3.点击哪个span,让哪个span高亮显示
+		    	     	Array.prototype.slice.call(spans).forEach(function(item,index){
+		    	     		item.classList.remove("active")
+		    	     	})
+		    	     	this.classList.add("active")
+		    	     }
+		    })
+			
+			
+		</script>
+	</body>
+</html>

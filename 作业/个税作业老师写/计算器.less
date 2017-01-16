@@ -1,0 +1,87 @@
+@height:40px;
+@textcolor:#fff;
+@color:#3a6;
+@margin:0  10px;
+
+*{
+    box-sizing: border-box;
+}
+body, dl,dt,dd{
+    margin: 0;
+  
+}
+header{
+    height: @height;
+    color: @textcolor;
+    text-align: center;
+    line-height: @height;
+    background-color: @color;
+}
+form{
+    margin: @margin;
+   
+
+}
+.borderRadius(@radius:5px){
+    border-radius:@radius;
+}
+form input{
+    width: 100%;
+    height: @height - 4;
+    margin-top: 12px;
+    border:1px solid @color;
+    .borderRadius; 
+
+    &:focus{
+        box-shadow: inset 1px 1px 1px gray;
+    }
+}
+button{
+    width: 100%;
+    background-color: @color;
+    height: @height;
+    border: none;
+    margin-top: 10px;
+    color:@textcolor;
+     .borderRadius; 
+
+
+}
+section{
+    margin: @margin;
+    
+    border: 1px solid @color;
+    margin-top: 20px;
+}
+dl{
+    margin: 10px 0;
+}
+dt{
+    float: left;
+    overflow: hidden;
+}
+dd{
+    float: right;
+}
+.clear{
+    clear: both;
+}
+div{
+    .clear;
+}
+dd::before{
+    content: "-";
+}
+
+// 演示less函数
+.box1,.box2{
+    width: 100px;
+    height: 100px;
+}
+.box1{
+    background-color: @color;
+}
+// less里的函数 减小亮度darken(@color,10%)
+.box2{
+    background-color: darken(@color,10%);
+}

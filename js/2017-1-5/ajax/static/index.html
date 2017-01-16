@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax请求</title>
+	</head>
+	<body>
+		<!--
+			ajax: Asynchronous JavaScript And XML,即异步的js和xml。最早是一种开发动态网页的技术。并且早期的时候用于处理xml格式的数据，但是现在很多开发者都已经转向使用json(javascript object notation)的数据格式作为前端和服务端的一种数据交换个事。所以ajax的名字是历史遗留问题。
+			
+			Asynchronize：异步的。
+			
+			使用ajax发起的请求可以不用刷新页面，并且ajax发起的请求是异步请求，可以保证良好用户体验。
+			
+			异步：在编程语言中，异步指的是代码在执行顺序上不是一行一行按顺序执行的，后边的代码不必等到前边的代码执行完成就可以执行。
+			
+			同步：在编程语言中同步指的是代码从执行顺序上来讲是一行一行往下执行的。即后边的代码必须等到前边的代码执行结束才能执行。
+		-->
+		<form>
+			<input type="file" name="avatar" id="avatar" value="" />
+			<input type="submit" value="提交"/>
+		</form>
+		<button onclick="getRequest()">sendGetRequest</button>
+		<button onclick="postRequest()">sendPostRequest</button>
+		<button onclick="formdata()"></button>
+	</body>
+	
+	<script src="get.js"></script>
+	<script src="post.js" type="text/javascript" charset="utf-8"></script>
+	<script src="formdate.js" type="text/javascript" charset="utf-8"></script>
+	<script src="formdat-upload.js" type="text/javascript" charset="utf-8"></script>
+</html>
+
+
+
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+		
+		//isNaN() 作用：判断 是否 不是个数字。
+		// 是讨厌数字的， 如果"不是个数字"，返回的是true
+		 var a1 = isNaN("123")
+		 console.log(a1)  //false  是个数字
+		 
+		 var a2 = isNaN("123px")
+		 console.log(a2) //true 不是个数字
+			
+	    /*isNaN 方法内部会调用Number()方法，如果Number()方法能够将给它的数据转换成数字，
+		isNaN()方法就认为该数据是个数字，否则就认为 不是个数字*/		
+			
+		</script>	
+	</body>
+</html>

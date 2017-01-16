@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				display: none;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<input type="button" value="淡入" id="in" />
+		<input type="button" value="淡出" id="out" />
+		<input type="button" value="淡入与淡出" id="both" />
+		<input type="button" value="到指定透明度" id="opactiy"/>
+		<div></div>
+		<script>
+			//淡入
+			$("#in").click(function(){
+				
+				$("div").fadeIn(2000,function(){
+					alert("动画执行完了")
+				})
+				
+			})
+			//淡出
+			$("#out").click(function(){
+				
+				$("div").fadeOut(2000,function(){
+					alert("动画执行完了")
+				})
+				
+			})
+			
+			//淡入与淡出
+			$("#both").click(function(){
+				
+				$("div").fadeToggle(1000,function(){
+					//alert("动画执行完了")
+				})
+			})
+			
+			//到指定透明度
+			$("#opactiy").click(function(){
+				
+				//淡入、淡出到指定透明度
+				$("div").fadeTo(1000,0.5,function(){
+					 alert("完了")
+				})
+				
+			})
+			
+			//淡入、淡出动画，改变的是opactiy属性的值
+			
+		</script>
+		
+	</body>
+</html>

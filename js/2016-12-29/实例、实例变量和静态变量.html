@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实例、实例变量和静态变量</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			
+			function People(){
+				
+			}
+			
+			//实例,在js中实例指的就是构造出来的某一个构造函数的对象。
+			//实例变量
+			var p1 =  new People()
+			
+			//实例属性
+			p1.name = 'roy'
+			
+			//实例方法
+			p1.eat = function(){
+				
+				alert('p1的实例方法')
+			}
+			
+			//静态变量(静态属性)
+			//静态变量的特点：不用构造实例，直接使用构造函数名或是类名来添加和调用的属性
+			People.name = 'tom'
+			
+			//静态方法
+			People.eat =function(){
+				
+				alert('People的静态方法')
+			}
+			
+			
+			//调用
+			p1.eat()
+			
+			People.eat()
+			
+			
+			
+		</script>
+	</body>
+</html>

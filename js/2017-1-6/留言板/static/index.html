@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>留言板</title>
+		<style type="text/css">
+			*{
+				box-sizing: border-box;
+			}
+			html,body{
+				height: 100%;
+				margin: 0;
+			}
+			.box{
+				
+				width: 80%;
+				margin: 0 auto;
+				background-color: lightsteelblue;
+				padding: 10px;
+			}
+			form{
+				width: 100%;
+				height: 150px;
+				padding: 10px;
+				position: relative;
+			}
+			 textarea{
+			 	width: 100%;
+			 	height: 80px;
+			 	resize: none;
+			 	
+			 }
+			 input[type=submit]{
+			 	
+			 	position: absolute;
+			 	right: 10px;
+			 	bottom: 10px;
+			 	display: block;
+			 	width: 100px;
+			 	height: 45px;
+			 }
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h3>今天下雨了,我的心情也很低落...</h3>
+			<img src="1.jpg"/>
+			<form>
+				<textarea name="content" placeholder="请输入留言内容" required></textarea>
+				<input type="submit" value="发表"/>
+			</form>
+			
+			<!--存放留言-->
+			<div class="content"></div>
+		</div>
+	</body>
+	<script src="index.js"></script>
+	
+</html>

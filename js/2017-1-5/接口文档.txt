@@ -1,0 +1,15 @@
+
+API1：
+功能:单个文件上传
+请求方式:POST
+url:http://xxx.xxx.xxx.xxx:port/uploadFile
+参数:userName  String   必填          描述
+	 avatar     file     必填        描述
+	
+
+API2：
+功能：上传多个文件
+请求方式:POST
+URL:....
+.....
+	

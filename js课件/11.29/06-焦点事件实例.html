@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			.highlighted{
+				
+				background-color: pink;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<label for="username">用户名</label>
+		<input type="text" id="username" value="请输入一些内容"/> 
+		
+		<input type="button" value="登录" id="btn"/>
+		
+		<script type="text/javascript">
+			
+			 var userInput  = document.getElementById("username")
+    			 var btn = document.getElementById("btn")
+    			
+    			 userInput.onfocus = function(){
+    			 	 this.value = ""
+    			 }
+    			 
+    			 userInput.onblur = function(){
+    			 	 //判断文本框中是否有值，如果没有值，文本框展示“请输入一些内容”
+    			 	
+    			 	//判断字符串内容是否为空
+    			 	//this.value ==""
+    			 	//this.value.length<=0
+    			 	//!this.value
+    			 	if(!this.value){
+    			 		this.value = "请输入一些内容"
+    			 	}
+
+    			 }
+    			
+			
+			btn.onclick = function(){
+				//1.获取用户名文本框中字符串
+				var name = userInput.value
+				
+				//2.对名字的长度进行判断，看是否符合要求
+				if(name.length<6||name.length>8){
+					alert("用户名不符合要求")
+					return
+				}
+	
+			}
+			
+		</script>
+		
+	</body>
+</html>

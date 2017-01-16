@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="new_file.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	
+	<script type="text/html" id="myTemplate">
+		<h1 class="{{title}}">{{title}}</h1>
+		
+		<ol>
+			{{each course as value index}}
+		  <li>{{value}}</li>
+		  {{/each}}
+		</ol>
+		<p>名字是<strong>{{obj.name}}</strong>,年龄：<strong>{{obj.age}}</strong></p>
+		
+	</script>
+	
+	<script type="text/javascript">
+		
+		var date ={
+			
+			title:'这是一个标题',
+			course:['HTML5','CSS','JS','ARTLE','mplate','PDD','wuwukai'],
+			
+			obj:{
+				name:"张三",
+				age:18
+			}
+		}
+	var html =	 template('myTemplate',date)
+	
+	document.body.innerHTML = html
+		
+	</script>
+</body>
+</html>

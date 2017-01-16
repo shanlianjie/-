@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+		<script>
+			$(document).ready(function() {
+				/*
+				 * children()找到指定元素的直接子元素
+				 * 
+				 * children(selector)找到指定元素的直接子元素中的某一个
+				 * 
+				 * find('*')找到指定元素的所有子元素
+				 * 
+				 * find(selector)找到指定元素的所有子元素中指定的一个
+				 * 
+				 * 
+				 */
+
+				//console.log($("#div1").children())
+				//console.log($("#div1").children("p"))
+
+				//console.log($("#div1").find("*"))
+				console.log($("#div1").find("span"))
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+			<p class="p1">
+				<span>我是一个span</span>
+				<span>111111</span>
+				<span>222222</span>
+			</p>
+			<section>我是一个section</section>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			//构造函数 （创建对象的模板）
+			function Person (name,age){
+				this.name = name
+				this.age = age,
+				this.eat = function(){
+					console.log(this.name + "在吃东西")
+				}
+			}
+			
+			//var arr= new Array("zhangsan")
+			
+		    var  person1 = new Person("zhangSan",88)
+		 
+		 /*
+		  * new 关键字
+		  * 1.new 构造函数 ，在内存中开辟一块空间，生成一个对象
+		  * 2.构造函数中的this,就指向新生成的这个对象
+		  * 3.构造函数就是用来对 new出来的对象进行初始化的
+		  * 
+		  * new 用来创建对象； 
+		  * 构造函数 用来初始化对象，并且会自动返回这个新对象
+		  * 
+		  */
+
+		</script>
+	</body>
+</html>

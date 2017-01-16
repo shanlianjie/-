@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="new_file.js"></script>
+	<style type="text/css">
+		
+		.invalidPrice{
+			color: gray;
+		}
+	</style>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		template.helper('price_id',function(price){
+			
+			price = price.toFixed(2)
+			
+			price = '￥' + price 
+			
+			return price
+		})
+		template.helper('date_id',function(date){
+			var newDate = new Date(date)
+			var year =newDate.getFullYear()
+			var month =newDate.getMonth() +1
+			var day =newDate.getDate()
+			
+		  month =	month< 10 ? '0' +month :month
+		  day = day <10 ? '0' +day : day
+		  
+		   return `${year}年${month}月${day}日`
+		  return `${year}-${month}-${day}`
+		 
+		  
+		  return year + '年' + month +'月' +day +"日"
+			
+		})
+	</script>
+	
+	<script type="text/html" id="myTemplate">
+		{{if title == undefined}}
+		<h1>没有推荐的书籍</h1>
+		{{else}}
+		<h1>{{title}}</h1>
+		<ul>
+		  {{each books as aBook index}}
+		  <li>
+		  		<strong>{{aBook.name}}</strong>
+		  		<br />
+		  		<span class="invalidPrice">{{aBook.invalidPrice |price_id}}</span>
+		  		<br />
+		  		<span>{{aBook.currentPrrice |price_id  }}</span>
+		  		<br />
+		  		<span>{{aBook.publishDate |date_id}}</span>
+		  </li>
+		  {{/each}}
+	    </ul>
+		{{/if}}
+	</script>
+	
+	<script type="text/javascript">
+     var date = {
+		title:'推崇的几本书',
+		
+		books:[{
+			name:'HTML教程',
+			invalidPrice:198.5,
+			currentPrrice:128.5,
+			publishDate:new Date('2015-8-14'),
+		},{
+			name:'小学教程',
+			invalidPrice:98.5,
+			currentPrrice:28.5,
+			publishDate:new Date('2016-8-18'),
+		},{
+			name:'中学教程',
+			invalidPrice:298.5,
+			currentPrrice:128.5,
+			publishDate:new Date('2016-8-19'),
+			
+		},{
+			name:'大学教程',
+			invalidPrice:298.5,
+			currentPrrice:128.5,
+			publishDate:new Date('2016-8-19'),
+		},
+		
+		],}
+	var html = template('myTemplate',date)
+	document.body.innerHTML = html
+	</script>
+	
+</body>
+</html>

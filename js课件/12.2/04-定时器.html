@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			/*
+			 * 什么情况下用到定时器？自动 不断 重复 做某件事情
+			 *var timer = setInterval(函数，时间间隔) 时间的单位是毫秒 ，每隔多长时间间隔，执行一次函数
+			 * clearInterval(timer)  销毁定时器
+			 */
+
+			var timer = null
+			document.onclick = function(){
+				//时间的单位是毫秒 1000毫秒 = 1秒
+				//第一次执行fn1函数，仍然需要等待时间1秒
+				 
+				 //开启定时器
+			     timer = setInterval(fn1,1000)
+			     console.log("文档被点击了" + timer)
+			    
+			}
+			
+			
+			var num = 0
+			function fn1(){
+				num++
+				console.log("函数被执行了" + num)
+				
+				if(num ==10){
+					//清除定时器
+					clearInterval(timer) //定时器销毁了，但是函数的本次执行，依然会执行完
+				}
+				console.log("zhangSan")
+			}
+			
+			/*
+			setInterval(function(){
+				
+			},30)*/
+			
+			/*
+			var fn2 = function(){
+				
+			}
+			setInterval(fn2,50)*/
+			
+			/*
+			 function fn3(){
+			 	
+			 }
+			 setInterval(fn3,60)*/
+		</script>
+		
+	</body>
+</html>

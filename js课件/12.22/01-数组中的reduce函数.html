@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+		var a=	[0, 1, 2, 3, 4].reduce(function(previousValue, currentValue, index, array) {
+				console.log(previousValue, currentValue)
+				return previousValue + currentValue;
+			},100);
+			console.log(a)
+		</script>
+	</body>
+
+</html>

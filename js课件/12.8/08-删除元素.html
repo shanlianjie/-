@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<input type="button" value="删除" id="remove"/>
+		<div>
+			我是一个div
+			<p>我是一个p</p>
+			<p>我是一个p</p>
+			<p>我是一个p</p>
+			<section>我是一个section</section>
+		</div>
+		<script>
+			$("#remove").click(function(){
+				
+				var div = document.querySelector("div")
+				var section = document.querySelector("section")
+				//div.removeChild(section)
+				//section.remove()
+
+				//empty() 会清除子节点，但是元素自身还在
+				$("div").empty()
+				
+				//内存泄露,内容清空，但是元素自身还在
+				$("div").html("")
+				
+				//会将 自己 以及自己中的所有内容全部删除
+				//$("div").remove()
+	
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				position: absolute;
+				left: 400px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" value="走" />
+		<div></div>
+
+		<script type="text/javascript">
+			var btn = document.getElementsByTagName("input")[0]
+			var div = document.querySelector("div")
+
+			btn.onclick = function() {
+				
+				function fn1(){
+					animateSlow(div,{
+						"width":100,
+						"top":40
+					})
+				}
+				
+				animateSlow(div, {
+					"width": 400,
+					"top": 200
+				},fn1)
+
+			}
+
+			//任意对象 任意值属性  修改到目标位置
+			function animateSlow(obj, json,callback) {
+
+				clearInterval(obj.timer)
+				obj.timer = setInterval(function() {
+					var flag = true //先假设可以销毁定时器
+					for(var k in json) {
+						
+						var attr = k   //"width"
+						var target = json[k]//目标值
+
+						var position = parseInt(getComputedStyle(obj, null)[attr])
+
+						var step = (target - position) / 10
+						step = step > 0 ? Math.ceil(step) : Math.floor(step)
+
+						position += step
+
+						div.style[attr] = position + "px"
+
+						//如果达到目标位置，清除定时器
+						if(position != target) {
+							flag = false //只要任何一个属性没有达到目标位置，flag = false,表示不能清除定时器
+						}
+					}
+					
+					//for循环走完，flag的值都没有变成false，说明所有的属性都达到了目标位置，可以清除定时器了
+					if(flag){
+						clearInterval(obj.timer)
+						console.log("定时器被销毁了")
+						if(callback){
+							callback()
+						}
+					}
+	
+				}, 30)
+
+			}
+		</script>
+	</body>
+
+</html>

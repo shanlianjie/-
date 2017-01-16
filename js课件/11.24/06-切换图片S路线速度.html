@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				display: block;
+				width: 200px;
+				margin: 20px auto;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		
+		<input type="button" value="下一张"/>
+		 
+		<img src="image/fl-3.png" alt="" />
+		 
+		<script type="text/javascript">
+			//1.图片名字数组
+			var  imgNameArr =["image/fl-3.png","image/fl-4.png","image/fl-4c.png","image/fl-4s.png","image/fl-5.png","image/fl-dx.png",]
+			
+			//2.获取按钮
+			var btns = document.getElementsByTagName("input")
+			var nextBtn = btns[0]
+			
+			//3.获取img对象
+			var img = document.querySelector("img")
+			
+			//定义index变量作为索引，从数组中取图片的路径
+			var index = 0
+			
+			//定义一个图片索引变换的速度（有方向，正值代表正方向，负值代表反方向）
+			var speed = 1
+			
+			var direction = true; //true表示向正走,false表示向反走
+			
+			//下一个按钮
+			nextBtn.onclick = function(){
+				  
+				   //index = index + speed
+				   index += speed
+				
+				  img.src = imgNameArr[index]
+				  
+				  //每次走到头的时候改变素的的方向，
+			     if(index==imgNameArr.length-1 || index==0){
+			     	  speed = -speed
+			     }
+			}
+
+		</script> 
+		
+	</body>
+</html>

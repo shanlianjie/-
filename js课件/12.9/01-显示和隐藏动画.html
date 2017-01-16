@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				display: none;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<input type="button" value="显示" id="showBtn"/>
+		<input type="button" value="隐藏" id="hiddeBtn"/>
+		<input type="button" value="显示或隐藏" id="both"/>
+		<div></div>
+		<script>
+			//显示
+			$("#showBtn").click(function(){
+				//.show() 没有参数，就没有动画效果
+				//.show(时间) 时间的单位是毫秒，在规定的时间内完成动画。
+				//可以写具体的时间，也可以写固定字符串.如果传的是不能识别的字符串，就是normal(默认)
+				//fast:200  normal:400  slow:600
+				
+				//show(时间,回调函数) ，回调函数在动画完成的时候执行
+				$("div").show("slow",function(){
+					alert("显示执行完了")
+				})
+				
+			})
+			
+			//隐藏
+			$("#hiddeBtn").click(function(){
+				$("div").hide(1000,function(){
+					alert("隐藏执行了")
+				})
+			})
+			
+			//显示与隐藏
+			$("#both").click(function(){
+				// $("div").toggle(1000)
+				$("div").toggle(1000,"linear",function(){
+					alert("执行完了")
+				},true)
+			})
+			
+			//显示和隐藏的方法，改变的是三个属性的值：width、height、opactiy
+		</script>
+	</body>
+</html>

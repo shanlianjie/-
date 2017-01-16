@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			 .bgColor{
+			 	background-color: red;
+			 }
+			 .font{
+			 	font-size: 40px;
+			 	font-style: italic;
+			 }
+			 
+		 
+			 
+		</style>
+	</head>
+	
+	<body>
+		
+		<ul id="myUl">
+			<li>HTML</li>
+			<li class="bgColor font">CSS</li>
+			<li id ="aa">JavaScript</li>
+			<li class="bgColor">PHP</li>
+		</ul>
+		<ul>
+			<li>HTML11</li>
+			<li>CSS111</li>
+			<li>JavaScript111</li>
+			<li>PHP111</li>
+		</ul>
+		<p class="bgColor">第一段文字</p>
+		<p id="secondP">第二段文字</p>
+		
+		<input type="text" name="account"/>
+		<input type="radio" name="sex"/>男
+		<input type="radio" name="sex"/>女
+		
+		<script type="text/javascript">
+			
+			console.dir(document)
+			
+			//获取html根标签元素
+			console.dir(document.documentElement)
+			
+			//获取body标签元素（通过document对象的body属性）
+			console.dir(document.body)
+			
+			//1.根据id获取标签元素，值是一个或者null(id不存在)
+			//getElementById()是document的方法
+		    var 	ul = document.getElementById("myUl")
+		    console.dir(ul)
+		    
+		    //获取id值
+		    console.log(ul.id)
+		    //获取标签名
+		    console.log(ul.tagName) //UL
+			
+			//2.根据标签名获取元素，得到是一个元素集合（伪数组）
+			//  参数：标签名， 不区分大小写的
+		   var lis = ul.getElementsByTagName("li")
+		   console.dir(lis)
+		   
+		   
+		    //3.根据类名获取标签元素，得到的是一个元素的集合
+		  var classItems = document.getElementsByClassName("bgColor")
+		   console.dir(classItems)
+			
+			//4.根据css选择器获取标签元素
+			//当存在多个符合条件的标签时，根据标签的先后顺序，找到的是第一个标签元素
+		    // 参数："选择器"
+		    //返回值：是一个标签元素，不是集合
+		   var p = document.querySelector("p")
+		   console.dir(p)
+		   
+		   var li = ul.querySelector("li:nth-child(2)")
+		   console.log(li.innerHTML)
+		   
+		    p = document.querySelector("#secondP")
+		    console.log(p.innerText)
+			 
+			 //querySelectorAll(),根据选择器可以获得所有满足条件的元素，是一个集合
+			var ps = document.querySelectorAll("p")
+			console.dir(ps,"888")
+	  		
+	  		
+	  		//根据name属性值，获取元素集合
+	  		var inputs = document.getElementsByName("account")
+	  		    inputs = document.getElementsByName("sex")
+	  		console.dir(inputs)
+	  		
+	  	
+		</script>	
+	</body>
+</html>

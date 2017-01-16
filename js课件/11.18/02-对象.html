@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+		//在JS中创建对象有多种方式
+		//1.使用new关键字创建对象
+		//Object()是系统提供的构造对象的方法
+		var obj = new Object()
+		//添加name属性
+		obj.name = "zhangSan"
+		//添加age属性
+		obj.age = 18
+		obj.sex = true
+		//给obj对象添加study属性，属性值是个函数
+		obj.study = function (where){
+			console.log("我在"+ where +"学习")
+		}
+	   // console.log(obj)
+	   //  console.dir(obj)
+	     
+	   //获取对象的属性
+	   //console.log(obj.name)
+	   //console.log(obj.age)
+	   //console.log(obj.sex)
+	   //console.log(obj.study)
+	   
+	   //调用obj中的study函数
+	   obj.study("智游")
+	   
+	   //2.通过字面量的方式创建对象，“{}”是一个对象的标志，
+	   //“{}”内是按照键（key）值(value)对 组织数据的
+	   var obj2 ={
+	   	  name:"liSi",
+	   	  age: 78,
+	   	  sex: true,
+	   	  sale:function(rice,meat){
+	   	  	   var money = rice*1 +meat*15
+	   	  	   return  money
+	   	  }
+	   }
+	
+	   console.log(obj2)
+	   //同样可以通过 对象.属性名 ，获取对象的属性值
+	   console.log(obj2.name)
+	   console.log(obj2.sale)
+	
+	   //调用sale函数
+	    var totalMoney = obj2.sale(1,2)
+		console.log(totalMoney)
+		
+		//对象的属性值 也可以是另外一个对象
+		var dog = {
+			name:"旺旺" ,
+			age:1.5,
+			//小狗的主人 是个对象
+			owner:obj2,
+			play: function(){
+				console.log("贪玩")
+			}
+			
+		}
+		//console.log(dog)
+		//获取dog的主人的名字
+		console.log(dog.owner.name)
+		
+		//对属性进行重新赋值，将原来的值覆盖掉
+		dog.name = "小灰"
+		
+		//对dog再添加一个属性
+		dog.sex = false
+		//属性其实就是一个变量，只不过这个变量属于一个对象
+		dog.eat = function (){
+			console.log("爱吃骨头")
+		}
+		dog.eat()
+		//设置为null,仅仅是将属性值置为空，不能删除属性
+		dog.age = null
+		
+		//真正的删除属性
+		delete dog.age
+		delete dog.play
+		
+		console.log(dog)
+		
+		</script>	
+	</body>
+</html>

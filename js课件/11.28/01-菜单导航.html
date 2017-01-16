@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul{
+				overflow: hidden;
+				list-style: none;
+				margin: 100px auto;
+			}
+			
+			li{
+				float: left;
+				background-color: lightgray;
+				
+			}
+			li+li{
+				margin-left: 10px;
+			}
+			
+			a{
+				display: block;
+				line-height: 40px;
+				padding: 0 10px;
+				text-align: center;
+			}
+			
+			.current{
+				background-color: pink;
+			}
+			
+		</style>
+	</head>
+	<body>
+	  <ul id="nav">
+	  	 <li class="current">
+	  	 	<a href="#">首页</a>
+	  	 </li>
+	  	  <li>
+	  	 	<a href="#">娱乐</a>
+	  	 </li>
+	  	  <li>
+	  	 	<a href="#">科技</a>
+	  	 </li>
+	  	  <li>
+	  	 	<a href="#">体育</a>
+	  	 </li>
+	  	  <li>
+	  	 	<a href="#">教育</a>
+	  	 </li>
+	  </ul>
+	  <script type="text/javascript">
+	  	
+	  	//点击那个li，就让哪个li选中
+	  	
+	  	//获取所有的li
+	  	var lis = document.getElementById("nav").children
+	  	
+	  	//遍历
+	  	for(var i=0;i<lis.length;i++){
+	  		
+	  		var li = lis[i]
+	  		
+	  		li.onclick = function(){
+
+	  			//1.先把所有的li去除高亮显示 （背景颜色变成灰色）
+	  			for(var j=0;j<lis.length;j++){
+	  				  li = lis[j]
+	  				 // li.className = ""
+	  				 li.classList.remove("current")
+	  			}
+	  			
+	  			
+	  			//2.让点击的li的高亮显示（背景颜色为粉色）
+	  			//this.className = "current"
+	  			this.classList.add("current")
+
+	  		}
+	  	}
+	  	
+	  	
+	  	
+	  </script>		
+	</body>
+</html>

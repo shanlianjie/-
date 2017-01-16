@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f6f6f6;
+        }
+        
+        header {
+            height: 36px;
+            border-bottom: 1px solid #34cc67;
+            line-height: 36px;
+            text-align: center;
+            font-size: 15px;
+        }
+        
+        img {
+            width: 100%;
+            display: block;
+        }
+        main{
+            overflow: hidden;
+            background-image: url(image/line.png);
+            background-repeat: repeat-y;
+            background-position: 50% 100%;
+            background-size: 6px auto;
+        }
+        main ul{
+            width: 50%;
+            float: left;
+            padding: 0;
+        }
+        main ul li{
+            padding: 14px;
+            list-style: none;
+            
+        }
+        main ul li a{
+            padding: 6px;
+            border: 1px solid lightslategrey;
+            display: block;
+            position: relative;
+        }
+        main ul li a img{
+            width: 100%;
+        }
+        main ul li a i{
+            position: absolute;
+            background-image: url(image/right_bg.png);
+            width: 6px;
+            height: 10px;
+            background-size: 100%;
+        }
+         main ul li a span{
+            position: absolute;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        康桥林溪湾实景展示
+    </header>
+
+    <img src="image/tc.jpg" alt="">
+    <main>
+        <ul>
+            <li>
+                <a href=""><img src="image/tc-1.jpg" alt=""><li></li><span></span></a>
+            </li>
+            <li>
+                <a href=""><img src="image/tc-2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href=""><img src="image/tc-3.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href=""><img src="image/tc-4.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href=""><img src="image/tc-5.jpg" alt=""></a>
+            </li>
+
+            
+
+        </ul>
+
+    </main>
+</body>
+
+</html>

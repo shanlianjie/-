@@ -1,0 +1,62 @@
+JSON(JavaScript Object Notation) JavaScript 对象表示法 。是一种轻量级的数据交换格式。
+
+js字面量的方式创建对象：
+{	
+	name:'roy',
+	age:28,
+	isMale:true,
+	course:['HTML5','CSS3','JavaScript'],
+	friends:{name:'jobs',age:28}
+}
+
+
+JSON 语法规则
+JSON 语法是 JavaScript 对象表示语法的子集。
+
+    数据在键值对中
+    数据由逗号分隔
+    花括号保存对象
+    方括号保存数组
+    
+ JSON 名称/值对
+JSON 数据的书写格式是：名称/值对。
+名称/值对组合中的名称写在前面（在双引号中），值对写在后面(同样在双引号中)，中间用冒号隔开：
+	
+"firstName":"John"
+这很容易理解，等价于这条 JavaScript 语句：
+	
+firstName="John"
+
+
+json数据：
+{
+	"name":"roy",
+	"age"：28,
+	"isMale":true,
+	"course":['HTML5','CSS3','JavaScript'],
+	"friends":{"name":"jobs","age":28}
+}
+
+
+XML  Extensible Markup Language 可扩展标记语言，标准通用标记语言的子集，是一种用于标记电子文件使其具有结构性的标记语言。
+
+<name>roy</name>
+<age>28</age>
+<isMale>true</isMale>
+<course>
+	<html>HTML5<html>
+	<CSS>CSS3<CSS>
+	<JS>JavaScript<JS>
+</course>
+
+
+
+
+
+
+
+
+
+
+
+

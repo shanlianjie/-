@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			/*
+		     变量声明 和 函数声明 会提升到其所在作用域的最前面
+			 js解析过程：
+			 var fn1   //变量声明的的提升。 注意：只是提升“声明”，不提升“赋值”
+			 function mySum (a,b){  //函数声明的提升
+				var sum = a + b 
+				console.log("sum")
+			}
+			*/
+			
+			
+			mySum(3,4)
+			
+//			fn1(4,5)   //报错:fn1 is not a function
+//前面提升的"fn1"相当于一个声明的变量，类型为undefined。
+//由于fn1只是相当于一个变量，因此浏览器认为"fn1()"不是一个函数。
+			
+			//函数的第一种定义方式
+			function mySum (a,b){
+				var sum = a + b 
+				console.log("sum")
+			}
+			
+			//函数的第二中定义方式
+			var fn1 = function (c,d){
+				var  s = c*d
+				console.log("s",s)
+			}
+
+		</script>
+
+	</body>
+</html>

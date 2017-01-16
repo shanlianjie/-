@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='download cache' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='2'>
+    <property name='p2.system' value='true'/>
+    <property name='p2.timestamp' value='1484357709094'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='30'>
+    <artifact classifier='binary' id='com.pandora.rootfile.plugins.feature_root.win32.win32.x86' version='1.0.0.201612052134'>
+      <properties size='1'>
+        <property name='download.size' value='12632707'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.feature_root.win32.win32.x86' version='7.6.5.201612301621'>
+      <properties size='1'>
+        <property name='download.size' value='4520'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='io.hbuilder.www_root.win32.win32.x86' version='7.6.5.201612301621'>
+      <properties size='1'>
+        <property name='download.size' value='9922'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.rootfile.plugins.feature_root.win32.win32.x86' version='1.0.0.201611042038'>
+      <properties size='1'>
+        <property name='download.size' value='12631077'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.feature_root.win32.win32.x86' version='7.6.0.201611071800'>
+      <properties size='1'>
+        <property name='download.size' value='4461'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.rootfile.indexer.feature_root.win32.win32.x86' version='1.0.0.201612201656'>
+      <properties size='1'>
+        <property name='download.size' value='251327'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.rootfile.starter.win32.feature_root.win32.win32.x86' version='1.0.0.201612261741'>
+      <properties size='1'>
+        <property name='download.size' value='22469621'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.aptana.feature.rcp_root' version='7.6.0.201611071800'>
+      <properties size='1'>
+        <property name='download.size' value='182'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.rootfile.plugins2.feature_root.win32.win32.x86' version='1.0.0.201610102040'>
+      <properties size='1'>
+        <property name='download.size' value='5937195'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.aptana.feature.rcp_root' version='7.6.5.201612301621'>
+      <properties size='1'>
+        <property name='download.size' value='182'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.aptana.feature.rcp_root.win32.win32.x86' version='7.6.4.201612241943'>
+      <properties size='1'>
+        <property name='download.size' value='394'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.aptana.feature.rcp_root.win32.win32.x86' version='7.6.2.201611251335'>
+      <properties size='1'>
+        <property name='download.size' value='394'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.rootfile.plugins.feature_root.win32.win32.x86' version='1.0.0.201611031709'>
+      <properties size='1'>
+        <property name='download.size' value='12625518'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.rootfile.indexer.feature_root.win32.win32.x86' version='1.0.0.201611102056'>
+      <properties size='1'>
+        <property name='download.size' value='251327'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.feature_root.win32.win32.x86' version='7.6.2.201611251335'>
+      <properties size='1'>
+        <property name='download.size' value='4525'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='io.hbuilder.www.root.feature_root' version='7.6.5.201612301621'>
+      <properties size='1'>
+        <property name='download.size' value='256'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='io.hbuilder.www.root.feature_root' version='7.6.2.201611251335'>
+      <properties size='1'>
+        <property name='download.size' value='256'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.aptana.feature.rcp_root.win32.win32.x86' version='7.6.5.201612301621'>
+      <properties size='1'>
+        <property name='download.size' value='392'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='io.hbuilder.www.root.feature_root' version='7.6.0.201611071800'>
+      <properties size='1'>
+        <property name='download.size' value='257'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.feature_root.win32.win32.x86' version='7.6.4.201612241943'>
+      <properties size='1'>
+        <property name='download.size' value='4510'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.rootfile.starter.win32.feature_root.win32.win32.x86' version='1.0.0.201611082044'>
+      <properties size='1'>
+        <property name='download.size' value='22310166'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.aptana.feature.rcp_root.win32.win32.x86' version='7.6.0.201611071800'>
+      <properties size='1'>
+        <property name='download.size' value='392'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='io.hbuilder.www_root.win32.win32.x86' version='7.6.4.201612241943'>
+      <properties size='1'>
+        <property name='download.size' value='9922'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='io.hbuilder.www_root.win32.win32.x86' version='7.6.2.201611251335'>
+      <properties size='1'>
+        <property name='download.size' value='9922'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='io.hbuilder.www.root.feature_root' version='7.6.4.201612241943'>
+      <properties size='1'>
+        <property name='download.size' value='255'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='io.hbuilder.www_root.win32.win32.x86' version='7.6.0.201611071800'>
+      <properties size='1'>
+        <property name='download.size' value='9922'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.rootfile.plugins.feature_root.win32.win32.x86' version='1.0.0.201612291604'>
+      <properties size='1'>
+        <property name='download.size' value='12635877'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.aptana.feature.rcp_root' version='7.6.2.201611251335'>
+      <properties size='1'>
+        <property name='download.size' value='184'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.pandora.rootfile.starter.win32.feature_root.win32.win32.x86' version='1.0.0.201609232233'>
+      <properties size='1'>
+        <property name='download.size' value='22299383'/>
+      </properties>
+    </artifact>
+    <artifact classifier='binary' id='com.aptana.feature.rcp_root' version='7.6.4.201612241943'>
+      <properties size='1'>
+        <property name='download.size' value='184'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

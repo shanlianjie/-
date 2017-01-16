@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+//把大象装冰箱
+
+		//面向过程
+		//程序： 函数 + 函数
+		
+			var isDoorOpen = false
+			var contain = null
+
+			function open() {
+				isDoorOpen = true
+				console.log("冰箱门开了")
+			}
+			open()
+
+			function put() {
+				contain = {
+					name: "大象"
+				}
+				console.log("大象放进去了")
+			}
+			put()
+
+			function close() {
+				isDoorOpen = false
+			}
+			close()
+			
+			//面向对象  1.避免全局污染 2.代码有效组织起来，更容易维护
+			//程序： 对象 + 对象
+			//对象：可以存储数据和操作
+			var box = {
+				isDoorOpen: false,
+				contain: null,
+				opens:{
+					hand:function(){
+						console.log("用手开")
+					},
+					foot:function(){
+						console.log("用脚开")
+					},
+					mouth:function(){
+						console.log("用嘴开")
+					}
+				} ,
+				put: function() {
+					contain = {
+						name: "大象"
+					}
+					console.log("大象放进去了")
+				},
+				close:function() {
+					isDoorOpen = false
+				}
+
+			}
+			
+			box.opens.hand()
+			box.opens.foot()
+			
+		</script>
+
+	</body>
+
+</html>

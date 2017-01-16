@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>我是div</div>
+		<script>
+			var div = document.querySelector("div")
+
+			//监听
+			div.addEventListener("事件名称", function(ev) {
+				alert("div监听到事件发生了")
+				console.dir(ev.detail)
+			})
+			div.addEventListener("事件名称", function(ev) {
+				alert("body监听到事件发生了")
+
+			})
+
+			var customEvent = document.createEvent("CustomEvent")
+			customEvent.initCustomEvent("事件名称", true, true, {
+					name: "zhangSan",
+					age: 18
+				})
+				/*
+				 * 参数1：事件名称
+				 * 参数2：事件是否冒泡
+				 * 参数3：事件是否可取消
+				 * 参数4：自定义数据
+				 */
+				//分发事件 (注意：事件的监听 要放在 事件的分发 之前 )
+				//谁分发的事件，就相当于谁触发的事件
+			div.dispatchEvent(customEvent)
+
+			//参考：
+			//https://developer.mozilla.org/en-US/docs/Web/API/Event
+
+			//总结：
+			//自定义事件的事件类型名称可以是任意名称，可以写成中文
+			//自定义事件可挖洞（捕获过程）、也可冒泡，事件的传播是正常的
+			//自定义事件可以设置不冒泡，可以控制是否能够取消
+			//自定义事件可以携带数据，这个数据可以是一个复杂的数据对象，也可以是一个简单数字或字符串
+
+			//自定义事件的使用过程：
+			//1.监听一个自定义事件
+			//2.在合适情况下创建一个自定义事件对象
+			//3.初始化该事件对象
+			//4.派发该事件（可以在任意标签元素上派发事件）
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			li{
+				margin-bottom: 10px;
+				background-color: pink;
+			}
+			.red{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>ppppppp</li>
+			<li>ppppppp</li>
+			<li class="red">ppppppp</li>
+			<li>ppppppp</li>
+			<li class="red">ppppppp</li>
+			<li class="red">ppppppp</li>
+		</ul>
+		<script>
+			var ul = document.getElementsByTagName("ul")[0]
+			ul.onclick = function(ev){
+				if(ev.target.className == "red" && ev.target.tagName=="LI"){
+					alert("red li被点击了")
+				}
+			}
+		</script>
+	</body>
+</html>

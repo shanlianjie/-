@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid blue;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+		<script src="custmoJqueryPlugin.js"></script>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			$("div").click(function(){
+				//console.dir(this)
+				$(this).changeBgColor("red")
+				
+				$.showMsg("今天下雨了")
+				
+			})
+		</script>
+	</body>
+</html>

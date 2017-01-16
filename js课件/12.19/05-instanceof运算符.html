@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Person(){
+				
+			}
+			
+			var p = new Person()
+			
+			//用来检测 构造函数的prototype属性所指向的对象 是否存在与 被检测对象的原型链上
+			//语法： obj instaceof 构造函数  判断构造函数的prototype属性所指向的对象是在obj的原型链上
+			//判断 p对象 是不是Person构造函数的实例
+		   console.log(p instanceof Person) //true
+		   console.log(p instanceof Object) //true
+			
+		</script>
+	</body>
+</html>

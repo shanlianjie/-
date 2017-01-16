@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<div></div>
+		<p id="p1">我是段落1</p>
+		<p id="p2">我是段落2</p>
+		<script>
+				
+			//当前正在执行的处理程序绑定时，一个可选的数据对象传递给一个事件处理函数	
+			 $("div").on("click",{name:"zhangSan",age:18},function(ev){
+			 	
+			 	console.dir(ev.data)
+			 })
+			 
+			 
+			 var score =88
+			 $("#p1").on("click",score,function(ev){
+			 	  console.dir(ev.data)
+			 })
+			 score = 99
+			
+			 
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+	  			display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="展示div"/>
+		<div></div>
+		<script type="text/javascript">
+			var btn = document.getElementsByTagName("input")[0]
+			var div = document.getElementsByTagName("div")[0]
+			
+			//目标：点击按钮，div显示，点击文档的其他地方，div隐藏
+			
+			btn.onclick = function(ev){
+				
+				//ev.stopPropagation() 阻止事件的传递
+				//阻止冒泡    propagation 传播
+				ev.stopPropagation() //此处需要阻止事件的冒泡，否则div显示不出来
+				div.style.display = "block"
+				alert("99999")
+			}
+			
+			document.onclick = function(){
+				
+				div.style.display = "none"
+				
+				alert("文档被点击了")
+			}
+			
+		</script>
+	</body>
+</html>

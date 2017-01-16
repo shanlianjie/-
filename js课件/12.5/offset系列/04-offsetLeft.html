@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box1{
+				width: 100px;
+				height: 100px;
+				border: 10px solid yellow;
+				/*从padding的左侧开始算的*/
+				padding: 15px;  
+				background-color: red;
+				position: relative;
+			}
+			
+			.box2{
+				width: 50px;
+				height: 50px;
+				/*从border的左侧 开始向 offsetParent的padding的左侧量*/
+				border:5px solid darkcyan;
+				background-color: blue; 
+				margin: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box1">
+			 <div class="box2"></div>
+		</div>
+		
+		<script type="text/javascript">
+			
+			var box2 = document.getElementsByClassName("box2")[0]
+			
+			console.log(box2.offsetLeft)
+			
+			//offsetLeft 和 offsetTop 就是到元素到offsetParent左侧和上部的距离
+			//offsetLeft 从元素的border的左侧 到 offsetParent的padding的左侧
+		</script>
+		
+	</body>
+</html>

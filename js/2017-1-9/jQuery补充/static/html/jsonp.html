@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JSONP跨域资源读取</title>
+		<script src="../libs/jquery.js"></script>
+	</head>
+	<body>
+		<button>跨域读取</button>
+	</body>
+	
+	<script type="text/javascript">
+		/*
+		 * JSONP：JSON with Padding。它是一种用来实现跨域资源读取的技术。
+		 */
+		$('button').click(function(){
+			//在3000的端口下访问3001端口
+			//$(this).load('http://127.0.0.1:3001/load.txt')
+			
+			//请求会被拦截
+			//因为浏览器都有一个"同源策略"
+			//同源策略指的就是：请求协议相同 && 域名相同 && 端口号相同。也就是只有这些条件都满足才能访问该站点的资源。只要有任何一个条件不满足则不能读取该资源。
+			/*
+			$.get('/jsonpTest',{callback:'myCallback'},function(response){
+				
+				alert(response)
+			})
+			*/
+
+			
+		})
+			
+			
+		function myCallback(data){
+			
+			alert('可以跨域获取数据了')
+		}
+	</script>
+	
+	<!--
+		跨域资源默认会被拦截，但是带有src属性的标签元素天生具有跨域的能力。
+	-->
+	<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+	
+	<iframe src="http://www.baidu.com" width="100%" height="100%"></iframe>
+	
+	<!--使用jsonp:
+		在访问的资源url之后追加一个参数(和服务器约定好的)，比如callback，参数的值为当前页面的一个函数名
+	-->
+	<script src="js/jsonp.js?callback=myCallback"></script>
+	
+	
+</html>
+
+
+
+
+
+

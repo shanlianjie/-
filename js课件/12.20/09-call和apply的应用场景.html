@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//场景1：继承
+			function Animal(name) {
+				this.name = name;
+				this.showName = function() {
+					console.log(this.name);
+				}
+			}
+
+			function Cat(name) {
+				Animal.call(this, name); //Cat继承了Animal的showName方法
+			}
+
+			var cat = new Cat('Black Cat');
+			cat.showName(); //Black Cat
+
+			//场景2：数组的追加
+			var array1 = [1, 2, 3, 5];
+			var array2 = ["xie", "li", "qun", "tsrot"];
+			Array.prototype.push.apply(array1, array2);
+			//[].push.apply(array1,array2)
+			console.log(array1); //[1, 2, 3, 5, "xie", "li", "qun", "tsrot"]
+
+			//场景3:求数组中最大值和最小值
+			var arr3 = [1, 9, 6, 4, 5, 7]
+			var max = arr3[0]
+			for(var j = 1; j < arr3.length; j++) {
+				max = arr3[j] > max ? arr3[j] : max
+			}
+
+			// max = Math.max(1,22,33,55,44,88)
+
+			max = Math.max.apply(Math, arr3)
+			console.log(max)
+
+			//场景4：将伪数组转化为数组
+			var fakeArr = {
+				0: 'a',
+				1: 'b',
+				length: 2
+			};
+			var arr4 = Array.prototype.slice.call(fakeArr);
+		</script>
+	</body>
+
+</html>

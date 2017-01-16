@@ -1,0 +1,4 @@
+#Sat Jan 14 09:35:18 CST 2017
+-Xms=512m
+-XX\:MaxPermSize\==128m
+-Xmx=512m

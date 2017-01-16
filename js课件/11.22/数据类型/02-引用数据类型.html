@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function Person(name,age){
+	
+				  this.name = name
+				  this.age = age
+			}
+			
+			var person1 = new Person("zhangSan",18)
+			var person2 = person1
+			person2 = new Person("王五",7)
+			
+			console.log(person1.name,person2.name)
+			//liSi liSi
+		</script>
+	
+	</body>
+</html>

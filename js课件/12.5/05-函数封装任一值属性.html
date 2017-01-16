@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="增大" />
+		<input type="button" value="减小" />
+		<div></div>
+		
+		<script type="text/javascript">
+			var btns = document.getElementsByTagName("input")
+			var div = document.getElementsByTagName("div")[0]
+
+			btns[0].onclick  = function(){
+				  
+				  animate(div,"width",150)
+				//  animate(div,"height",300) //同时改变width和height，只会改变最后一个
+				 
+			}
+			
+			//console.log(getComputedStyle(div)["width"]) //100px
+			
+			
+
+			//对任意对象 任意属性 修改为 目标位置
+			//让谁做动画   哪个属性  目标位置
+			function animate(obj,attr,target){
+				
+				clearInterval(obj.timer) 
+				obj.timer = setInterval(function(){
+					
+					var step = 5//步长
+					
+					//取出div当前的位置
+					var position = parseInt(getComputedStyle(obj)[attr]) //注意： parseInt（）
+				    
+				    //如果target目标位置大于起始位置，说明要向前走，step为10
+				    //如果target目标位置小于起始位置，说明要向后走，step为-10
+				   step = (target-position>=0)?step:-step
+					
+					//根据 目标位置与当前位置之间的距离，判断是否应该向前或者向后走一步
+					//如果两者之间的距离 大于 1个步长，说明可以走一步
+					//如果两者之间的距离 不足 1个步长，就直接将目标位置 赋值 给对象
+					if(Math.abs(target - position) > Math.abs(step)){
+						position += step
+					}else{
+						position = target
+						clearInterval(obj.timer)
+						console.log("定时器销毁了")
+					}		
+					obj.style[attr] = position + "px"
+
+				},30)
+			}
+
+			btns[1].onclick  = function(){
+				animate(div,"height",20)
+			}
+			
+		</script>
+		
+	</body>
+</html>

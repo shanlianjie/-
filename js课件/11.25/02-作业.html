@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+		</ul>
+		<input type="button" value="按钮" />
+		
+		<script type="text/javascript">
+			
+			//获取ul和按钮
+			var ul = document.querySelector("ul")
+			var btn = document.querySelector("input")
+			
+			var num = 0
+			btn.onclick = function (){
+				
+				num++
+				
+				//创建li元素节点
+				var li = document.createElement("li")
+				
+				//创建li的文本子节点
+				var textNodeLi = document.createTextNode("第"+num+"个li")
+				
+				//将文本子节点添加到li身上
+				li.appendChild(textNodeLi)
+				
+				//创建a标签
+				var a = document.createElement("a")
+				a.href = "#"
+				
+				var textNodeLi = document.createTextNode("删除")
+				
+				//将删除 文本子节点添加到a中
+				a.appendChild(textNodeLi)
+		       
+		        //将a元素节点添加到li中
+		        li.appendChild(a)
+		        
+		        //给超链接注册点击事件，删除
+		        a.onclick = function(){
+		        	    
+		        	  //  alert("ooooo")
+		        	  
+		        	  //this.parentNode就是 点击的a标签所在的li
+		        	  //将li从ul中删除
+		        	  ul.removeChild(this.parentNode)
+		        	  
+		        }
+		        
+		        
+				
+				//将li添加到ul
+			    ul.appendChild(li)
+				
+			}
+			
+//			var as = ul.getElementsByTagName("a")
+//			for (var i=0;i<as.length;i++) {
+//					var a = as[i]
+//					a.onclick = function(){
+//						
+//						alert("被执行了")
+//					}
+//			}
+			
+			
+		</script>
+	</body>
+</html>

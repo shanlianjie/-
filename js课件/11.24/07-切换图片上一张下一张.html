@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				display: block;
+				width: 200px;
+				margin: 20px auto;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button" value="上一张"/>
+		<input type="button" value="下一张"/>
+		 
+		<img src="image/fl-3.png" alt="" />
+		 
+		<script type="text/javascript">
+			//1.图片名字数组
+			var  imgNameArr =["image/fl-3.png","image/fl-4.png","image/fl-4c.png","image/fl-4s.png","image/fl-5.png","image/fl-dx.png",]
+			
+			//2.获取两个按钮
+			var btns = document.getElementsByTagName("input")
+			var previousBtn = btns[0]
+			var nextBtn = btns[1]
+			
+			//3.获取img对象
+			var img = document.querySelector("img")
+			
+			//定义index变量作为索引，从数组中取图片的路径
+			var index = 0
+			
+			//下一个按钮
+			nextBtn.onclick = function(){
+				
+				if(index == imgNameArr.length-1){
+					alert("已经是最后一张了")
+					return
+				}	
+				
+				index++;
+	
+				//img.src =
+				img.setAttribute("src",imgNameArr[index])
+				
+			}
+			
+			//上一个按钮
+			previousBtn.onclick = function (){
+				  
+				  if(index==0){
+				  	alert("已经是最后一张了")
+				  	  return
+				  }
+				
+				  index--
+				
+				img.src = imgNameArr[index]
+				
+			}
+			
+			
+		</script> 
+		 
+		
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			 * 1.所有的函数都有prototype属性
+			 * 2.构造函数的prototype属性指向的是一个对象，这个对象叫做原型
+			 * 3.所有的对象都有__proto__属性（非标准属性）
+			 * 4.通过构造函数创建出来的对象的__proto__属性，也指向原型对象（obj1.__proto === Person.prototype）
+			 * 
+			 * 站在不同人的角度，给原型起个名字：
+			 * 原型属性  是站在构造函数的角度来说
+			 * 原型对象	是站在对象的角度来说
+			 * 
+			 */
+			function Person(name,age){	
+				this.name = name,
+				this.age = age	
+			}
+			
+			var obj1 = new Person("zhangSan",18)
+			var obj2 = new Person("lisi",55)
+			
+			/*
+			 * 下边的构造函数，每构建一个实例都会拥有定义的实例属性，但是有一部分属性是一样的，这样的话就会造成内存的浪费，因为每构建一个实例对象，系统就会开辟一块内存空间用来存放该对象，此时每个对象都有相同的属性，就会重复开辟空间来存放这些属性。
+			 * 在js里边可以使用原型(prototype)来解决该问题。
+			 * prototype，中文意思叫做原型，它是构造函数的一个属性，它的值是一个实例对象。
+			 * 在原型(prototype)对象中声明属性，构造函数的所有实例，都可以获取到。
+			 */
+			Person.prototype.eat = function(){
+				 console.log("我吃饭了")
+			}
+
+			//console.log(obj1.eat === obj2.eat)//true
+			//console.log(Person.prototype === obj1.__proto__)//true
+			
+			//验证：obj1的原型对象的原型对象 是Objece.prototype
+			//console.log(obj1.__proto__.__proto__ ==Object.prototype)//true
+			
+			//Object.prototype的原型对象 为null
+			//console.log(Object.prototype.__proto__) //null
+			
+			//Person的prototype属性 指向的是一个对象，这个对象称为原型。
+			//console.dir(Person.prototype)
+			
+			//constructor 构造器
+			//原型身上有一个constructor属性，该属性指向构造函数
+			//console.log(Person.prototype.constructor)
+			
+			//验证：原型的constructor属性，确实指向了一个构造函数
+			//var obj3 = new Person.prototype.constructor("wangwu",12)
+			
+			//console.dir(obj3)
+			
+		</script>
+	</body>
+</html>

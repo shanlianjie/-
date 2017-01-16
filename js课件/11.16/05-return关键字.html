@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function rectArea (a,b){
+				var s = a * b
+				console.log(s)
+				//return 返回。 当代码执行到return,整个函数就执行结束。
+				//return 语句后面的代码是不会被执行的
+				 return 
+				 console.log("pppp")
+			}
+			
+			rectArea(3,4)
+			
+	//例子2 		
+			function fn1 (){
+				for(var i =0; i<101;i++){
+					
+					console.log(i)
+					
+					if(i==50){
+					   //break
+						return  //结束 当前函数，return下面的代码都不会被执行
+					}
+				}	
+				console.log("for循环执行完毕")
+				console.log("for循环执行完毕")
+				console.log("for循环执行完毕")
+				console.log("for循环执行完毕")
+				
+			}
+			
+			fn1()
+			
+			
+		</script>
+	</body>
+</html>

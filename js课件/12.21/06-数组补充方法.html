@@ -1,0 +1,136 @@
+ <!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			var obj = {}
+			var arr = ["a", "b", "c", "d"]
+
+			//1.语法：array.forEach(callback[, thisArg]) thisArg是可选的，用于指定由谁调用回调函数
+			//遍历数组的另外一种方法，参数是一个回调函数，回调函数内部可以写3个参数
+			//NO1：遍历出的数组中的每一个对象
+			//NO2: 遍历出的对象 在数组中的 索引
+			//NO3：数组本身
+			arr.forEach(function(item, index, originalArr) {
+				//console.dir(this)
+				//console.log(item,index,originalArr)
+			}, obj)
+
+			//2.map方法  遍历数组的一种方式， 可以返回一个新的数组，原来的数组不会有任何修改
+			var newArr = arr.map(function(item, index, originalArr) {
+					//console.log(item ,index)
+
+					return item + (index + 1) //返回数组中的每一项
+				})
+				//console.dir(newArr)	
+
+			//filter
+			arr = [5, 8, 9, 39, 23, 88]
+
+			//3.filter 过滤。 方法的返回值是个新数组
+			//语法：var new_arrary = arr.filter(callback[, thisArg])	
+			//回调函数  返回true，保留该元素。返回false，不保留该元素
+			//回调函数中 写 过滤条件
+			newArr = arr.filter(function(item, index, originalArr) {
+				/*if(item>10){
+					return true
+				}*/
+				return item > 10
+			})
+
+			//4.判断是否数组中的每一元素都大于5。如果每一个元素都符合指定的条件，方法的返回值就是true,否则就是false
+			//语法：arr.every(callback[, thisArg])
+			arr = [-1, 8, 8, 8, 9, 88]
+			var result = arr.every(function(item, index, originalArray) {
+				/* if(item>5){
+				 	return true
+				 }*/
+				return item > 5
+			})
+
+			//5.只要数组中的元素，有一个符合条件，方法的返回值就是true
+			result = arr.some(function(item, index, originalArray) {
+				/*if(item<0){
+					  return true
+				}*/
+				return item < 0
+			})
+			
+			
+			//6. arr.sort([compareFunction]) 
+			//compareFunction 参数可选。用来指定按某种顺序进行排列的函数。如果省略，元素按照转换为的字符串的诸个字符的Unicode位点进行排序。
+			//sort方法不会生成新的数组，原来的数组发生了变化
+			//如果 compareFunction(a, b) 小于 0 ，那么 a 会被排列到 b 之前；
+			//如果 compareFunction(a, b) 大于 0 ， b 会被排列到 a 之前。
+			//如果 compareFunction(a, b) 等于 0 ， a 和 b 的相对位置不变。
+			arr = [4, 6, 8, 3, 6, 9]
+			arr.sort(function(a, b) {
+				if(a > b) {
+					return -1
+				}
+				if(a < b) {
+					return 1
+				}
+				return 0
+			})
+			console.log(arr)
+
+			var items = [{
+				name: 'Edward',
+				value: 21
+			}, {
+				name: 'Sharpe',
+				value: 37
+			}, {
+				name: 'And',
+				value: 45
+			}, {
+				name: 'The',
+				value: -12
+			}, {
+				name: 'Magnetic'
+			}, {
+				name: 'Zeros',
+				value: 37
+			}]
+			
+			items.sort(function(a,b){
+				 if(a.value > b.value){
+				 	return 1
+				 }
+				 if(a.value<b.value){
+				 	 return -1
+				 }
+				 return 0
+			})
+			
+			//7. reduce() 方法接收一个函数作为累加器（accumulator），数组中的每个值（从左到右）开始合并，最终为一个值
+			//语法: arr.reduce(callback,[initialValue])
+			//是遍历数组中每一个元素，让其参与回调函数的运算，然后把参与运算后的值保存在回调函数的第一个参数内
+			arr = ["a","b","c","d"]
+			arr.reduce(function(pre,next){
+				console.log(pre,next)
+				return next+1
+			},{})
+			
+
+			/*模拟
+		    function myForEach(callBack){
+		    	    for (var i =0;i<this.lenght;i++) {
+		    	    	    var item = this[i]
+		    	    	    callBack(item,i,this)
+		    	    }
+		    }
+		    
+		    arr.myForEach(function(item,index,originalArray){
+		    	
+		    })*/
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			//1.普通的的调用 中的this
+			function fn1(){
+				console.log(1111 + this) //window
+			}
+			 fn1() //window.fn1()
+			 
+			//在全局作用域声明的函数或者变量 都是window身上的一个属性
+			var a = 123 
+			function fn2(){
+				console.log(this.a) //123 this是window
+			}
+			fn2()
+			
+			//2.方法的调用 中的this
+			//eg1:
+			var age = 99
+			var obj = {
+				age:18,
+				eat:function(){
+					//console.log(this.age) //1.this 是obj 18
+										    //2.this window 99
+				}
+			}
+			//1.
+			//obj.eat()
+			
+			//2.
+			var f = obj.eat
+			f() 
+			
+			//eg:2
+			var obj2 = {
+				height:180,
+				eat:function(){
+					console.log(this) //obj2
+					function f(){
+						console.log(this) //window
+					}
+					f() //window.f()
+				}
+			}
+			
+			obj2.eat()
+			
+			//3.构造函数中的this
+			function Person(name,age){
+				//构造函数中的this，指的是new出来的新对象
+				 this.name = name
+				 this.age = age
+			}
+			var p = new Person("zhangSan",19)
+			
+			//通过构造函数创建对象时，如果没有参数，（）小括号可以省略不写
+			var arr = new Array;
+			var obj4 = new Object;
+			
+			//4.事件函数中的this
+			
+			//5.this的指向可以改变， call/apply/bind
+			
+		</script>
+	</body>
+</html>

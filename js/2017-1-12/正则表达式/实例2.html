@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单验证</title>
+	</head>
+	<body>
+		<!--
+			\u4e00-\u9fa5：包含大部分中文
+			[\w \u4e00-\u9fa5]{2,6}等价于：
+			[0-9a-zA-Z_ \u4e00-\u9fa5]{2,6}
+		-->
+		<form action="javascript::" method="post">
+			
+			<label for="name">用户名:</label>
+			<input type="text" name="name" id="name" placeholder="请输入数字和字母的组合" required pattern="^[\u4E00-\u9FA5A-Za-z0-9_]+$"/>
+			
+			<br />
+			<label for="psw">密码:</label>
+			<input type="password" name="psw" id="psw" placeholder="请输入密码" required pattern="[0-9a-zA-Z.;]{6,16}"/>
+			<br />
+			<label for="phone">手机号:</label>
+			<input type="text" name="phone" id="phone" placeholder="请输入手机号" required pattern="^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$" onkeyup="this.value=this.value.replace(/[^1]/,'')" />
+			<br />
+			<label for="email">邮箱:</label>
+			<!--type:email会自动过滤邮箱的合法性-->
+			<input type="text" name="email" id="email" placeholder="请输入邮箱" required pattern="^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" />
+			
+			<input type="submit" value="提交"/>
+		</form>
+		<!--
+			数字/字母      @数字/字母 . 字母(2-3位)
+			^[0-9a-z]  @[0-9a-z] \. [a-z]{2-3}
+		-->
+	</body>
+	<script type="text/javascript">
+		
+		var nameInput = document.querySelector('#name')
+		
+		nameInput.onkeyup = function(e){
+			
+			
+			var value = this.value
+			
+			var regx = /^[\u4E00-\u9FA5A-Za-z0-9_]+$/g
+			
+			//test()是正则对象的一个方法，用来判断某一个字符串是否符合该正则，返回Boolean值
+			var result =  regx.test(value)
+			
+			//alert(result + this.value)
+			
+			if(!result){
+				
+				alert('非法字符！！！')
+				
+				this.value = value.replace(e.key,'')
+			}
+		}
+	</script>
+</html>

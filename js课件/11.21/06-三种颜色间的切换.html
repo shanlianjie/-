@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮"/>
+		<script type="text/javascript">
+			//1.获取btn标签元素
+			var btn = document.getElementsByTagName("input")[0]
+			//2.给btn注册点击事件
+			
+			var i =0
+			
+			btn.onclick = function (){
+				//改变body的背景颜色，实现红绿蓝三种颜色之间的切换
+				console.log(i) //0、1、2、3、4、5、6。。。
+				
+				var index = i%3 //余数范围[0 2]
+				
+				switch (index){
+				  case 0:{
+						document.body.style.backgroundColor ="red"
+					}
+						break;
+				   case 1:{
+						document.body.style.backgroundColor ="green"
+					}
+						break;
+				    case 2:{
+						document.body.style.backgroundColor ="blue"
+					}
+						break;
+					default:
+						break;
+				}
+
+				i++; //每点击1次按钮，让变量i的值加1
+			}
+		</script>
+	</body>
+</html>

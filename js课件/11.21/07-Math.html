@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+		
+			//eg1:求两个点之间的距离
+			var point1 = {
+				x: 10,
+				y: 20
+			}
+			var point2 = {
+				x: 30,
+				y: 5
+			}
+			var distance = Math.sqrt(Math.pow((point2.x - point1.x), 2) + Math.pow((point2.y - point1.y), 2))
+			//console.log(distance)
+			
+		//eg:
+		   var a1 = 9.99
+		   //向下舍入，将小数部分全部丢弃，floor“地板”
+		   console.log( Math.floor(a1) ) //9
+		   
+		   var a2 = 4.1
+		   //向上舍入  ceil"天花板"
+		   console.log( Math.ceil(a2) )
+		   
+		   var a3 = -100
+		   //取绝对值
+		   console.log(Math.abs(a3))
+		   
+		   //随机数 生成0(包含)~1(不包含)之间的随机数 
+		   var a4 = Math.random()
+		   //获取 [0 15] 之间的随机数  Math.floor( Math.random()*16 )
+		   //取 [35 105]--->[0 70] +35
+		   //取 [3.5 10.5] -->[35 105] /10 或者[3 10]+0.5
+		   //console.log(a4)
+		   
+		     a4 = Math.floor( Math.random()*16 )
+		     console.log(Math.floor(1e10*Math.random()%16))
+		       
+		   //PI属性
+		   console.log(Math.PI)
+		   
+		   //正弦/余弦  要写弧度值(需要将角度转成弧度)
+		   var a5 = Math.sin(30*Math.PI/180)
+		   //var a6  = Math.cos()
+		   console.log(a5)
+		   
+		   //求最大值 和 最小值
+		   var a7 = Math.max(10.6,10.7,10.5)
+		   // Math.min()
+		   console.log(a7)
+		   
+		   
+		   //写一个求某一范围内的随机数的函数
+		   function myRandom(m,n){
+		   	
+		   	    //如果n的值小于m,交换两个变量的值
+//		   	    if(n<m){
+//		   	    	   var i = m
+//		   	    	    m = n
+//		   	    	    n = i
+//		   	    }
+		   	   
+		   	   // [m n]-->[0 n-m] +m
+		   	   var random  = Math.floor(Math.random()*(n-m+1)) + m
+		   	
+		   	    return random
+		   }
+		 
+		   console.log("pp",myRandom(20,50)) 
+		   
+		   
+			
+		</script>
+
+	</body>
+
+</html>

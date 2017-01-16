@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<div>我是一个div <span>我是div中的span</span> </div>
+		<span>我是body中的span</span>
+		<script>
+			//$("选择器1>选择器2")   父子选择器
+			$("div>span").css("color","red")
+			
+			$("body>span").css("color","green")
+			
+			//后代选择器
+			$("body span").css("background-color","gray")
+			
+		</script>
+	</body>
+</html>

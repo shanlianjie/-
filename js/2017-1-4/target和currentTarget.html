@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				box-sizing: border-box;
+				border: 5px solid black;
+				padding: 10px;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		body
+		<div>
+			div
+			<section>
+				section
+				<span style="display:block;">span</span>
+			</section>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		/*
+		 * e.target获取到的永远是触发事件的那个标签元素.
+		 * 
+		 * e.currentTarget是事件在传播过程中，获取传播到的标签元素
+		 */
+		var div = document.querySelector('div')
+		
+		var section = document.querySelector('section')
+		
+		var span = document.querySelector('span')
+		
+		document.body.onclick = function(e){
+			
+			alert('body获取到点击事件了')
+			e.target.style.backgroundColor = 'pink'
+			
+			e.currentTarget.style.borderColor = 'orange'
+		}
+		
+		div.onclick = function(e){
+			
+			alert('div获取到点击事件了')
+			e.target.style.backgroundColor = 'orange'
+			
+			e.currentTarget.style.borderColor = 'pink'
+		}
+		
+		section.onclick = function(e){
+			
+			alert('section获取到点击事件了')
+			e.target.style.backgroundColor = 'blue'
+			
+			e.currentTarget.style.borderColor = 'red'
+		}
+		
+		span.onclick = function(e){
+			
+			alert('span获取到点击事件了')
+			e.target.style.backgroundColor = 'red'
+			
+			e.currentTarget.style.borderColor = 'blue'
+			
+		}
+	</script>
+</html>

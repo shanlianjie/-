@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    body{
+		    	   display: flex;
+		    	   justify-content: space-around;
+		    } 
+			input{
+				width: 80px;
+				height: 50px ;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button"  value="红" >
+		<input type="button"  value="绿" >
+		<input type="button"  value="蓝" >
+		
+	    <script type="text/javascript">
+	    	  
+	    	  //1.找到三个按钮
+	    	  var btns = document.getElementsByTagName("input") //伪数组
+	    	  
+	    	  //2.创建存放颜色的数组
+	    	  var arrColor = ["red","green","blue"]
+	    	  
+	    	  //2.给每一个按钮注册点击事件
+	    	  for(var i=0; i<btns.length;i++){
+	    	  	
+	    	  	  var btn = btns[i]
+	    	  	 
+	    	  	   btn.onclick = function(e){
+	    	  	
+	    	  	   	 //btn变量拿到的是for循环中，指向的最后一个
+	    	  	   	 //  var str = btn.value; //不可以用这种写法
+	    	  	   	 
+	    	  	   	 //哪个按钮调用的函数，this指向的就是谁
+	    	  	   	 //获取点击的按钮的value属性值
+	    	  	   	 //  console.log(this.value)
+	    	  	   	 //  console.log(e.target.value)
+	    	  	   	 
+	    	  	   	 switch (this.value){
+	    	  	   	 	case "红":
+	    	  	   	 	      {
+	    	  	   	 	      	document.body.style.backgroundColor ="red"
+	    	  	   	 	      }
+	    	  	   	 		break;
+	    	  	   	 	case "绿":
+	    	  	   	 	      {
+	    	  	   	 	      	document.body.style.backgroundColor ="green"
+	    	  	   	 	      }
+	    	  	   	 		break;
+	    	  	   	 	case "蓝":
+	    	  	   	 	      {
+	    	  	   	 	      	document.body.style.backgroundColor ="blue"
+	    	  	   	 	      }
+	    	  	   	 		break;
+	    	  	   	 		
+	    	  	   	 	default:
+	    	  	   	 		break;
+	    	  	   	 }
+	    	  	   	 
+
+	    	  	   }
+	    	  	   console.dir(btn)
+	    	  	   
+	    	  	   
+	    	  }
+	    	  
+	    	 
+	    	
+	    	
+	    </script>
+	</body>
+</html>

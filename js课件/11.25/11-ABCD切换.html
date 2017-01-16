@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<body>
+		<input type="button" value="A" />
+		<input type="button" value="A" />
+		<input type="button" value="A" />
+		
+		<script type="text/javascript">
+		
+			var btns = document.getElementsByTagName("input")
+			
+			var arr = ["A","B","C","D"]
+			
+			for(var i=0;i<btns.length;i++){
+				
+				var btn = btns[i]
+				
+				//每个按钮添加一个自定义属性，各自记录自己从arr中取值的索引
+				btn.dataset.index = 0
+				
+				btn.onclick = function(){
+					
+					//每次点击按钮，让索引值+1
+					var a = ++(this.dataset.index)
+					    console.log(a)
+					this.value = arr[a]
+					
+					//如果索引==arr.length-1,说明当前展示的已经是最后一个D了，
+					//重设index值从头开始
+					if(this.dataset.index == arr.length-1){
+						
+						 this.dataset.index = -1
+					}
+					
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>

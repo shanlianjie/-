@@ -1,0 +1,22 @@
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="常伟">
+        <title>Frameset解决方案</title>
+        <style>
+            
+        </style>
+    </head>
+    <!--使用frameset时，不能将它放在body标签内部！-->
+    <!--frameset不推存使用了-->
+    <frameset cols="20%,50%,30%">
+        <!--注意cols/rows属性的使用-->
+        <frame src="left-nav.html">
+        <!--引入子页面-->
+        <frame id="right" name="right" src="https://www.baidu.com">
+        <!--id属性不会成为超链接 target 目标-->
+        <!--name属性是超链接 target 的目标-->
+        <frame name="xxx" src="http://www.taobao.com">
+    </frameset>
+</html>

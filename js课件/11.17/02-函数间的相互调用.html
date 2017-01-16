@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			//函数之间可以相互调用
+			function fn1(){
+				console.log("fn1函数被执行了")
+				fn2()
+			}
+			function fn2(){
+				console.log("fn2函数被执行了")
+			}
+			
+			fn1()
+			
+		</script>	
+		
+	</body>
+</html>

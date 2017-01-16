@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		//onload 当页面加载完毕 执行，页面标签创建完成并且页面依赖的外部文件都下载完毕
+		//代码不是写在这里就是好的，因为这里要等所有的内容都加载完成才会最后执行
+		window.onload = function{
+			
+		}
+		</script>
+
+	</head>
+
+	<body>
+		<p>我是一个p</p>
+
+		<!--当img加载资源的时候，代码依然在向下执行-->
+		<img src="4.jpg" alt="" />
+		<section>ooooo</section>
+
+		<script type="text/javascript">
+			/*
+			 * load事件
+			 * 页面当中所有的内容和图片等依赖的外部资源文件加载完成之后才能被触发
+			 *
+			 * window body img 可以触发load事件
+			 * */
+
+			var img = document.getElementsByTagName("img")[0]
+			console.log(img.width) //值0，DOM对象虽然生成，但是图片资源还没有加载完成
+
+			//图片加载完成的时候调用
+			img.onload = function() {
+				console.log(img.width) //值348，图片加载完成，才能获取图片的宽度
+				alert("img加载完了")
+			}
+			console.log(document.getElementsByTagName("section")[0].innerText)
+
+			document.body.onload = function() {
+				alert("body加载完了")
+			}
+
+			window.onload = function() {
+				alert("kkkkk")
+			}
+
+			/*
+			 * DOMContentLoaded
+			 * DOM元素加载完成之后触发
+			 * 与load load是要等在所有的图片加载完成
+			 * 而DOMContentLoaded 不需要等待图片加载完成，只需标签完成
+			 * */
+			window.addEventListener("DOMContentLoaded", function() {
+				alert("window--所有的DOM元素加载完成")
+			})
+		</script>
+	</body>
+
+</html>

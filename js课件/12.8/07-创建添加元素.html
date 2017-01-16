@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+
+	<body>
+		<input type="button" value="添加" id="btn1" />
+		<div id="div1">
+			<p>我是段落1</p>
+			<p>我是段落2</p>
+			<p>我是段落3</p>
+		</div>
+		<div></div>
+		<section>我是section</section>
+		<button>按钮</button>
+
+		<script>
+			$("#btn1").click(function() {
+				//创建元素
+				//var a = $("<a href=\"http://www.baidu.com\">百度</a>")
+
+				/*添加新创建的元素,添加到子元素的最后面*/
+				//$("div").append(a)
+				//$("div").append("<main>我是main</main>")
+
+				/*添加页面上已有的元素 (原来的位置会剪切，如果目标位置多个，会进行复制)*/
+				//$("section").appendTo($("div"))
+
+				/*prepend（）添加到子元素的最前面*/
+				//$("div").prepend(document.querySelector("button"))
+
+
+				/*在div的前面插入一个p*/
+				  $("<p>我是段落1</p>").insertBefore($("div"))
+				/* 在section的前面添加了一些内容*/
+				$("section").before("我是secton前面新加的内容")
+
+
+				//$("section").after()
+				//$("<a href=\"#\">搜狐</a>").insertAfter()
+
+				/*
+				 * append()
+				 * 添加到子元素最后面，插入到元素内部的最后端
+				 * 参数 html字符串文本 / jquery对象 / DOM对象
+				 * 
+				 * prepend()
+				 * 添加到子元素最前面，插入到元素内部的最前端
+				 * 
+				 * */
+
+			})
+		</script>
+	</body>
+
+</html>

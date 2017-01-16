@@ -1,0 +1,222 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title></title>
+		<style>
+			body,
+			ul,
+			ol {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			img {
+				border: none;
+				vertical-align: top;
+			}
+			
+			#box {
+				width: 490px;
+				height: 150px;
+				position: relative;
+				margin: 30px auto;
+				overflow: hidden;
+			}
+			
+			ul {
+				width: 3000px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 1;
+			}
+			
+			ul li {
+				width: 490px;
+				float: left;
+			}
+			
+			ol {
+				z-index: 2;
+				width: 120px;
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+			
+			ol li {
+				width: 20px;
+				height: 20px;
+				float: left;
+				margin: 0 2px;
+				display: inline;
+				background: #fff;
+				color: #f60;
+				line-height: 20px;
+				text-align: center;
+			}
+			
+			ol .active {
+				background: #f60;
+				color: #fff;
+			}
+			
+			#arr {
+				/*display: none;*/
+			}
+			
+			#arr span {
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				left: 5px;
+				top: 50%;
+				margin-top: -20px;
+				background: #000;
+				cursor: pointer;
+				line-height: 40px;
+				text-align: center;
+				font-weight: bold;
+				font-family: '黑体';
+				font-size: 30px;
+				color: #fff;
+				opacity: 0.3;
+				border: 1px solid #fff;
+				z-index: 2;
+			}
+			
+			#arr #right {
+				right: 5px;
+				left: auto;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li><img src="images/1.jpg" alt="" /></li>
+				<li><img src="images/2.jpg" alt="" /></li>
+				<li><img src="images/3.jpg" alt="" /></li>
+				<li><img src="images/4.jpg" alt="" /></li>
+				<li><img src="images/5.jpg" alt="" /></li>
+			</ul>
+			<ol>
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ol>
+			<div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+		</div>
+		<script>
+			//给所有的按钮注册mouseover事件
+			var olLis = $("#box ol li")
+			var ulLis = $("#box ul li")
+			var width = $("#box").width()
+			var picIndex = 0
+			var btnIndex = 0
+			var target = 0
+
+			//右箭头
+			$("#right").click(showNext)
+
+			//左箭头
+			$("#left").click(function() {
+				
+				if(picIndex == 0) {
+					ulLis.eq(4).css({
+						"position": "relative",
+						"left": -5 * width + "px"
+					})
+				}
+				if(picIndex == 4) {
+					ulLis.eq(4).css({
+						"position": "static",
+						"left": 0 + "px"
+					})
+					$("ul").css("left", -4 * width + "px")
+				}
+
+				picIndex-- //-1
+				target = -picIndex * width + "px"
+				$("ul").stop().animate({
+					left: target
+				})
+
+				if(picIndex == -1) {
+					picIndex = 4
+				}
+
+				//console.log(picIndex)
+				//让按钮跟着走
+				controlBtnWithIndex(picIndex)
+
+			})
+			
+			//鼠标放到盒子上 清除定时器
+			$("#box").mouseover(function() {
+				clearInterval(timer)
+			})
+			
+			//鼠标离开盒子 开启定时器
+			$("#box").mouseout(function() {
+				timer = setInterval(showNext, 1000)
+			})
+			
+			//开启定时器
+			var timer = setInterval(showNext, 1000)
+
+			//控制按钮高亮显示 封装成一个函数
+			function controlBtnWithIndex(aIndex) {
+				console.log("aa" + aIndex)
+				olLis.removeClass("active").eq(aIndex).addClass("active")
+			}
+
+			//展示下一张 封装成一个函数
+			function showNext() {
+				if(picIndex == 4) {
+					ulLis.eq(0).css({
+						"position": "relative",
+						"left": 5 * width + "px"
+					})
+				}
+
+				if(target == -5 * width + "px") {
+					ulLis.eq(0).css({
+						"position": "static",
+						"left": 0 + "px"
+					})
+					$("ul").css("left", "0px")
+					picIndex = 0
+				}
+
+				if(picIndex == 4) {
+					//目标位置 与图片的索引和盒子宽度
+					target = -5 * width + "px"
+					picIndex = 0
+				} else {
+					picIndex++
+					//目标位置 与图片的索引和盒子宽度
+					target = -picIndex * width + "px"
+				}
+
+				$("ul").stop().animate({
+						left: target
+					})
+					//console.log(picIndex)
+					//让按钮跟着走
+				controlBtnWithIndex(picIndex)
+			}
+		</script>
+	</body>
+
+</html>

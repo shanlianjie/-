@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="index.css"/>
+		<style type="text/css" id="myStyle">
+			.div1{
+				color: red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="div1" style="background-color: gray;">我是div</div>
+		<p class="p1">我是一个段落</p>
+		<section>我是secton</section>
+		<script>
+			//获取文档中所有样式表 对象（集合）
+			var allStyleSheets = document.styleSheets
+			//console.log(allStyleSheets)
+			
+			//从集合中取出某一个样式表
+			var sheet = allStyleSheets[1]
+			//sheet.disabled = true
+			
+			//获取样式表中的所有的样式 对象(集合)
+			var cssRules = sheet.cssRules
+			
+			//获取某一条样式 （对象）
+			var cssRule = cssRules[0]
+			
+			//插入一条样式
+			//参数1：选择器
+			//参数2：位置
+			sheet.insertRule(".p1{color:green}",1)
+			sheet.insertRule(".p1{background-color:orange}",2)
+			
+			//动态的向head标签中添加style
+			var style = document.createElement("style")
+			//将style添加到head中
+			document.head.appendChild(style)
+			//向style中的样式表，添加一条样式
+			style.sheet.insertRule("div{border:1px solid blue}",0)
+			
+			console.dir(document.styleSheets)
+			
+			
+			//var a = document.getElementById("myStyle")
+			//console.dir(a.sheet)
+			
+			var section = document.querySelector("section")
+			section.style.cssText = "width:100px;height:100px;color:blue"
+			console.log(section.style.cssText)
+			
+			var link = document.querySelector("link")
+			//console.dir(link.sheet)
+			//disabled 不能使用
+			//link.sheet.disabled = true
+			
+			//修改网页的标题
+			document.title = "第一个网页"
+		</script>
+	</body>
+</html>

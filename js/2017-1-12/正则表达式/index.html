@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则表达式</title>
+	</head>
+	<body>
+		<!--
+			正则表达式(Regular Expression),有时候也叫规则表达式或是正则表示法。它主要是由一些普通字符和特定字符根据一定的规则(语法)进行排列形成的一个具有特殊意义的字符串，该字符串内的每一个字符都有特定的意义，可以起到对普通文本内容进行过滤、替换和匹配等操作。
+		-->
+	</body>
+	<script type="text/javascript">
+		
+		var str = 'this 11 is a test! 2017-01-12'
+		//字符串的常用操作
+		var result =  str.substring(2,3)
+		
+		result = str.indexOf('a')
+		
+		result = str.charAt(8)
+		
+		result =  str.slice(1,3)
+		
+		result =  str.replace('a','ab')
+		
+		//这种默认只能替换第一个
+		result = str.replace('i','I')
+		
+		//使用正则表达式可以替换所有的
+		result = str.replace(/i/g,'I')
+		
+		//split()按照指定字符拆分原字符串
+		//参数1：边界字符
+		//参数2：拆分后数组的容量
+		result = str.split('i')
+		
+		result = str.split('i',2)
+		
+		console.dir(result)
+		
+		alert(result)
+		/*
+		 * 对于String对象来讲，它有四个可以执行正则表达式的方法：
+		 * replace() 替换指定字符/子串
+		 * split()   按照特定字符/子串拆分原字符串
+		 * match()   获取匹配到的所有子串
+		 * search()  获取指定字符/子串在原字符串中开始的位置
+		 */
+		
+		//实例：获取字符串中的数字
+		var arr = []
+		var content = ''
+		for(var i = 0;i < str.length;i++){
+			
+			var aChar = str.charAt(i)
+			
+			if('0' >= 0 && aChar <= 9){
+				
+				if(aChar && aChar != ' '){
+					
+					content += aChar
+					
+				}
+				
+			}
+			else{
+				
+				if(content){
+					
+					arr.push(content)
+					
+					content = ''
+				}
+			}
+		}
+		
+		if(content){
+			
+			arr.push(content)
+			content = ''
+		}
+		
+		alert(arr)
+		
+		//使用正则表达式解决：
+		result =  str.match(/\d+/g)
+		
+		alert(result)
+	</script>
+</html>
+
+
+
+

@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Person(name,age){
+				this.name = name
+				this.age = age
+				
+				this.eat = function(){
+					console.log("今天我吃了饺子")
+					return this
+				}
+				this.setScore = function(aScore){
+					this.score  = aScore
+					console.log(this.score)
+					return this
+				}
+				this.getScore = function(){
+					return this.score
+				}
+			}
+			
+			var p1 = new Person("zhangSan","18")
+		   // var a =	p1.eat().setScore(85).getScore()
+		    p1.setScore(85).getScore().eat()
+		    
+		    //
+			
+		</script>
+	</body>
+</html>

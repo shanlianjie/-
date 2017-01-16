@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			 .bigger{
+			 	font-size: 35px;
+			 }
+			 .smaller{
+			 	font-size: 12px;
+			 }
+			 .bg{
+			 	background-color: gray;
+			 }
+			 .decoration{
+			 	text-decoration: underline;
+			 }
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+		<script>
+			$(document).ready(function(){
+				//添加类样式
+				$("#add").click(function(){
+					//$("li").addClass("bg")
+					//$("li").addClass("decoration")
+					$("li").addClass("bg decoration smaller")
+				})
+				
+				//删除类样式
+				$("#remove").click(function(){
+					//$("li:first").removeClass("decoration bg")
+					
+					//removeClass()没有参数，就是删除所有的类样式
+					 $("li:last").removeClass()
+				})
+				
+				//是否有某个类样式
+				$("#has").click(function(){
+					//console.log($("li").hasClass("decoration"))
+					//$("li").toggleClass("decoration")
+					
+					//遍历
+					//$("选择器").each(function(index,element){})
+					$("li").each(function(index,ele){
+						//console.log(index) //DOM对象在集合中的索引
+						//console.log(ele)   //DOM对象
+						if($(ele).hasClass("decoration")){
+							$(ele).removeClass("decoration")
+						}else{
+							$(ele).addClass("decoration")
+						}
+					})		
+				})
+				
+				//切换类样式
+				$("#change").click(function(){
+					var result = $("li").hasClass("decoration")
+//					
+//					if(result){
+//						$("li").removeClass("decoration")
+//					}else{
+//						$("li").addClass("decoration")
+//					}
+					
+					$("li").toggleClass("decoration")
+				})
+				
+				$("#fn").click(function(){
+					
+					$("li").addClass(function(index,currentClass){
+						//console.log(index) //DOM对象在集合中的索引
+						//console.log(currentClass) //DOM对象class属性的值
+						console.log(this)
+						if($(this).hasClass("decoration")){
+							$(this).removeClass("decoration")
+						}else{
+							return "decoration"
+						}
+					})
+					
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+		<input type="button" value="添加类样式" id="add"/>
+		<input type="button" value="删除类样式" id="remove"/>
+		<input type="button" value="是否有某个样式" id="has"/>
+		<input type="button" value="切换类样式" id="change"/>
+		<input type="button" value="获取类样式",id="get"/>
+		<input type="button" value="函数写法" id="fn"/>
+		
+		<ul>
+			<li>1111</li>
+			<li class="decoration">2222</li>
+			<li>333</li>
+			<li>4444</li>
+		</ul>
+	</body>
+</html>

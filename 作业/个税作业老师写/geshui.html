@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet/less" href="计算器.less">
+    <script   type="text/javascript" src="less.js"></script>
+</head>
+<body>
+    <header>个人计算器</header>
+    <form action="#">
+        <!--autocomplete 自动完成-->
+        <input type="text" id="jishu" placeholder="基本工资" required autocomplete="off">
+        <input type="text" id="jixiao" placeholder="绩效" required>
+        <input type="text" id="jiangjin" placeholder="奖金" required>
+        <button>计&#x3000算</button>
+    </form>
+    <section>
+        <dl>
+            <dt>工资金额</dt>
+            <dd id="zonge">0.00</dd>
+        </dl>
+        <div></div>
+          <dl>
+            <dt>养老</dt>
+            <dd id="yanglao">0.00</dd>
+        </dl>
+        <div></div>
+          <dl>
+            <dt>医疗</dt>
+            <dd id="yiliao">0.00</dd>
+        </dl>
+        <div></div>
+          <dl>
+            <dt>失业</dt>
+            <dd id="shiye">0.00</dd>
+        </dl>
+        <div></div>
+          <dl>
+            <dt>工伤</dt>
+            <dd id="gongshang">0.00</dd>
+        </dl>
+        <div></div>
+          <dl>
+            <dt>生育</dt>
+            <dd id="shengyu">0.00</dd>
+        </dl>
+        <div></div>
+          <dl>
+            <dt>公积金</dt>
+            <dd id="gongjijin">0.00</dd>
+        </dl>
+        <div></div>
+          <dl>
+            <dt>计税</dt>
+            <dd id="jishui">0.00</dd>
+        </dl>
+        <div></div>
+          <dl>
+            <dt>税</dt>
+            <dd id="shui">0.00</dd>
+        </dl>
+        <div></div>
+          <dl>
+            <dt>实发工资</dt>
+            <dd id="shifa">0.00</dd>
+        </dl>
+        <div></div>
+    </section>
+
+<section class="box1"></section>
+<section class="box2"></section>
+
+
+    <script src="calc.js"></script>
+</body>
+</html>

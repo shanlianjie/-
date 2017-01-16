@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Animal(name,age){
+				this.name = name
+				this.age = age
+			}
+			
+			Animal.prototype.eat = function(){
+				console.log("eat111111111")
+			}
+			
+			
+			function Cat(name,age,color){			 
+			 // Animal.call(this,name,age)
+				Animal.apply(this,arguments)
+				this.color = color
+			}
+
+			Cat.prototype = Object.create(Animal.prototype)
+			Cat.prototype.constructor = Cat
+			//子对象继承父对象之后，可以使用父对象的一切属性和方法，同时也可以重新实现父对象的方法，这就是方法的重写
+			//重写父对象的方法，分为完全重写和部分重写
+			//完全重写：就是完全覆盖父对象原来的代码逻辑
+			//部分重写：就是既保留父对象原来的逻辑代码，又可以扩充自己的代码
+			
+			//完全重写
+			/*
+			Cat.prototype.eat = function(){
+				console.log("cat中的eat方法")
+			}*/
+			
+			//部分重写
+			Cat.prototype.eat = function(){
+				//将父对象eat方法中的逻辑也继承下来
+				Animal.prototype.eat.call(Cat.prototype)
+				console.log("eat22222")
+			}
+			
+			var cat1 = new Cat("xiaohuang",2,"yellow")
+			console.log(cat1.name)
+			cat1.eat()
+			
+		</script>
+	</body>
+</html>

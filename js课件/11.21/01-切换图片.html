@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text"/>
+		<input	type ="button" value="按钮" onclick="btnClick()"/>
+		<br/>
+		<br/>
+		<img src= "1.jpg"/>		
+		
+		<script type="text/javascript">
+		    
+		    //根据标签名，获取元素
+			var inputs = document.getElementsByTagName("input") //伪数组（包含两个input）
+			console.log(inputs)
+			
+			var textInput = inputs[0]
+			var btn = inputs[1]
+			
+			//给btn注册点击事件
+			function btnClick (){
+				
+			    //1.获取获取文本框中的内容
+			  var str = textInput.value  
+			  
+			  	//如果文本框内容为空，程序就不向下执行
+			    //怎么判断str是否是个字符串内容为空
+			    //str ==="";  str; str.length
+			     //length =0 
+			    if(!str.length){
+			    	   //字符串为空
+			    	    return
+			    }
+			     //2.获取文本框中的内容，赋值给img的src属性
+			     //获取img标签元素
+			  var img =	document.getElementsByTagName("img")[0]
+			       img.src = str
+			}
+		</script>
+		
+	</body>
+</html>

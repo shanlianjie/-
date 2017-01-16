@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<a href="http://www.baidu.com">百度</a>
+		<input type="text" id="txt"/>
+		<script>
+			$("#txt").focus(function(){
+				
+				alert("获取焦点了被点了")
+				//console.log("获取焦点了被点了")
+			})
+			
+			//简单的触发事件
+			//$("input").focus()
+			
+			//trigger 触发
+			//$("input").trigger("focus")
+			
+			//triggerHandler 不会触发浏览器的默认行为
+			//$("#txt").triggerHandler("focus")
+
+			$("a").click(function(){
+				console.log("a被点击了")
+			})
+			
+			//a标签 trigger方法 貌似 也不会有浏览器默认行为
+			$(document).click(function(){
+				//$("a").trigger("click")
+				//$("a").click()
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.bg {
+				background-color: green;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+
+	<body>
+		<input type="button" value="添加属性" id="add" />
+		<input type="button" value="删除属性" id="remove" />
+		<input type="button" value="获取属性" id="get" />
+		<a target="_blank">百度</a>
+		<a target="_self">百度</a>
+
+		<input type="checkbox" checked>
+
+		<script>
+			$("#add").click(function() {
+				//attr(attributeName,value) 
+				//添加属性
+				// $("a").attr("href","http://www.baidu.com")
+				// $("a").attr("title","我是百度")
+
+				//同时添加多个属性
+				$("a").attr({
+					"href": "http://www.baidu.com",
+					"title": "我是百度",
+					id: "link1",
+					"class": "bg" //class是关键字，尽量使用字符串
+				})
+			})
+
+			//删除属性
+			$("#remove").click(function() {
+				//$("a").removeAttr("class title")
+				//如果方法中没有参数，就不进行任何操作。这点与 removeClass()方法不同
+				$("a").removeAttr()
+			})
+
+			$("#get").click(function() {
+
+				//获取的是集合中第一个元素的 属性值
+				console.log($("a").attr("target"))
+
+			})
+
+			var check = document.querySelector("input[type=checkbox]")
+				//console.log(check.checked)
+				//console.log(check.getAttribute("checked"))
+
+			//checked  selected disabled  用prop()方法获取 
+			//1.获取的checked字符串，不是我们想要的结果，我们想要true和false，用prop()方法去拿
+			//console.log( $("input[type=checkbox]").attr("checked"))  
+
+			//2.prop（）方法获取的是true和false
+			console.log($("input[type=checkbox]").prop("checked"))
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<button>影藏</button>
+	<div>请点击按钮，控制我的显示和影藏</div>	
+	<script type="text/javascript">		
+		//获取按钮和div
+		var btn = document.querySelector("button")
+		var div = document.querySelector("div")		
+		btn.onclick = function(){
+			//如果点击按钮的时候按钮的标题是影藏，就执行影藏的逻辑
+			if(this.innerText == "影藏"){				
+				div.style.display="none"
+				this.innerText= "展示"
+			}else{
+				div.style.display="block"
+				this.innerText= "影藏"				
+			}			
+		}		
+	</script>
+</body>
+</html>

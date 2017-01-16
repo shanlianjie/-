@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				margin: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="div" style="left: 50px;"></div>
+		
+		<script type="text/javascript">
+			
+			var div = document.getElementById("div")
+			
+			console.log(div.style.left)  //只有设置定位才有效,包括margin 50px
+			console.log(div.offsetLeft)  //不包括margin 80px
+			
+		    div.style.left  ="100px"
+			
+			
+		</script>
+		
+	</body>
+</html>

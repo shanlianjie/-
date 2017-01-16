@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script src="jquery-3.1.1.js"></script>
+		<script>
+		
+		//$(),传不同的参数，就有不同的功能
+			
+			//1.$(), 传一个函数进去， 就是入口函数的写法
+			$(function(){
+
+			})
+			
+		   //2.$("选择器"), 获取jQuery对象
+		   var obj1	= $("#div1")
+		  
+		   //3.$(js对象)，就可以将js对象 转换成 jQuery对象
+		   var obj = document.getElementById("div1")
+		   var obj2 =  $(obj)
+		  
+		   console.dir(obj1)
+		   console.dir(obj2)
+			
+			
+			//$ 是一个函数名
+		   console.log(typeof $) //function
+		   console.log( $ === jQuery )
+			
+		   //   完全等价的
+		   //	$("#div1")
+		   //	jQuery("#div1")
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script>
+			
+			//apply() / call() /bind() 方法可以改变this的指向
+			/*
+			 * apply()和call()的作用一样，只不过写法不一样：
+			 * call()里边要传参数，是在this之后，把参数放在参数列表中用','隔开；
+			 * 而apply()则是把参数放到this后边的数组[]中，以数组的形式传递给父对象
+			 */
+			
+			function Person(name,age){
+				 this.name  = name
+				 this.age = age
+				 console.log(this) //这里的this就变成div了
+				 console.dir(this)
+			}
+			
+			var div = document.querySelector("#div1")
+			
+			//Person.call(div,"zhangSan",18)
+			
+			Person.apply(div,["zhangSan",18])
+		</script>
+	</body>
+</html>

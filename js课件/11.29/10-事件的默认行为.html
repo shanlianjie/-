@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		
+		<a href="http://www.baidu.com">百度</a>
+		<a href="http://www.taobao.com">淘宝</a>
+		<a href="http://www.163.com" onclick="fn99();return false">网易</a>
+		
+		<br />
+		<br />
+		
+		<form action="">
+			<input type="text" name="username"=/>
+			<input type="reset" />
+			<input type="submit" />
+		</form>
+		
+		
+		<script type="text/javascript">
+			var firstLink = document.querySelector("a")
+			
+			//点击a标签，默认就会跳转
+			//阻止事件的默认行为
+			firstLink.onclick = function(ev){
+				alert("111111")
+			//阻止事件的默认行为	
+				//方法二：
+				ev.preventDefault()
+				
+				//方法一：
+				//return false
+			}
+			
+			var secondLink = document.querySelector("a:nth-of-type(2)")
+			secondLink.addEventListener("click",function(ev){
+				alert("second")
+				
+				ev.preventDefault() //可以
+				//return false; //没有阻止掉事件默认行为
+			})
+			
+	//表单事件中默认行为  默认提交  默认重置
+			var form = document.getElementsByTagName("form")[0]
+			
+			//表单提交的时候触发
+			form.onsubmit = function(ev){
+				alert("表单被提交了")
+				
+				ev.preventDefault()
+				//return false;
+			}
+			
+			//表单提交的时候触发
+			form.onreset = function(ev){
+				alert("表单被重置了")
+				
+				//ev.preventDefault()
+				//return false;
+			}
+			
+			
+			function fn99(){
+				 alert("fn1------")
+			}
+			
+			
+		</script>
+	</body>
+</html>

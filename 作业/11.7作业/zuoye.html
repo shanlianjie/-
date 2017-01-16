@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="author" content="Jxz">
+	<title></title>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		body,
+		p,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		ul,
+		li,
+		dd,
+		td {
+			margin: 0;
+			padding: 0;
+		}
+		
+		body {
+			padding-top: 50px;
+		}
+		
+		.my-navbar {
+			background-image: url(nav-bg.png);
+			background-repeat: repeat-x;
+			width: 100%;
+			position: fixed;
+			top: 0px;
+		}
+		
+		.navbar-brand img {
+			position: relative;
+			top: -15px;
+		}
+		
+		#my-navbar-nav {
+			margin-left: 60px;
+		}
+		
+		#my-navbar-nav a {
+			height: 45px;
+			padding: 15px 0;
+		}
+		
+		#my-navbar-nav a:hover {
+			border-bottom: 2px solid blue;
+		}
+		
+		#my-navbar-nav li+li {
+			margin-left: 35px;
+		}
+		
+		#my-navbar-nav a.active {
+			border-bottom: 2px solid blue;
+		}
+		/*搜索框的设置*/
+		
+		.search {
+			position: relative;
+			top: 10px;
+		}
+		
+		.search input {
+			width: 200px;
+			height: 30px;
+			border-radius: 10px;
+			border: 1px solid lightgray;
+			text-align: center;
+		}
+		
+		.banner {
+			height: 400px;
+			background-image: url(banner.png);
+			background-size: auto 100%;
+			background-position: center center;
+			background-repeat: no-repeat;
+		}
+		/*内容区域*/
+		
+		.content>div {
+			padding: 0 8px;
+			height: 240px;
+		}
+		
+		.content h2 {
+			height: 30px;
+			background-image: url(s-bg1.png);
+			background-size: auto 30px;
+			font-size: 16px;
+			color: white;
+			line-height: 30px;
+			padding-left: 10px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+		.content>div:nth-child(2) img{
+			background-image: url(s-bg2.png);
+		}
+		
+		.content h3 {
+			font-size: 16px;
+			margin-bottom: 8px;
+		}
+		
+		.content p {
+			font-size: 14px;
+		}
+		
+		.content>div>div {
+			padding: 8px;
+			
+		}
+		/*新闻*/
+		
+		.top {
+			overflow: hidden;
+			border-bottom: 1px dotted gray;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+		}
+		
+		.news .top section {
+			float: right;
+			width: calc(100% - 100px);
+		}
+		
+		.content a {
+			float: right;
+			text-decoration: none;
+		}
+		
+		.news dl {
+			overflow: hidden;
+		}
+		
+		.news dt {
+			float: left;
+			font-size: 14px;
+		}
+		
+		.news dd {
+			float: right;
+		}
+		/*服务*/
+		.service img{
+			width: 100%;
+			height: 80px;
+
+		}
+		.service section{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		.service a{
+			width: 40%;
+			height: 26px;
+			background-color: lightgray;
+			text-align: center;
+			margin: 5px 0;
+			color: black;
+		}
+		/*footer*/
+		footer{
+			position: fixed;
+			background-color: lightgray;
+			width: 100%;
+			bottom:0px;
+		}
+		footer ul{
+			list-style: none;
+			overflow: hidden;
+			float: right;
+			margin: 10px 0;
+		}
+		footer ul li{
+			float: left;
+		}
+
+		footer ul li a{
+			display: block;
+			height: 30px;
+			line-height: 30px;
+			color: gray;
+			text-decoration: none;
+
+		}
+		footer p{
+			margin: 10px 0;
+			height: 30px;
+			
+			line-height: 30px;
+			display: inline-block;
+		}
+		footer ul li+li{
+			margin-left:22px;
+		}
+		@media (max-width:820px){
+			footer{
+				text-align: center;
+			}
+			footer ul{
+				
+				display: inline-block;
+				margin-top: 0;
+			}
+		}
+		@media (max-width:768px){
+			#my-navbar-nav a:hover {
+			border-bottom:none;
+		}
+		
+		#my-navbar-nav li+li {
+			margin-left:0px;
+		}
+		
+		#my-navbar-nav a.active {
+			border-bottom:none;
+		}
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-default my-navbar " role="navigation">
+		<!--与bootstrap上的实例代码不同，讲容器可以换成container-->
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+				<a class="navbar-brand" href="#"><img src="logo.png" alt="">
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-left" id="navbar-collapse">
+				<ul class="nav navbar-nav " id="my-navbar-nav">
+					<li><a href="#" class="active">首页</a></li>
+					<li><a href="#">媒体中心</a></li>
+					<li><a href="#">关于我们</a></li>
+					<li><a href="#">业务板块</a></li>
+					<li><a href="#">产品服务</a></li>
+				</ul>
+			</div>
+			<!--搜索框-->
+			<div class="search navbar-right visible-lg-block visible-md-block">
+				<input type="text" placeholder=" search here...">
+
+			</div>
+		</div>
+		<!-- /.container -->
+	</nav>
+
+	<!--内容区域-->
+	<div class="banner"></div>
+
+	<div class="container content">
+
+		<div class="col-md-4 col-sm-12 bg-success">
+			<h2>公司动态</h2>
+			<div class="news">
+				<div class="top">
+					<img src="news.png" alt="">
+
+					<section>
+						<h3>今日学习bootstrap</h3>
+						<p>11月8日，今日学习bootstrap今日学习bootstrap今日学习bootstrap今日学习bootstrap今日学习bootstrap</p>
+						<a href="#">READ MORE&gt;&gt;&#x3000</a>
+					</section>
+
+				</div>
+				<div class="bottom">
+
+					<dl>
+						<dt>我们已经学习姐姐的角度</dt>
+						<dd>2016-8-23</dd>
+						<dt>我们已经学习姐姐的角度</dt>
+						<dd>2016-8-23</dd>
+						<dt>我们已经学习姐姐的角度</dt>
+						<dd>2016-8-23</dd>
+					</dl>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div class="col-md-4 col-sm-12 bg-danger">
+			<h2>产品</h2>
+			<div class="hotspot">
+
+				<div class="top">
+					<h3>fsdfdsfs</h3>
+					<p>fsdfsfsfdf个的方式该死的撒分公司的sdfsdfdsfdf</p>
+					<a href="#">READ MORE&gt;&gt;&#x3000</a>
+				</div>
+				<div>
+					<h3>fsdfdsfs</h3>
+					<p>fsdfsfsfdf个的方式该死的撒分公司的sdfsdfdsfdf</p>
+					<a href="#">READ MORE&gt;&gt;&#x3000</a></div>
+			</div>
+
+
+		</div>
+
+		<div class="col-md-4 col-sm-12 bg-warning">
+			<h2>产品与服务</h2>
+			<div class="service">
+				<img src="service.png" alt="">
+				<section>
+					<a href="#">&gt;html5</a>
+					<a href="#">&gt;CSS3</a>
+					<a href="#">&gt;html5</a>
+					<a href="#">&gt;html5</a>
+				</section>
+			</div>
+
+		</div>
+
+
+
+	</div>
+
+<!--foot 尾部-->
+<footer>
+	<div class="container">
+		<p>jnsfjfajfja2004-2012sdafhhhd dd </p>
+		<ul>
+			<li>
+				<a href="#">网站地图</a>
+			</li>
+			<li>
+				<a href="#">关于宝钢</a>
+			</li>
+			<li>
+				<a href="#">工作机会</a>
+			</li>
+			<li>
+				<a href="#">法律声明</a>
+			</li>
+			<li>
+				<a href="#">友情链接</a>
+			</li>
+		</ul>
+	</div>
+
+</footer>
+
+
+	<script src="bootstrap/js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

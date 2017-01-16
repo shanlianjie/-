@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			/*
+			 * 内存
+			 * 栈内存stack 由系统自动分配的内存空间 释放时也由系统来完成
+			 * 堆内存heap 动态分配的内存空间 大小不定而且也不会自动释放
+			 * 根据分配方式的不同，把数据分为两种
+			 * 基本类型 放置栈内存当中 undefined null Number string boolean
+			 *          大小确定，数据段比较简单
+			 * 引用类型 放置在堆内存当中 变量保存就是一个指针 （指向于堆内存）
+			 *           数据大小不确定 ，分配的空间大小也不确定
+			 *         当需要访问引用类型的数据时，首先先从栈内存中获取对象的指针地址
+			 *        再从堆中获取相应的数据
+			 *        引用类型：对象  object Array Math Function 等
+			 *
+			 * */
+			//在内存中开辟一块空间
+			var a = 4//栈内存当中
+			var b = a
+			b = 6
+
+			var str = "88888"
+			/*
+			 * str.length 系统内部的实现原理
+			 * 1、var strObj	=new String(str) //包装基本数据类型
+			 * 2.     trObj.length
+			 * 3.     strObj = null
+			 */
+			//str.length  
+
+			console.log(typeof str) //String
+
+			console.log(typeof new String(str)) //Object
+
+			var obj1 = {    //堆内存
+				name: "zhangSan",
+				age: 18
+			}
+
+			var obj2 = obj1
+			obj2.name = "王五" //全局变量，页面关闭的时候，才会被销毁
+
+			//console.log(obj1.name)
+
+			//console.log(a)	  
+
+			function fn1() {
+
+				var stu = {
+						name: "lisi",
+						age: 18
+					}
+					//stu是局部变量，在函数执行完毕就会被销毁了
+			}
+
+			fn1()
+			fn1() //再次执行函数，生成新的变量
+			
+			var obj3;
+			function fn2(){
+				obj3 ={} //对象由一个全局变量指向，页面关闭对象才会被销毁
+			}
+
+			/*
+			 * js垃圾回收机制：系统会按照固定的时间周期找出不再使用的变量，释放它所占的那块内存空间
+			 * 
+			 * 全局变量 和 局部变量（函数才能形成一个局部作用域）
+			 * 
+			 * 全局变量和局部变量什么时候销毁？
+			 * 1、全局变量其实是window身上的一个属性，依附于window,当浏览器页面关闭的时候，它所占的内存空间才会被回收
+			 * 2、局部变量，函数执行结束，就会被销毁
+			 * 
+			 */
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<ul id="myUl">
+			<li>1111</li>
+			<li>2222</li>
+			<li>3333</li>
+			<li>44444</li>
+		</ul>
+		<script type="text/javascript">
+		
+			//获取ul对象
+			var ul = document.getElementById("myUl")
+			
+			//获取的是ul的元素节点(集合)
+			var list = ul.children
+			
+			for (var i=0;i<list.length;i++) {
+				
+				var li = list[i]
+				li.style.color = "red"
+			}
+			
+			console.log(list)
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则表达式</title>
+	</head>
+	<body>
+		<!--
+			在js中创建正则表达式有两种方式：
+			1:new RegExp() 即new构建
+			2:字面量的方式
+		-->
+		<script type="text/javascript">
+		
+			var str = 'this Is a test! 2017-01-12'
+			/*
+			 * new 构建正则对象,有两个参数：
+			 * new RegExp(正则字符串,正则修饰符)
+			 * 其中 '正则修饰符' 为可选参数
+			 * 正则修饰符常用的有两个：
+			 * 1: 'g',代表global 即全局匹配
+			 * 2: 'i',代表ignore case 即 不区分大小写
+			 */
+			var regx =  new RegExp('is')
+			
+			alert(regx)
+			regx = new RegExp('is','g')
+			
+			regx = new RegExp('is','gi')
+			
+			var result =  str.match(regx)
+			
+			result = str.replace(regx,'*')
+			
+			
+			/*
+			 * 使用字面量的方式创建正则对象：
+			 * 
+			 * 格式：/正则字符串/正则修饰符
+			 * 
+			 * (推荐)
+			 */
+			
+			var regx = /is/gi
+			
+			result = str.replace(regx,'$')
+			
+			alert(result)
+			
+		</script>
+	</body>
+</html>

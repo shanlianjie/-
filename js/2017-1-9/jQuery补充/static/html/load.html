@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery的load方法</title>
+		<script src="jquery.js"></script>
+	</head>
+	<body>
+		<div></div>
+		<p></p>
+		<button>jQuery的load方法</button>
+	</body>
+	<script type="text/javascript">
+		
+		$('button').click(function(){
+			
+			/*
+			 * jQuery的load()方法用来加载文件的方法，并且可以把加载到的文件内容设置为指定元素的innerHTML。
+			 */
+			
+			//用法1：$(selector).load(filePath)
+			//作用：把filePath指定的文件内容获取到并设置为selector对应的标签元素的innerHTML.
+			//$(this).load('load.txt')
+			
+			//用法2：$(selector1).load('filePath selector2')
+			//作用是：获取filePath指定的文件内容某一部分内容(selector2)，并设置为selector1对应的标签元素的innerHTML.
+			
+			//$('div').load('load.txt #p')
+			
+			
+			//用法3：$(selector).load('filePath',data,callback)
+			//作用：这种用法其实就和普通的ajax请求一样了.
+			//但是需要注意：
+			//1,同样会把返回数据设置为selector的innerHTML
+			//2,假如load()方法的data参数有值则默认发送post请求，相当于$.post()方法。假如没值则默认发送GET请求，相当于$.get()方法。
+			$('p').load('/loadTest',{name:'roy'},function(response,statusText,xhr){
+				
+				response = JSON.parse(response)
+				alert(response.msg)
+			})
+		})
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

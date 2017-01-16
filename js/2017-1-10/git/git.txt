@@ -1,0 +1,107 @@
+安装GIT
+安装完成在开始菜单找到Git Bash 工具，用来执行git命令。
+进入桌面  Desktop
+在Git Bash键入如下命令：
+命令: git --version  查看git版本
+命令：pwd     查看当前目录
+命令：cd   xxx     进入xxx目录
+命令：mkdir xxx  创建xxx文件夹
+命令：rmdir xxx  删除xxx文件夹
+命令：clear  清除当前命令行窗口的内容
+
+命令：git init    初始化一个空的git 仓库(repository)。初始化成功后在该目录下有一个隐藏文件夹.git。
+
+命令：ls -ah 查看隐藏文件。
+
+命令：vim xxx.txt 创建一个xxx.txt 文件。接下来点击键盘'i'键，进入插入模式来编辑该文本文件。编辑完成点击键盘'esc'键结束编辑模式。接下来输入':wq'回车，保存并退出。此时在当前目录会有一个xxx.txt文件，内容为刚刚编辑的内容。
+
+命令：git add xxx  把xxx文件提交到本地仓库的暂存区。
+
+注意：add 的时候可能会有警告：
+---------------------------------- --------------------
+worning： LF will be replaced by CRLF in 111.txt.
+The file will have its original line endings in your working directory.
+----------------------------------------------------------
+解决办法：使用命令：git config core.autocrlf false
+
+
+命令：git commit -m  xxxxx   用来把暂存区的内容提交到真正的仓库，其中xxxxx是一个描述信息(提交日志)用来描述该次提交的详细内容。
+
+此时假如有如下警告信息：
+------------------------------------------------------
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: empty ident name (for <(null)>) not allowed
+--------------------------------------------------------
+
+则代表需要配置用户名和邮箱来识别当前用户。
+
+解决方法：
+命令：git config --global user.name "Your Name"
+命令：git config --global  user.email "email@example.com"
+分别代表配置用户名和邮箱。
+
+
+
+
+命令：git log  查看提交(操作)日志
+
+执行完log命令之后，会显示如下信息：
+-----------------------------------------------------
+commit cbb0def66d6fcc4e6982b0b7a7c75b0ae45eca2c//本次提交分配的编号
+Author: Roy <zuy89@icloud.com>//作者信息
+
+Date:   Tue Jan 10 14:34:58 2017 +0800//提交的时间
+
+    这是roy的第一次提交     //提交的日志说明信息
+
+-----------------------------------------------------
+
+命令：git log --pretty=oneline 用来打印提交日志列表，每一条日志显示一行
+
+命令：git status 用来查看当前工作区和暂存区代码的差别。
+
+命令：git add  .     用来把当前工作区所有更改都提交到暂存区。
+
+命令：git commit -a -m xxxxx 代表一次性add并commit。
+
+命令：git checkout  --  xxx   代表把当前工作区的修改撤销到修改之前的状态(前提是还未add到暂存区)。
+
+命令：git reset HEAD xxx 是把xxx文件已经add到暂存区的修改给撤销掉(前提是没有commit到仓库)。
+此刻需要注意:把暂存区的撤销之后 ，工作区的内容不会随着暂存区主动撤销，想要撤销工作区的修改需要执行git checkout -- xxx 命令。
+
+命令：git reset --hard HEAD^ 代表把目标仓库的代码回退到前一个版本。HEAD 代表当前版本，HEAD^ 代表上一个版本；HEAD^^代表上上一个版本(回退两个版本)，以此类推。但是如果要回退100个版本那怎麽办？可以使用git reset --hard 版本编号标识符
+
+命令：git reset --hard  编号    代表回退到指定的编号版本
+
+命令：git reflog 查看所有操作记录(包括commit和撤销reset的记录)
+
+命令：git branch  查看所有分支(会在当前分支前边标记一个'*'号)
+
+命令：git branch  xxx 创建xxx分支
+
+命令：git checkout  xxx 切换到xxx分支
+
+命令：git merge xxx 合并xxx分支的代码
+
+命令：git checkout -b xxx 代表创建并切换到xxx分支
+
+命令：git branch -d xxx   删除xxx分支
+
+命令：git diff 用来查看当前工作区代码和仓库内代码的区别，会列出工作区和仓库区的代码区别
+
+代码冲突Conflict，是团队协作中经常遇到的问题：一般代码冲突主要是因为两个人(分支)或是多个人(分支)共同修改了一个文件，在修改之前都没有合并/刷新代码造成的。
+
+解决办法只有一种：手动解决。
+
+要想避免冲突：就要在每次修改代码并提交之前先获取目前仓库最新的代码，然后再提交。
+
+所以记住一句话：提交代码之前一定要先获取当前仓库的最新代码。简单来讲就是先update再commit。

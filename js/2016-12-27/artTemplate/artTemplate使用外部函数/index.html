@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>artTemplate使用外部辅助函数</title>
+		<script src="../artTemplate入门/artTemplate.js"></script>
+		<style type="text/css">
+			.invalidPrice {
+				color: gray;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			//使用template.helper()定义一个外部函数，外部函数的作用是对模板中的数据进行格式化：￥125.80
+			//参数1：外部函数的id
+			//参数2：外部函数执行的操作(注意该操作有一个参数用来接收要格式化的数据)
+			//注意：外部函数必须有一个返回值，该返回值是对数据格式化后的值，返回给原来的渲染位置
+			template.helper('price_id', function(price) {
+
+				console.dir(price)
+					//125.8  ---> 125.80
+				var newPrice = price.toFixed(2)
+
+				console.dir(newPrice)
+
+				//125.80 ---> ￥125.80
+				newPrice = '￥' + newPrice
+
+				//返回格式化后的值
+				return newPrice
+			})
+
+			template.helper('date_id', function(date) {
+
+				var newDate = new Date(date)
+
+				var year = newDate.getFullYear()
+
+				var month = newDate.getMonth() + 1
+
+				var day = newDate.getDate()
+
+				month = month < 10 ? '0' + month : month
+				day = day < 10 ? '0' + day : day
+
+				//ES6支持``字符串处理操作:反引号
+				//反引号引用的内容是一个表达式，用来执行一个运算并去除运算结果。${}是一个标记，用来标注变量的值，防止和后边的字符，比如这里的'-'发生连读。
+				return `${year}-${month}-${day}`
+				
+				return `${year}年${month}月${day}日`
+
+				return year + '年' + month + '月' + day + '日'
+			})
+		</script>
+
+		<!--外部函数的使用方法：
+			{{渲染的原数据 | 外部函数id}}
+		-->
+		<script type="text/html" id="myTemplate">
+			{{if title == undefined}}
+			<h1>没有推荐的书籍</h1> {{else}}
+			<h1>{{title}}</h1>
+			<ul>
+				{{each books as aBook}}
+				<li>
+					<p><strong>{{aBook.name}}</strong></p>
+					<del class="invalidPrice">{{aBook.invalidPrice | price_id}}</del> &#x3000;
+					<span>{{aBook.currentPrice | price_id}}</span>
+					<p>{{aBook.publishDate | date_id}}</p>
+				</li>
+				{{/each}}
+			</ul>
+			{{/if}}
+
+		</script>
+	</body>
+	<script type="text/javascript">
+		var data = {
+
+			title: '推荐的几本书',
+			books: [{
+				name: 'HTML5开发教程',
+				invalidPrice: 98.5,
+				currentPrice: 58.5,
+				publishDate: new Date('2015-8-15').getTime()
+			}, {
+				name: 'JavaScript高级编程',
+				invalidPrice: 128.5,
+				currentPrice: 65,
+				publishDate: new Date('2015-10-15').getTime()
+			}, {
+				name: 'artTemplate使用手册',
+				invalidPrice: 28.5,
+				currentPrice: 15,
+				publishDate: new Date('2015-3-1').getTime()
+			}]
+		}
+
+		var html = template('myTemplate', data)
+
+		document.body.innerHTML = html
+	</script>
+
+</html>

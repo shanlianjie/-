@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--方式一： onclick="事件发生时，要执行js代码"  -->
+		<!--添加点击事件，当事件发生时，就会执行onclick属性中保存的js代码-->
+		<!--用的比较少， js代码和html代码混在了一起-->
+		<div onclick="var a=3;console.log(a);fn1()">我是一个div</div>
+		
+		<section>我是一个section</section>
+		
+		<main>我是main</main>
+		
+		<script type="text/javascript">
+			function fn1(){
+				console.log("fn1-----")
+			}
+			
+			//方式二： 事件源对象.onclick = 匿名函数
+			//取消事件 事件源对象.onclick = null
+			var section = document.getElementsByTagName("section")[0]
+			
+			//section.onclick = fn1
+			section.onclick = function(){
+				console.log("section111111")
+			}
+			section.onclick = function(){
+				console.log("section22222")
+			}
+			
+			//取消点击事件
+			section.onclick = null
+			
+			//方式三 addEventListener(事件类型，事件函数，是否捕获)
+			//移除事件函数 removeEventListener(事件类型，事件函数，是否捕获)
+			var main = document.getElementsByTagName("main")[0]
+			
+			//NO1:事件类型
+			//NO2：事件函数
+			//NO3: 是否捕获
+//			main.addEventListener("click",function(){
+//				 console.log("main被点击了")
+//			})
+			
+			function fn2(){
+				console.log("main--fn2---")
+			}
+			function fn3(){
+				console.log("main--fn3---")
+			}
+			
+			//click事件 绑定了两个函数，两个函数都会被执行
+			main.addEventListener("click",fn2)
+			main.addEventListener("click",fn3)
+			
+			//将click时间中绑定的fn2函数移除
+//			main.removeEventListener("click",fn2)
+//			main.removeEventListener("click",fn3)
+		
+			
+		</script>
+	</body>
+</html>
+;

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+
+	<body>
+		<button>Toggle</button>
+		<p>Hello</p>
+		<p style="display: none">Good Bye</p>
+		<script>
+			var flip = 0;
+			$("button").click(function() {
+			var result = flip++ % 2 == 0
+				console.log(result)
+				$("p").toggle(result);
+				
+			});
+			
+//			var flag = 1
+//			$("button").click(function(){
+//				  if(flag==1){
+//				  	$("p").toggle(true)
+//				  	flag = 2
+//				  	return
+//				  }
+//				  $("p").toggle()
+//			})
+
+
+			
+			
+		</script>
+	</body>
+
+</html>

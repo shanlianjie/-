@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<script>
+			
+			//画圆 x，y圆心坐标； radius:半径
+			function circle(x,y,radius){	
+				var div = document.createElement("div")
+				div.style.width = 2*radius + "px"
+				div.style.height = 2*radius + "px"
+				div.style.position = "absolute"
+				div.style.left = (x - radius) +"px" 
+				div.style.top = (y - radius) +"px"
+				div.style.borderRadius = "50%"
+				div.style.backgroundColor = "red"
+				document.body.appendChild(div)
+			}
+			circle(200,200,50)
+			
+			//画矩形
+			function rect(x1,y1,x2,y2){
+			//左上角点
+			var 	minX = Math.min(x1,x2)
+			var minY = Math.min(y1,y2)
+			//右下角点
+			var maxX = Math.max(x1,x2)
+			var maxY = Math.max(y1,y2)
+			//创建div
+			var div = document.createElement("div")
+			div.style.width = (maxX - minX) +"px"
+			div.style.height = (maxY - minY) +"px"
+			div.style.position = "absolute"
+			div.style.left = minX +"px"
+			div.style.top = minY + "px"
+			div.style.backgroundColor = "yellow"
+			document.body.appendChild(div)	
+			}
+			rect(300,50,500,200)
+			
+			//画线段
+			function line(x1,y1,x2,y2){
+				//起点的坐标
+				var startX = x1<x2?x1:x2
+				var startY = (startX==x1)?y1:y2
+				//终点的坐标
+				var endX = x1>x2?x1:x2
+				var endY = (endX==x1)?y1:y2
+				
+				//反正切 获取的是弧度是弧度值
+				var radian = Math.atan((startY-endY)/(startX-endX))
+				//弧度转角度
+				var angle = radian*180/Math.PI
+				
+				//线段的长度
+				var length = Math.sqrt( Math.pow((startX - endX),2) + Math.pow((startY - endY),2))
+				
+				//创建div
+				var div = document.createElement("div")
+				div.style.width = length + "px"
+				div.style.height = "2px"
+				div.style.position = "absolute"
+				div.style.left = startX + "px"
+				div.style.top = startY + "px"
+				div.style.transformOrigin = "left center"
+				div.style.transform = "rotate("+angle+"deg)"
+				div.style.backgroundColor = "blue"
+				document.body.appendChild(div)
+			}	
+			line(20,200,400,80)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>关键字过滤</title>
+	</head>
+	<body>
+		<textarea id="text1" rows="10" cols="30" placeholder="请输入原内容"></textarea>
+		<button>过滤</button>
+		<textarea  id="text2" rows="10" cols="30" placeholder="显示过滤后的内容"></textarea>
+	</body>
+	<script type="text/javascript">
+	
+		var text1 = document.querySelector('#text1')
+		
+		var text2 = document.querySelector('#text2')
+		
+		var button = document.querySelector('button')
+		
+		button.onclick = function(){
+			
+			var regex = /习近平|李克强|彭丽媛|中国共产党/g
+			
+			var result =  text1.value.replace(regex,'*')
+			
+			text2.value = result
+		}
+	</script>
+</html>

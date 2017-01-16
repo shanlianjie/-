@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				margin: 30px;
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				padding: 10px;
+				border: 2px solid blue;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<div>我是div</div>
+		<script>
+			var height = $("div").css("height") //字符串 100px
+			    height = $("div").height() //content   number 100
+					
+			    height = $("div").innerHeight()	 //content + padding == clientHeight
+			    height = $("div").outerHeight()  //content + padding + border == offsetHeight
+				
+				height = $("div").outerHeight(true) //content + padding + border + margin
+			console.log(height)
+		</script>
+	</body>
+</html>

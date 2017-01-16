@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/red.css"/>
+		<style>
+		    body{
+		    	margin: 0;
+		    }
+			div{
+				height: 50px;
+				background-color: lightgray;
+			}
+			span{
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				background-color: blueviolet;
+				margin: 0 30px;
+				cursor: pointer;
+			}
+			span.active{
+				background-color: mediumspringgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="nav">
+			 <span class="active" data-color="red">红</span>
+			 <span data-color="green">绿</span>
+			 <span data-color="blue">蓝</span>
+			 <span data-color="yellow">黄</span>
+		</div>
+		<script>
+			var spans = document.querySelectorAll("#nav span")
+			
+		    Array.prototype.slice.call(spans).forEach(function(item,index){
+		    	    
+		    	     //给每个span注册点击事件
+		    	     item.onclick = function(){
+		    	     	// console.dir(item.dataset.color)
+		    	     	var link = document.createElement("link")
+		    	     	link.setAttribute("rel","stylesheet")
+		    	     	link.setAttribute("type","text/css")
+		    	     	link.setAttribute("href","css/"+ this.dataset.color+".css")
+		    	     	document.head.appendChild(link)
+		    	     	//问题：每点击一次按钮，就向head中添加了一个link标签，所以link标签会越来越多，很浪费
+		    	     	
+		    	     	Array.prototype.slice.call(spans).forEach(function(item,index){
+		    	     		item.classList.remove("active")
+		    	     	})
+		    	     	
+		    	     	this.classList.add("active")
+		    	     }
+		    })
+			
+			
+		</script>
+	</body>
+</html>

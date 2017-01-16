@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>multer-文件上传</title>
+		<style type="text/css">
+			body{
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			enctype：设置表单提交的数据的编码格式。该属性有三种值：
+			1,application/x-www-form-urlencoded,这种编码是form表单的默认值。它用来编码form表单提交的文本数据。
+			2,multipart/form-data.这种编码方式是针对表单提交的文件数据，比如图片、文档、音频、视频等文件。一旦表单提交的内容除了有文本内容还有文件数据的时候必须设置该编码方式。
+			
+			3，text/plain.这种编码方式主要针对纯文本数据。
+			
+		-->
+		<form action="/uploadFile" method="post" enctype="multipart/form-data">
+			
+			<input type="text" name="userName" id="userName" placeholder="请输入名户名" />
+			<br />
+			<!--文件选择框
+				multiple属性设置可以选择多个文件
+			-->
+			<input type="file" name="avatar" id="avatar" multiple />
+			
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>

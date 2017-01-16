@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //转数字类型
+    var a1 ="123"
+    a1 =""   //0
+    al =" "  //0
+    a1 =null //0
+    a1 ="好人"//NaN (not a number 不是个数字，但是是数字类型)
+
+    a1 = false //true 1; false 0
+    var a2    // undefined-->NaN
+
+
+    a1 = Number(a1);
+    console.log(a1)
+    console.log(typeof a2);
+
+    var a3 ="-123"
+     a3 = Number(a3);
+     a3 ="123px" //NaN
+    console.log(a3)
+    console.log(typeof a3);
+
+console.log(parseInt(a3) )
+
+console.log(typeof parseInt(a3) )
+
+
+var a4 ="12.99px"
+
+console.log(parseFloat(a4) )
+
+console.log(typeof parseFloat(a4) )
+
+
+
+
+//转boolean类型
+
+    var b1 ="23"
+    b1 =""
+    b1 =" "
+    b1 =Boolean(b1)
+    console.log(b1)
+    console.log(typeof b1)
+
+
+//其他转字符串
+
+var c1 =123
+   c1 =String(c1)
+  // c1 = c1.toString()  
+
+   console.log(c1,typeof c1)
+    
+
+    </script>
+</body>
+</html>

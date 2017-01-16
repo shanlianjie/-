@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				transition: all 1s;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var div1 = document.getElementById("div1")
+			
+			div1.addEventListener("click",function(ev){
+//				ev.preventDefault()
+//				console.dir(ev)
+			},true)
+			
+			//鼠标双击的时候触发
+			div1.ondblclick = function(){
+				//console.log("被双击了")
+			}
+			
+			//鼠标按键按下的时候触发
+			div1.onmousedown = function(){
+				//console.log("鼠标按下了")
+			}
+			
+			//鼠标按键抬起的时候触发
+			div1.onmouseup = function(){
+				//console.log("鼠标抬起了")
+			}
+			
+			//鼠标在div1身上移动的时候触发（会被触发多次）
+			div1.onmousemove = function(){
+				//console.log("鼠标移动了")
+			}
+			
+			//鼠标进入的时候触发
+			div1.onmouseover = function(){
+				//this.style.transform = "rotate(45deg) scale(1.5)"
+				//console.log("mouseover")
+			}
+			//鼠标离开的时候触发
+			div1.onmouseout = function(){
+				//this.style.transform = "rotate(0deg) scale(1)"
+				//console.log("mouseout")
+			}
+			
+			/*
+			 * onmuoseover 和 onmouseout（用的比较多）
+			 * 
+			 * onmouseenter 和 onmouseleave (不支持冒泡)
+			 */
+			div1.onmouseenter = function(){
+				//console.log("鼠标进入的时候")
+			}
+			div1.onmouseleave = function(){
+				//console.log("鼠标的离开的时候")
+			}
+			
+			//点击鼠标右键的时候触发
+			div1.oncontextmenu = function(ev){
+				console.log("点击鼠标右键了")
+				//console.dir(ev)
+				
+				//点击右键，默认会弹出一个上下文菜单，
+				//阻止系统默认菜单的弹出
+				//阻止事件的默认行为
+				ev.preventDefault()
+				
+			}
+			
+			
+			div1.onclick = function(ev){
+				
+				
+				//console.dir(ev)
+				/*
+				 * 怎么判断鼠标点击的是哪个键？
+				 * w3c标准
+				 * ev.button 用来获取鼠标的左右键
+				 * 0：左键
+				 * 1：中键（滚轮）
+				 * 2：右键
+				 * 
+				 * 按网景标准
+				 * ev.which 获取鼠标的左右键
+				 * 1: 左键
+				 * 2：中键
+				 * 3：右键
+				 */
+			}
+			
+			//鼠标滚轮事件
+			div1.onmousewheel = function(ev){
+				
+				//ev.deltaY 通过值正负，可以判断滚轮的方向
+				//console.log(ev.deltaY)
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

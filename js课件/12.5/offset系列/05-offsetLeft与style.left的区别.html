@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 50px;
+			}
+			
+			.box2{
+				width: 50px;
+				height: 50px;
+				/*从border的左侧 开始向 offsetParent的padding的左侧量*/
+				border:5px solid darkcyan;
+				background-color: blue; 
+				margin: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box1">
+			 <div class="box2"></div>
+		</div>
+		
+		<script type="text/javascript">
+			
+			var box2 = document.getElementsByClassName("box2")[0]
+			
+			console.log(box2.offsetLeft) //父级元素没有定位，offsetParent就是body.
+			
+			//offsetLeft 和 offsetTop 就是到元素到offsetParent左侧和上部的距离
+			
+			
+		</script>
+		
+	</body>
+</html>

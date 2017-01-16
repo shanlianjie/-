@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<div>
+			<section>
+				<p>我是一个p元素</p>
+			</section>
+		</div>
+		<script>
+			$("p").click(function(ev){
+				alert("p被点击了")
+				//ev.stopPropagation() //阻止事件的传递（冒泡）
+				
+				return false //阻止事件默认行为 + 阻止事件传递
+			})
+			$("section").click(function(){
+				alert("section被点击了")
+			})
+			$("div").click(function(){
+				alert("div被点击了")
+			})
+			
+		</script>
+
+	</body>
+</html>

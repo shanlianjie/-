@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 1%;
+				height: 50px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<input type="button" value="开始" />
+		<input type="button" value="停止" />
+		<script>
+			var div = document.querySelector("div")
+			var btns = document.getElementsByTagName("input")
+			var beginBtn = btns[0]
+			var stopBtn = btns[1]
+			
+			var timer = null 
+			var progress = 1
+			beginBtn.onclick = function(){
+				clearInterval(timer)
+				if(progress>=100){
+					return
+				}
+				timer = setInterval(function(){
+					progress += 1	
+					div.style.width =progress+"%"
+					div.innerText =progress+"%"
+					console.log("timer------")
+					if(progress>=100){
+						clearInterval(timer)
+					}
+				},1000)
+			}
+			
+			
+		</script>
+	</body>
+</html>

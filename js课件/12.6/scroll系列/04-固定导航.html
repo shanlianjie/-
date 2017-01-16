@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			p,body{
+				margin: 0;
+				font-size: 30px;
+				text-align: center;
+			}
+			div:nth-of-type(1){
+				height: 100px;
+				background-color: lightslategray;
+			}
+			
+			div:nth-of-type(2){
+				height: 60px;
+				width: 100%;
+				background-color: pink;
+			}
+			
+			p{
+				height: 800px;
+				background-color: lightblue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="header">我是头部</div>
+		<div id="nav">我是导航</div>
+		<p>我是主要内容</p>
+
+		<script type="text/javascript">
+			
+			var header = document.getElementById("header")
+			var nav = document.getElementById("nav")
+			
+			//头部div的高度
+			var headerHeight = header.offsetHeight
+			
+			window.onscroll = function (){
+				if(scroll().top >= headerHeight){
+					//设置固定定位
+					nav.style.position = "fixed"
+					nav.style.top ="0px"
+					nav.style.left ="0px"
+					header.style.marginBottom = nav.offsetHeight + "px"
+					
+				}else{
+					//取消固定定位
+					nav.style.position ="static"
+					header.style.marginBottom ="0px"
+				}
+				
+			}
+			
+			
+			function scroll() {
+				return {
+					top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop,
+					left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft
+				}
+			}
+		</script>
+	</body>
+
+</html>

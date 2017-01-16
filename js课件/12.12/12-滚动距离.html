@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				width: 2000px;
+				height: 2000px;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				overflow: auto;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<input type="button" value="滚动到1000"/>
+		<div>我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人我是好人</div>
+		<script>
+			 $("div").scroll(function(){
+			 	// console.log($(this).scrollTop() )
+			 })
+			 
+			 $(window).scroll(function(){
+			 //	console.log($(window).scrollLeft() + "|" + $(window).scrollTop())
+
+			 })
+			 
+			 $(document).scroll(function(){
+			 	console.log($(document).scrollLeft() + "|" + $(document).scrollTop())
+			 	
+			 })
+			 
+			 //点击按钮，让页面滚动到指定位置
+			 $("input").click(function(){		 	
+			 	//$(window).scrollTop(1000)
+			 	
+			 	//js原生
+			 	//window.scrollTo(0,1000)
+			 	//console.log($(window).scrollTop())
+			 	//window.scrollBy(0,100)
+			 	//window.scrollByLines(2)
+			 	//window.scrollByPages(3)
+			    //console.log($(window).scrollTop())
+			 	
+			 })
+			 
+			 
+			 
+		</script>
+	</body>
+</html>

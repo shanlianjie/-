@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red{
+				color:  red;
+			}
+			
+			.green{
+				color: green;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<a href="http://www.baidu.com" title="百度你好" class="red" myName="zhangSan" target="_blank">百度</a>
+		
+		<script type="text/javascript">
+			
+			var link = document.getElementsByTagName("a")[0]
+			
+			//获取链接的 所有属性节点 (集合)
+		  	var attrs = link.attributes
+		  	
+		  	//遍历，获取每一个属性节点
+		  	for(var i=0;i<attrs.length;i++){
+		  		
+		  		var attr = attrs[i]
+		  	   // console.log(attr.nodeName,attr.nodeValue,attr.name,attr.value)
+		  	}
+		  	
+			
+			//获取a标签属性值 
+			//1.对象.属性名(在html中添加自定义标签属性，对象.属性无法获取自定义标签属性的值)
+			//2.getAttribute("属性名")
+			  var href =  link.href
+			  var className = link.className;
+			  //对象.属性名 也可以对属性赋值
+			  link.herf = "http://www.163.com"
+			 
+		 //getAttribute("属性名") 获取某一个属性的属性值
+			 var personName = link.getAttribute("myName")
+			 var target = link.getAttribute("target")
+			 
+		 
+		  //setAttribute("属性名","属性值")  增加或修改属性
+		     link.setAttribute("title","下雪来了")
+		     link.setAttribute("class","green")
+		     
+		 //removeAttribute("属性名") 删除某一个属性
+			 link.removeAttribute("class")
+			
+			
+		</script>
+		
+	</body>
+</html>

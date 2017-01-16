@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				border: 22px solid red;
+				border-top:25px solid blue ;
+				border-left: 30px solid green;
+				/*padding: 5px;*/
+				background-color: pink;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div>好人好人好人好人好人好人好人好人好人好人好人好人好人好人好人好人</div>
+		<script type="text/javascript">
+			var div = document.querySelector("div")
+			
+		    	console.log("clientHeight"+div.clientHeight) //不包括边框 contentbox+ padding
+			console.log("offsetHeight"+div.offsetHeight) //border-box的大小
+			console.log("scrollHeight"+div.scrollHeight)
+		    	
+		    	console.log("clientTop"+ div.clientTop) //上边框的宽border-top
+		    	console.log("clientLeft"+div.clientLeft)//左边框的宽border-left
+		    	
+		    	//clientWidth 和 clientHeight 用户能够看见的，可视区域的宽度和高度（不包括边框）
+		    		
+		  
+			
+		
+			
+		</script>
+	</body>
+</html>

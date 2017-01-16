@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<select name="" id="fruit">
+			 <option value="">香蕉</option>
+			 <option value="">苹果</option>
+			 <option value="">橘子</option>
+			 <option value="">梨子</option>	 
+		</select>
+		
+		<select name="" id="stars">
+			 <option value="">杨幂</option>
+			 <option value="">baby</option>
+			 <option value="">佟丽娅</option>
+			 <option value="">唐嫣</option>	
+			 <option value="">刘诗诗</option>	 
+			 <option value="">赵本山</option>	 
+		</select>
+		
+		<select name="" id="cars">
+			 <option value="">QQ</option>
+			 <option value="">奔驰</option>
+			 <option value="">奥迪</option>
+		</select>
+		
+		<input type="button" value="随机"/>
+		
+		<script type="text/javascript">
+			var fruit = document.getElementById("fruit")
+			var stars = document.getElementById("stars")
+			var cars =document.getElementById("cars")
+			var btn = document.getElementsByTagName("input")[0]
+			
+			var contentArr =[fruit.children,stars.children,cars.children]
+			
+			//通过自定义属性，各自记录自己上一次生成的随机数是多少
+			fruit.children.previous =0
+			stars.children.previous =0
+			cars.children.previous =0
+			
+			
+			btn.onclick = function(){
+				//生成三个随机数 for
+				for (var i=0;i<3;i++) {
+					options = contentArr[i]
+
+					var random = Math.floor(Math.random()*options.length)
+					
+					while(random == options.previous){
+						random = Math.floor(Math.random()*options.length)
+					}
+					
+					//记录当前生成的随机数，为下一次点击按钮做准备
+					options.previous = random
+					
+					
+					
+					options[random].selected = true
+				}
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>this的用法</title>
+	</head>
+	<body>
+		<!--
+			在js中，this用两种可能：
+			1,在普通函数中，this永远指的是调用函数的对象
+			2,在构造函数中this永远指的是该构造函数的实例对象
+		-->
+		
+	</body>
+	
+	<script type="text/javascript">
+		
+		
+		//例子1
+		function test(){
+			
+			alert(this)//window
+		}
+		
+		window.test()
+		
+		//例子2
+		var obj = {
+			
+			aFunc:function(){
+				
+				alert(this)//obj
+			}
+		}
+		
+		obj.aFunc()
+		
+		//例子3
+		function test2(){
+			
+			alert(this)//window
+			
+			function innerFunc(){
+				
+				alert(this)//window
+			}
+			
+			innerFunc()
+		}
+		test2()
+		
+		//例子4
+		var obj2 = {
+			
+			fun:function(){
+				
+				alert(this)//obj2
+				
+				var innerFunc = function(){
+					
+					alert(this)//window
+				}
+			}
+		}
+		
+		//例子5
+		function People(){
+			
+			alert(this)
+			
+			this.city = '芜湖'
+		}
+		var p1 = new People()
+		
+		var p2 = new People()
+		
+		//例子6
+		
+		var name = 'tom'
+		
+		function Student(){
+			
+			this.name = 'roy'
+			
+			alert(this.name)
+			
+			this.eat = function(){
+				
+				alert(this.name)
+				
+				function innerFunc(){
+					
+					alert(this.name)
+				}
+				
+				innerFunc()
+			}
+		}
+		
+		var stu = new Student()
+		
+		stu.eat()
+		
+		var newObj = {
+			name:'xxx'
+		}
+		
+		stu.eat.call(newObj)
+		
+		//使用bind()可以给函数绑定一个新的调用对象，即修改函数内部this的指向，但是使用bind()的时候一定要注意：绑定的函数需要是按照变量使的声明方式声明的(var test = function(){}),而不能使用声明式的方式(function test(){})
+		var myFunc = function(){
+			
+			alert('>>>>' + this.name)
+			
+		}.bind(newObj)
+		
+		/*
+		 * 这种方式bind()后会报错
+		function myFunc2(){
+			
+			alert('=====' + this.name)
+			
+		}.bind(newObj)
+		*/
+		myFunc()
+		
+		
+		var a = 10
+		test1()
+		test2()
+		
+		//这种方式声明的函数，函数本身以及函数内的变量会被提升到全局作用域
+		function test1(){
+			
+			console.log('======'+a)
+			
+		}
+		
+		//这种方式声明的函数只会把函数的变量名提升，函数本身以及内部的变量不会被提升
+		var test2 = function(){
+			
+			console.log('------' + a)
+		}
+		
+		
+		
+	</script>
+</html>

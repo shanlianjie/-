@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+		      }
+		</style>
+	</head>
+	<body>
+		<button>隐藏</button>
+		<div>请点击按钮，控制我的显示和隐藏</div>
+		
+		<script type="text/javascript">
+			
+			//获取按钮和div
+			var btn = document.querySelector("button")
+			var div = document.querySelector("div")
+			
+			var num = 0
+			btn.onclick = function(){
+		 
+				if(num%2==0){  
+					//隐藏
+					div.style.display ="none"
+					this.innerText = "展示"
+				
+				}else{
+					
+					//展示
+					div.style.display = "block"
+					this.innerText = "隐藏"	
+				}
+
+				 num++	
+			}
+			
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			button{
+				margin: 20px 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>我是一个div</div>
+		
+		<button>按钮</button>
+		<br />
+		
+		<input type="text" />
+		
+		<script type="text/javascript">
+			
+			var div = document.querySelector("div")
+			var input = document.querySelector("input")
+			var btn = document.querySelector("button")
+			
+			btn.onclick = function(){
+				//创建元素节点
+				var p = document.createElement("p")
+				p.innerText="我是一个p"
+				
+				//父级.replaceChild(新的节点,老的节点) 替换节点
+				//document.body.replaceChild(p,input)
+				
+				 document.body.replaceChild(div,input)
+				 
+				 
+			}
+			
+			/*
+			 *  父级.appendChild(子节点)               添加
+			 *  父级.insertBefore(新节点，参考节点)	  插入      
+			 *  父级.reomveChild(子节点)               删除
+			 *  父级.replaceChild(新的节点,老的节点)    替换
+			 *  
+			 * 添加/插入/替换的元素，可以是新创建的元素，也可以是原来已经存在的元素（剪切）
+			 * 
+			 * document.createElement("标签名")  创建元素节点
+			 * document.createTextNode()         创建文本节点
+			 * 
+			 * 
+			 */
+			
+		</script>
+	</body>
+</html>

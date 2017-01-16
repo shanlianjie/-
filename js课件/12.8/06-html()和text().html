@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<div>
+			我是一个div
+			<p>
+				我是p
+				<span>我是p中的span</span>
+			</p>
+		</div>
+		
+		<script>
+		//获取值
+		var result = $("div").html()
+		var text = $("div").text()
+		//console.log(result)
+		//console.log(text)
+		
+		//html() 可以识别标签
+		//text() 不可以识别标签
+		
+		//$("div").html("<a href=\"http://www.baidu.com\">百度</a>")
+		$("div").text('<a href=\"http://www.baidu.com\">百度</a>')
+		
+		</script>
+	</body>
+</html>

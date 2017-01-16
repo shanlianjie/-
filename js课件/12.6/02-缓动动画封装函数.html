@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				position: absolute;
+				left: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="走" />
+		<div></div>
+		
+		<script type="text/javascript">
+			var btn = document.getElementsByTagName("input")[0]
+			var div = document.querySelector("div")
+			
+			
+			btn.onclick = function(){
+				
+				animateSlow(div,"height",400)
+				
+			}
+			
+			//任意对象 任意值属性  修改到目标位置
+			function animateSlow(obj,attr,target){
+				
+				clearInterval(obj.timer)
+				obj.timer = setInterval(function(){
+					
+					//获取div当前的坐标位置
+					var position = parseInt(getComputedStyle(obj,null)[attr])
+					
+					//怎么实现，速度越来越小，到目标位置，速度变为0
+					var step = (target - position)/10
+					
+					//对step进行处理，否则会走不到目标位置
+					//如果向前走，对step进行向上取整
+					//如果向后走，对step进行向下取整
+					step = step>0?Math.ceil(step):Math.floor(step)
+					
+					//console.log("postion" +position+" "+"step"+step +"将要到哪儿"+(position+step))
+					
+					position += step
+					
+					div.style[attr] = position +"px"
+					
+					//如果达到目标位置，清除定时器
+					if(position == target){
+						clearInterval(timer)
+						console.log("定时器被销毁了")
+					}
+				},30)
+				
+				
+			}
+			
+		</script>
+	</body>
+</html>

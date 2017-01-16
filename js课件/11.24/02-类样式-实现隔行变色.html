@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red{
+				background-color: red;
+			}
+			.green{
+				background-color: green;
+			}
+			.font{
+				color: white;
+				font-style:italic;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<ul id="myUl">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+		
+		<script type="text/javascript">
+			/*
+			 *  通过每行设置 不同的类样式 实现隔行变色
+			 *  目的：对属性赋值的练习。 和classList的练习
+			 */
+			//获取所有的li
+			var lis = document.querySelectorAll("#myUl li")
+			
+			//内容数组
+			var  contentArr =["aa","bb","cc","dd","ee","ff"]
+			
+			//遍历lis, 拿到每一个li,对每一个li进行赋值
+			for (var i=0;i<lis.length;i++) {
+				
+				 var li = lis[i]
+				
+				 //以i作为索引，从contentArr中将每给li对应的字符串取出来
+				 li.innerHTML = contentArr[i]
+				 
+				 if (i%2==0) {
+				 	
+				 	//li.className = "red"
+				 	//li.setAttribute("class","red font")
+				 	
+				 	 li.classList.add("red")
+				 	 li.classList.add("font")
+				 	
+				 } else{
+				 	//li.className = "green"
+				 	li.setAttribute("class","green")
+				 }
+				 
+				 if(li.classList.contains("font")){
+				 	li.style.fontSize = "30px"
+				 }
+			     
+			     console.dir(li.style)
+			}
+		
+		</script>
+	</body>
+</html>

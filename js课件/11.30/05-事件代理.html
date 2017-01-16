@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			li,p{
+				margin: 10px;
+				width: 200px;
+				text-align: center;
+				/*list-style: none;*/
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>li*1</li>
+			<li>li*2</li>
+			<li>li*3</li>
+			<li>li*4</li>
+			<li>li*5</li>
+			<li>li*6</li>
+			<p class="txt">p1</p>
+			<p class="txt">p2</p>
+			<p class="txt">p3</p>
+			<p class="txt">p4</p>
+		</ul>
+		<script type="text/javascript">
+
+			var ul = document.getElementsByTagName("ul")[0]
+			
+			//li 和 p 身上的事件代理到了ul的身上
+			//如果你喜欢甚至可以把整个页面身上的事件代理到body身上
+			ul.onclick = function(ev){
+				
+				//ev.target  点击的目标对象（点在谁身上）事件源	
+				if(ev.target && ev.target.tagName =="LI"){
+					 alert("点击的是li")
+				}
+				
+				
+				if(ev.target && ev.target.className =="txt"){
+					alert("点击的是p")
+				}
+				
+				console.log(this) //ul
+
+			}
+			
+			
+		</script>
+	</body>
+</html>

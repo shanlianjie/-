@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<ul>
+			<li>我是第1li</li>
+			<li>我是第2li</li>
+			<li>我是第3li</li>
+		</ul>
+		
+		<p id="p">我是段落</p>
+		
+		<script>
+		
+			/*
+			 * 通过js方法 获取的对象 就是js对象
+			 * 通过jQuery方法 获取的对象 就是jQuery对象
+			 * 
+			 * 两者之间的相互转换
+			 * 
+			 * js对象 只能 调用js的方法
+			 * jQuery对象 只能 调用jQuery的方法
+			 * 
+			 * jQuery对象 其实就是DOM对象的包装集，是一个集合
+			 */
+			console.dir($("li"))
+			
+			//怎么将jquery对象 转换成js 对象?
+			//1. jQuery对象[索引]  2.jQuery对象.get(索引)
+			var li = $("li")[0]
+			    li = $("li").get(0)
+			li.innerText = "我是好人"
+			
+			
+			//怎么将js对象 转换成jQuery对象
+			var pp = document.getElementById("p")
+			$(pp).text("我是修改后的p")
+			console.dir($(pp))
+			
+			
+		</script>
+	</body>
+</html>

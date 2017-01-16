@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>面向对象时钟</title>
+		<script src="js/Control.js"></script>
+		<script src="js/CenterPoint.js"></script>
+		<script src="js/CirclePoint.js"></script>
+		<script src="js/Seconds.js"></script>
+		<script src="js/Minutes.js"></script>
+		<script src="js/Clock.js"></script>
+		<style type="text/css">
+			html,body{
+				
+				height: 100%;
+			}
+			body{
+				margin: 0;
+				
+			}
+			
+			@keyframes rotate{
+				from{
+					transform: rotate(0deg);
+				}
+				to{
+					transform: rotate(360deg);
+				}
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			new Clock()
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="test.js"></script>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		 <p>我是p元素</p>
+		<script>
+		   
+			
+			//释放对$符号的控制权，解决冲突
+		    var xx = $.noConflict()
+			 console.log($)
+			 
+			 //console.log(xx)
+			 //console.log(jQuery)
+			 
+			 xx("p").css("color","red")
+			 
+		</script>
+	</body>
+</html>

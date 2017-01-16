@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul{
+				overflow: hidden;
+				list-style: none;
+				
+			}
+			
+			li{
+				float: left;
+				background-color: lightgray;
+				
+			}
+			li+li{
+				margin-left: 10px;
+			}
+			
+			a{
+				display: block;
+				line-height: 40px;
+				padding: 0 10px;
+				text-align: center;
+			}
+			
+			.current{
+				background-color: pink;
+			}
+			
+		</style>
+	</head>
+	<body>
+	  <ul id="nav">
+	  	 <li class="current">
+	  	 	<a href="#">首页</a>
+	  	 </li>
+	  	  <li>
+	  	 	<a href="#">娱乐</a>
+	  	 </li>
+	  	  <li>
+	  	 	<a href="#">科技</a>
+	  	 </li>
+	  	  <li>
+	  	 	<a href="#">体育</a>
+	  	 </li>
+	  	  <li>
+	  	 	<a href="#">教育</a>
+	  	 </li>
+	  </ul>
+	  <script type="text/javascript">
+	  	
+	  	//点击那个li，就让哪个li选中
+	  	
+	  	//获取所有的li
+	  	var lis = document.getElementById("nav").children
+	  	
+	  	//记录当前选中li
+	  	var previousLi = lis[0]
+	  	
+	  	//遍历
+	  	for(var i=0;i<lis.length;i++){
+	  		
+	  		var li = lis[i]
+	  		
+	  		li.onclick = function(){
+	  			
+	  			//如果点击的li 就是已经选中的li,程序没有必要向下执行
+	  			if(this == previousLi){
+	  				//alert("pppp")
+	  				return;
+	  			}
+				
+				//1.让上一个选中的li背景颜色去除高亮显示
+				previousLi.classList.remove("current")
+	  			
+	  			//2.让当前点击的li高亮显示
+	  			this.classList.add("current")
+	  			
+	  			//3.修改previousLi变量的值，
+	  			//记录当前选中的是哪个li,为下一次点击做️准备
+	  			previousLi = this
+
+	  		}
+	  	}
+	  	
+	  	
+	  	
+	  </script>		
+	</body>
+</html>

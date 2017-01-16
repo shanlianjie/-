@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录页面</title>
+		<style type="text/css">
+			html,body{
+				height: 100%;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!--
+			使用form表单提交，默认一定会在新的页面打印响应信息，即刷新页面。
+			使用iframe可以模拟实现页面的无刷新的请求。
+		-->
+		<form action="/login" method="get" target="iframe">
+			
+			<label for="name">用户名:</label>
+			<input type="text" name="name" id="name" placeholder="请输入用户名" />
+			
+			<br />
+			<label for="psw">密&#x3000;码:</label>
+			<input type="password" name="psw" id="psw" placeholder="请输入密码" />
+			
+			<br />
+			<input type="submit" value="提交"/>
+		</form>
+		
+		<iframe src="#" width="100%" height="100%" frameborder="0" name="iframe" ></iframe>
+	</body>
+	
+	<script type="text/javascript">
+		
+		document.forms[0].onsubmit = function(){
+			
+			var iframe = document.querySelector('iframe')
+			
+			//iframe监听load事件。一旦服务端返回响应信息，会在iframe内加载响应信息，此时会触发iframe的load事件。
+			iframe.onload = function(){
+				
+			  //iframe也有自己的window叫contentWindow
+			  var msg = this.contentWindow.document.body.innerHTML
+			  
+			  alert(msg)
+			}
+		}
+	</script>
+</html>

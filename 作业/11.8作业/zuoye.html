@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="author" content="Jxz">
+    <title></title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            margin-top: 50px;
+        }
+        
+        .navbar {
+            background-color: #333;
+        }
+        
+        .navbar-header {
+            float: right;
+        }
+        
+        .navbar-header button {
+            border: none;
+            background-color: #333;
+            color: gray;
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+            margin-right: 20px;
+        }
+        
+        .navbar-header button:hover {
+            background-color: black;
+            color: white;
+        }
+        
+        .navbar-nav li {
+            color: gray;
+            font-size: 18px;
+        }
+        
+        .navbar-nav li:hover {
+            background-color: black;
+            color: white;
+        }
+        
+        .navbar-nav li a {
+            color: white;
+        }
+        
+        .container>a {
+            font-size: 25px;
+        }
+        
+        .top {
+            background-color: rgb(238, 238, 238);
+            width: 100%;
+            height: 75px;
+            font-size: 25px;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default  navbar-fixed-top" role="navigation">
+        <!--与bootstrap上的示例代码不同，将容器可以换成container  -->
+        <div class="container">
+            <a class="navbar-brand" href="#">
+             爱迷尼儿童摄影
+            </a>
+            <div class="navbar-header">
+                <button>常伟 <span class="caret"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+                <button>退出</button>
+
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav ">
+
+
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">客户</a></li>
+                    <li><a href="#">宝贝</a></li>
+                    <li><a href="#">孕妈咪</a></li>
+                    <li><a href="#">会员卡</a></li>
+                    <li><a href="#">订单</a></li>
+                    <li><a href="#">预约</a></li>
+                    <li><a href="#">数据</a></li>
+                    <li><a href="#">产品</a></li>
+                </ul>
+            </div>
+    </nav>
+
+    <div class="top">
+        <div class="container">
+            <div class="cx">客户查询管理</div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="center">
+            <button type="button" class="btn btn-warning btn-lg">添加客户</button>
+            <button type="button" class="btn btn-primary btn-lg glyphicon glyphicon-search" data-toggle="modal" data-target="#myModal">搜索</button>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="myModalLabel">搜索条件</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">客户电话</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="inputEmail3" placeholder="客户电话">
+                                    </div>
+                                </div>
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">QQ</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="QQ">
+                                        </div>
+                                    </div>
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <button type="button" class="btn btn-primary">搜索</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <td>添加时间</td>
+                    <td>姓名</td>
+                    <td>性别</td>
+                    <td>QQ</td>
+                    <td>手机</td>
+                    <td>电话</td>
+                    <td>客户经理</td>
+                    <td>详情</td>
+                </tr>
+                <tr>
+                    <td>2014.10.12</td>
+                    <td>李强</td>
+                    <td>男</td>
+                    <td>37155151</td>
+                    <td>1521200913</td>
+                    <td>8773400</td>
+                    <td>老毛</td>
+                    <td>0.0</td>
+                </tr>
+                <tr>
+                    <td>2012.10.21</td>
+                    <td>王强</td>
+                    <td>男</td>
+                    <td>3418454544</td>
+                    <td>1521165155</td>
+                    <td>8773400</td>
+                    <td>老刘</td>
+                    <td>0.0</td>
+                </tr>
+                <tr>
+                    <td>2011.11.11</td>
+                    <td>小张</td>
+                    <td>女</td>
+                    <td>32545645454</td>
+                    <td>151156415544</td>
+                    <td>5475154545</td>
+                    <td>老朱</td>
+                    <td>0.0</td>
+                </tr>
+
+
+            </table>
+            <p>共3个客户</p>
+        </div>
+
+
+        <script src="bootstrap/js/jquery.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

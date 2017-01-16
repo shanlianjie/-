@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+		/*MDN 闭包定义:
+		 * 闭包是指那些能够访问独立(自由)变量的函数 (变量在本地使用，但定义在一个封闭的作用域中)。
+		 * 换句话说，这些函数可以“记忆”它被创建时候的环境。
+		 */
+
+			function fn2() {
+
+				var obj = new Object
+
+				var fn = function() {
+					return obj
+				}
+				return fn
+			}
+			/*
+			var f = fn2()
+			var obj1 = f()
+			var obj2 = f()
+
+			function fn3() {
+
+				var a = Math.random() * 10
+
+				return function() {
+					return a
+				}
+			}
+
+			var ff = fn3()
+			var a1 = ff()
+			var a2 = ff()
+			console.log(a1, a2)*/
+
+			/*
+			function fn4(){
+				
+				var age = 10
+				var score = 88
+				
+				return function(){
+					//把数据包装成一个数组，数组中的数据是有序的，将来可以根据索引来取
+					return [age,score]
+				}
+			}
+			
+		    var f1 = fn4()
+		    var age = f1()[0]
+		    var score = f1()[1]
+		    console.log(age,score)*/
+
+			/*
+		    function fn5(){
+		      	var age = 10
+				var score = 100
+		    	    return function(){
+		    	    	   //将数据包装成一个对象
+		    	    	   return {age:age,score:score}
+		    	    }
+		    }
+			
+			var f5 = fn5()
+			var obj = f5()
+			console.log(obj.age,obj.score)
+			*/
+
+			function fn6() {
+				var m
+				return {
+					setM: function(aM) {
+						m = aM
+					},
+					getM: function() {
+						return m
+					}
+				}
+			}
+
+			var obj = fn6()
+			obj.setM(1000)
+			var m = obj.getM()
+			console.log(m)
+		</script>
+	</body>
+
+</html>

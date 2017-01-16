@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            height: 3000px;
+            padding-top: 64.5px;
+        }
+        /*导航开始*/
+        
+        .nav {
+            width: 100%;
+            background-color: white;
+            position: fixed;
+            top: 0px;
+            /*设置阴影 0是x方向 1px是y方向 后面的1px是模糊的程度*/
+            box-shadow: 0 1px 1px #999;
+
+            /*z-index:10;*/
+        }
+        
+        .nav>div {
+            width: 960px;
+            background-color: white;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+        
+        .nav img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav span {
+            float: right;
+        }
+        
+        .nav span a {
+            color: #142458;
+            display: inline-block;
+            height: 40px;
+            /*设置行高*/
+            line-height: 40px;
+            margin-left: 25px;
+            /*去下划线*/
+            text-decoration: none;
+        }
+        
+        .nav span a:hover {
+            color: orange;
+        }
+        /*导航结束*/
+        /*头部开始*/
+        
+        .header img {
+            width: 100%;
+            height: auto;
+        }
+        
+        p {
+            width: 960px;
+            margin: 20px auto 40px auto;
+            line-height: 150%;
+            color: #656565;
+            text-align: left;
+        }
+        
+        p:before {
+            content: "“";
+            font-size: 32px;
+            /*让引号下来一点*/
+            position: relative;
+            top: 10px;
+        }
+        
+        p:after {
+            content: "”";
+            font-size: 32px;
+            /*让引号下来一点*/
+            position: relative;
+            top: 10px;
+        }
+        /*头部结束*/
+        
+        h1 {
+            width: 960px;
+            margin: 0 auto;
+            font-size: 23px;
+            color: #b06803;
+            margin-bottom: 10px;
+        }
+        
+        h1:before {
+            content: "匚";
+            color: #b06803;
+        }
+        /*html5开始*/
+        
+        .section {
+            text-align: center;
+        }
+        
+        .section img {
+            width: 960px;
+        }
+        /*结束*/
+        .classmate_section{
+            background-image:url(classmates.jpg);
+            width:960px;
+            height:600px;
+            margin:0 auto;
+            background-size:cover;
+            /*为它的子元素img设置绝对定位提供参考*/
+            position:relative;
+        }
+        .classmate_section img{
+            border:1px solid white;
+        }
+        .classmate_section img:nth-child(1){
+            width: 250px;
+            height: 250px;
+            position:absolute;
+            left:70px;
+            top:70px;
+            border-radius:125px;
+        }
+         .classmate_section img:nth-child(2){
+            width: 350px;
+            height: 350px;
+            position:absolute;
+            left:280px;
+            top:220px;
+            border-radius:50%;
+        }
+         .classmate_section img:nth-child(3){
+            width: 200px;
+            height: 200px;
+            position:absolute;
+            right:20px;
+            top:20px;
+            border-radius:50%;}
+            hr{
+                width: 960px;
+                margin:0 auto;
+                margin-bottom:30px;
+                color:#eee;
+            }
+            
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div>
+            <img src="logo.png" alt="">
+            <span>
+            <a href="#">首页</a>
+            <a href="#html5">HTML5</a>
+            <a href="#classmate">我的同学</a>
+            <a href="#hometown">我的家乡</a>
+            <a href="#homepage">我的学校</a>
+            <a href="#">关于我</a>
+            </span>
+        </div>
+    </div>
+
+    <div class="header">
+        <img src="header.jpg" alt="">
+        <p> 发的件案件时间按发动机阿伟大大大根深果断是个安然撒覆盖个的符号的风景好的是告诉的告诉多个蒂固案 件时间按发动机阿伟大大大根深果断是个安然撒覆盖个的符号的风景好的是告诉的告诉多个蒂固暗示法暗示 法案件时间按发动机阿伟大大大根深果断是个安然撒覆盖个的符号的风景好的是告诉的告诉多个蒂固暗示法
+        </p>
+
+
+    </div>
+
+    <h1 id="html5">HTML5</h1>
+    <div class="section">
+        <img src="html5.jpg" alt="">
+        <p>发的件案件时间按发动机阿伟大大大根深果断是个安然撒覆盖个的符号的风景好的是告诉的告诉多个蒂固案 件时间按发动机阿伟大大大根深果断是个安然撒覆盖个的符号的风景好的是告诉的告诉多个蒂固暗示法暗示 法案件时间按发动机阿伟大大大根深果断是个安然撒覆盖个的符号的风景好的是告诉的告诉多个蒂固暗示
+        </p>
+    </div>
+
+    <h1 id="classmate">我的同学</h1>
+    <div>
+        <div class="classmate_section">
+            <img src="wf.png" alt="">
+            <img src="lry.jpg" alt="">
+            <img src="ldh.jpg" alt="">
+
+        </div>
+        <p>
+            王菲、刘若英、刘德华;很高兴和你们一起学习
+        </p>
+  
+<hr>
+</body>
+
+</html>

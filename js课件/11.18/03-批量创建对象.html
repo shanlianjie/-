@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			
+			//工厂函数 
+			function createPerson(name,age,sex) {
+				//创建一个人： name /age/sex/eat
+				var person = {}
+				person.name = name
+				person.age = age
+				person.sex = sex
+				person.eat = function() {
+					//this,谁调用这个函数，this指的就是谁
+					console.log(this.name + "爱吃肉")
+					console.log(this)
+				}
+				return person
+			}
+           
+           var person1 = createPerson("zhangSan",18,true)
+           var person2 = createPerson("小红",7,false)
+           
+    
+           console.log(person1)
+           console.log(person2)
+           
+			
+		</script>
+	</body>
+
+</html>

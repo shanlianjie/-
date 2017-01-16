@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			// 自执行匿名函数 （ self-executing anonymous function）
+			// 防止变量名冲突
+			// sandbox  沙箱/沙盒模式
+			(function(w, undefined) {
+				// code
+				var a = undefined
+
+			})(window);
+			/*
+		   1.为何要传入window？
+
+            这样传入window可将其从全局变量变为局部变量，在函数作用域内可以直接访问到window，
+            就不用将作用域链退回到顶层作用域了。在压缩代码时，可以对window进行优化。
+
+           2.为何要增加参数undefined？
+             由于undefined在一些情况下有可能会被重写，为确保在自执行匿名函数里的undefined是"真的undefined"，
+             就需要增加参数undefined。
+           */
+			var count = 0
+			;(function() {
+				for(var i = 0; i < 100; i++) {
+					count++
+				}
+			})()
+			console.log(count)
+		</script>
+	</body>
+
+</html>

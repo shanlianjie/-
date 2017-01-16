@@ -1,0 +1,180 @@
+
+
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			main {
+				width: 200px;
+				border: 1px solid black;
+				margin: 10px auto;
+				border-radius: 5px;
+				text-align: center;
+			}
+			
+			dl>dd {
+				margin-left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<main>
+			<dl>
+				<dt>
+					<input type="checkbox" />
+					<label for="">全选</label>
+					<a href="#">反选</a>
+				</dt>
+				<dd>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(一)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(二)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(三)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(四)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(五)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(六)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(七)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(八)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(九)</label>
+					</p>
+					<p>
+						<input type="checkbox" />
+						<label for="">选项(十)</label>
+					</p>
+				</dd>
+			</dl>
+
+		</main>
+
+		<script type="text/javascript">
+			//先找元素
+			var dt = document.querySelector("dt")
+			var inputDt = dt.children[0]
+			var labelDt = dt.children[1]
+			var link = dt.children[2]
+
+			var inputsDd = document.querySelectorAll("dd input")
+
+			//功能一：全选 全不选 的逻辑
+			inputDt.onclick = function() {
+
+				//1.让dd中的所有的子checkbox的checked属性值 和 标题中的checkbox的checked属性值 保持一致
+				for(var i = 0; i < inputsDd.length; i++) {
+
+					inputsDd[i].checked = inputDt.checked
+				}
+
+				//2.修改标题的内容
+				if(inputDt.checked) {
+					labelDt.innerText = "全不选"
+				} else {
+					labelDt.innerText = "全选"
+				}
+			}
+
+			//功能二：反选 的逻辑
+			//遍历dd中的所有input,对它的checked属性值进行取反
+
+			//点击“反选”超链接时执行
+			link.onclick = function() {
+
+				for(var i = 0; i < inputsDd.length; i++) {
+					var input = inputsDd[i]
+					//对子checkbox的checked属性值 取反 之后 再赋给它自身
+					input.checked = !input.checked
+				}
+				
+				//根据是否全部都选中，修改标题内容
+				  updateTitle()
+
+			}
+			
+			//功能模块三：对dd中的子checkbox点击
+			for (var i=0;i<inputsDd.length;i++) {
+				
+				var input = inputsDd[i]
+				
+				input.onclick = function(){
+				
+				//每点击一下子checkbox,都要 做判断，是否全部选中	
+				//根据是否全部都选中，修改标题内容
+				  updateTitle()	
+				}
+			}
+			
+			
+			//封装一个函数，功能：根据是否全部都选中，修改标题内容
+			function updateTitle(){
+				
+				//判断是否全部都是选中的
+				if(isAllChecked()){ //全部都是选中
+					
+					inputDt.checked = true
+					labelDt.innerText = "全不选"
+					
+				}else{ //没有全部选中
+				    inputDt.checked = false
+					labelDt.innerText = "全选"
+				}
+				
+			}
+			
+			
+			//封装一个函数， 功能：判断dd中的input是否全部都是选中的
+			function isAllChecked(){
+				
+				for(var i=0;i<inputsDd.length;i++){
+					
+					var input = inputsDd[i]
+					
+					if(!input.checked){ //如果不是选中的  
+										//相当于input.checked == false
+
+					//从索引为0开始遍历，只要其中一个子checkbox的checked属性值为false,就说明不是全部都选中的，那么该函数的返回值为false，结束整个方法，没有必须再向下遍历了。		
+						return false	
+					}
+					
+				}
+				
+				//程序走到这，说明for循环遍历出了所有的子checkbox的checked属性值都为true
+				return true
+				
+			}
+			
+			
+		</script>
+
+	</body>
+
+</html>

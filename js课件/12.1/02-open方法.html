@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="打开窗口"/>
+		<input type="button" value="关闭窗口" />
+		<script type="text/javascript">
+			var inputs = document.getElementsByTagName("input")
+			
+			//打开窗口
+			var newWindow = null
+			inputs[0].onclick = function(){
+				
+		      // newWindow = window.open("http://www.baidu.com","_blank","width=100,height=100,left=500,top=300")
+				
+				 newWindow = window.open("test.html","_self","width=300,height=300")
+			    
+			    //背景颜色一闪而过
+			    //newWindow.document.body.style.backgroundColor = "red"
+			   
+			}
+			
+			//关闭窗口
+			inputs[1].onclick = function(){
+				// newWindow.close()
+				 
+				 window.close() //自己的窗口管不掉
+			}
+
+		</script>
+	</body>
+</html>

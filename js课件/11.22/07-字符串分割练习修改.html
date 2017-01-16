@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				 width:200px;
+				 height: 200px;
+				 border: 5px solid black;
+				 padding: 30px;
+				 margin: 30px;
+			}
+			span{
+				line-height: 40px;
+				padding: 10px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div>
+		    <span style="background-color: red;">我</span>
+		    <span style="background-color: green;">我</span>
+		    <span style="background-color: blue;">我</span>
+		    <span style="background-color: yellow;">我</span>
+		</div>
+		
+		<input type="text" />
+		<input type="button" value="按钮" />
+		
+		<script type="text/javascript">
+		
+			//获取div
+		    var oDiv = document.getElementsByTagName("div")[0]
+		
+			//获取按钮和文本框
+			var inputs = document.getElementsByTagName("input")
+			var textInput = inputs[0]
+			var btn = inputs[1]
+			
+			//存放颜色的数组
+			var colorArr = ["red","green","blue","yellow"]
+			
+			//给按钮注册点击事件
+			btn.onclick = function (){
+				//1.获取文本框中的值
+				var str = textInput.value;
+				//2.对字符进行分割
+				var  arr = str.split("")
+				
+				//3.遍历数组，对每一个字符包裹span标签,并且设置样式
+				var strNewSpans = ""
+				for(var i=0;i<arr.length;i++){
+					  var ch = '<span style="background-color:'+colorArr[i%4] +'";>' + arr[i] +"</span>"
+				     strNewSpans += ch
+				}
+				//console.log(strNewSpans)
+				oDiv.innerHTML += strNewSpans
+				
+		}
+
+		</script>
+	</body>
+</html>

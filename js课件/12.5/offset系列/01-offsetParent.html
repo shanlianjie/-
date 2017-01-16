@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box1{
+				position: fixed;
+			}
+			.box2{
+				position:absolute;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div class="box1">
+			 <div class="box2">
+			 	<div class="box3"></div>
+			 </div>
+		</div>
+		
+		<script type="text/javascript">
+			
+			var box3 = document.getElementsByClassName("box3")[0]
+			
+			//console.log(box3.parentElement) 
+			console.log(box3.offsetParent)
+			
+			console.log(document.body.offsetParent)
+			
+			/*
+			 * offsetParent： 某一个元素的offsetParent就是距离该元素最近的有定位（absoulte、releative、fixed）的父级元素,
+			 * 如果父级元素都没有定位，那么就是body。
+			 * 
+			 * body的offsetParent 是null,也就是说body没有offsetParent.
+			 * 
+			 */
+			
+		</script>
+	</body>
+</html>

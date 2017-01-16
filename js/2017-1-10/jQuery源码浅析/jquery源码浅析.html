@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.js"></script>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			/*
+			 * jQuery的闭包结构.
+			 * jQuery本身指提供了两个变量'$'和'jQuery'给外界来使用，为了防止污染全局作用域，这两个变量被定义在一个封闭的立即执行函数作用域内。
+			 */
+
+			//思考：在页面只要引入jQuery.js就直接可以使用jQuery或是$符号。
+
+			//jQuery的使用方式：
+			//$('body').css('background-color','red')
+			//$.get('/test')
+
+			(function(w) {
+
+				var royQuery = function() {
+
+						//alert('执行了')
+
+						//返回一个init()对象
+						return new royQuery.fn.init()
+					}
+					//把内部其他变量定义在立即执行函数内，只暴露jQuery和$作为全局变量，尽量少去污染全局作用域
+				var a = 10
+
+				var b = 20
+
+				//添加静态方法
+				royQuery.royAjax = function() {
+
+					alert('我的ajax方法')
+				}
+
+				royQuery.fn = royQuery.prototype = {
+
+					init: function() {
+
+						//this.age = 50
+					},
+
+					age: 28,
+					isMale: true
+
+				}
+
+				//这一句是核心代码。也是特别绕的一句代码。
+				//这句代码的目的是让init的原型指向royQuery的原型，这样只要往royQuery原型内添加的属性，init的原型也能获取该属性。因为$()或是jQuery()根本没有构建jQuery对象而是init对象。
+				royQuery.fn.init.prototype = royQuery.fn
+
+				//把jQuery作为window一个属性，这样jQuery就成为了全局变量
+				w.$ = royQuery
+
+				w.rQuery = royQuery
+
+			})(window)
+
+			//直接使用rQuery()或是$(),所以对于jQuery这样来使用它时他其实就是一个普通函数(工厂函数)，调用该函数后获得一个对象。
+			//所以jQuery()或是$()是在构建jQuery对象(其实是init对象)，这也是jQuery不使用new 关键字构建对象的原因。
+
+			$()
+			rQuery()
+
+			//上边两个方法按照jQuery的设计思想，代表获得了一个jQuery对象。但是其实获取的是init对象
+
+			alert($().age)
+
+			//综合也就解释了：为什么使用jQuery(selector)就代表构建了一个jQuery对象。即jQuery的jQuery()和$()的用法。
+
+			//另外jQuery还有这种用法：$.ajax()或是jQuery.ajax(),之所以jQuery可以这样调用函数或是属性的原因在于这些属性其实都是jQuery的静态属性.
+			$.royAjax()
+
+
+
+
+			/*
+			 * jQuery方法的重载。
+			 * 方法的重载：指的就是一个方法有多种实现方式。比如参数的个数不一样，方法名一样，这样就可以实现多种函数的多种形式。
+			 * 在其他编程语言里，函数名一样并不一定是同一个函数，还需要参数个数一样、参数类型，返回值都一样。
+			 */
+
+			function test(a) {
+
+				alert('一个参数')
+			}
+
+			function test(a, b) {
+
+				alert('两个参数')
+			}
+
+			test(5)
+
+			//jQuery的有些方法可以根据需求传递不同个数的参数，执行的操作也不一样
+			// 获取 title 属性的值
+			//$('#id').attr('title');
+			// 设置 title 属性的值
+			//$('#id').attr('title', 'jQuery');
+
+			// 获取 css 某个属性的值
+			//$('#id').css('title');
+			// 设置 css 某个属性的值
+			//$('#id').css('width', '200px');
+			
+			
+			//$('div').animate({}, 2000)
+
+			//$('div').animate({}, 2000, function() {})
+			
+			/*
+			 * jQuery的$.extend()和$.fn.extend()
+			 * $.extend()在jQuery中有两个作用：1,用来合并对象，对对象进行copy;2,用来扩展静态方法。
+			 */
+			
+			var obj1 = {
+				name:'roy',
+				age:28
+			}
+			
+			var obj2 = {
+				city:'郑州',
+				isMale:true
+			}
+			
+			//$.extend(obj1,obj2);
+			$.extend(true, obj1, obj2);
+			console.log(obj1)
+		</script>
+	</body>
+
+</html>

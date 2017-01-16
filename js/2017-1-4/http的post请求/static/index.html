@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>http的post请求</title>
+	</head>
+
+	<body>
+		<!--
+			使用表单发送post请求，只需将method属性值设置post
+			pattern:设置正则过滤表达式。正则表达式一串特定的字符，按照一定的语法排列之后起到对输入的内容达到过滤的效果(即判断输入的内容是否合法).
+			[0-9a-zA-Z_]代表只能输入数字、字母和下划线的组合
+			{2,6}代表输入的长度为2--6位字符
+			
+			form的novalidate属性是设置不对输入的内容进行验证，一旦使用了该属性pattern和require属性都无效。
+		-->
+		<form action="/register" method="post" id="myForm">
+
+			<input type="text" name="userName" id="userName" placeholder="请输入用户名" required pattern="[0-9A-Za-z_]{2,8}" />
+
+			<br />
+
+			<input type="password" name="psw" id="psw" placeholder="请输入密码" required pattern="[0-9a-zA-Z]{6,16}" />
+
+			<br />
+
+			<input type="password" name="psw2" id="psw2" placeholder="请确认密码" required pattern="[0-9a-zA-Z]{6,16}" />
+
+			<br />
+			<!--单选框-->
+			<input type="radio" name="sex" id="sex" value="male" checked />男
+
+			<input type="radio" name="sex" id="sex" value="female" />女
+
+			<br />
+
+			<!--复选框-->
+			<input type="checkbox" name="course" id="course" value="HTML5" checked />HTML5
+
+			<input type="checkbox" name="course" id="course" value="CSS3" />CSS3
+
+			<input type="checkbox" name="course" id="course" value="JavaScript" />JavaScript
+
+			<br />
+
+			<!--下拉框-->
+			<select name="age">
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+			</select>
+			<br />
+			<!--文本域-->
+			<textarea name="desc" rows="10" cols="30"></textarea>
+			<br />
+			
+			<!--input和datalist组合实现输入提示的备选框-->
+			<input id="myCar" list="cars" />
+			<datalist id="cars">
+  				<option value="BMW">
+  				<option value="Bieke">
+  				<option value="Ford">
+ 			 	<option value="Volvo">
+			</datalist>
+			<br />
+			<!--取色器-->
+			<input type="color" name="color" id="color"  />
+			
+			<br />
+			<!--文件选择框-->
+			<input type="file" />
+			
+			<br />
+			
+			<!--只要表单内有一个按钮，直接可以触发submit事件-->
+			<button>发送</button>
+			
+			<input type="submit" value="注册" />
+			
+			<input type="submit" value="提交" />
+			
+			<!--超链接只负责页面的切换-->
+			<a href="test.html">跳转</a>
+		</form>
+		
+		<!--form表单之外的表单元素的内容，form表单获取不到也没办法提交到服务器。
+			但是可以设置form属性来指定该表单元素绑定哪一个表单。from属性的值是表单的id属性值。
+		-->
+		<input type="text" name="more" placeholder="请随便输入点内容" form="myForm"/>
+		
+		
+	</body>
+
+</html>

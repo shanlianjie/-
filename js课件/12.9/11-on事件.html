@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			p{
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="新创建p" id="add"/>
+		<div>
+			 <p>我是p元素</p>
+			 <span>我是span</span>
+		</div>
+		<p>我是div外面的p</p>
+		<script>
+		
+		//给自己绑事件
+		//自己.on( events [, data ], handler(eventObject) )
+		//自己.on(事件类型，事件数据，事件处理函数)
+
+		//子元素的事件，在父元素身上绑
+		//父元素.on( events [, selector ] [, data ], handler(eventObject) )
+		//父元素.on(事件类型，选择器，事件数据，事件处理函数)
+		
+//			 $("p").on("click mouseover",function(){
+//			 	 alert("p被触发了")
+//			 })
+
+			 $("div").on("click mouseover","p",function(){
+			 	 alert("p被触发了")
+			 })
+			 
+			 //点击按钮，创建一个新的p元素
+			 $("#add").click(function(){
+			 	
+			 	$("div").append("<p>我是新创建的p元素</p>")	
+			 })
+			 
+			 //怎么让新的创建的p也可以有事件? 事件代理
+			 
+		</script>
+	</body>
+</html>

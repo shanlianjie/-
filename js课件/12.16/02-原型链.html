@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		/*
+		 * MDN的说法：
+		 * 在 javaScript 中，每个对象都有一个指向它的原型（prototype）对象的内部链接。
+		 * 这个原型对象又有自己的原型，直到某个对象的原型为 null 为止（也就是不再有原型指向），
+		 * 组成这条链的最后一环。这种一级一级的链结构就称为原型链（prototype chain）
+		 * 
+		 * 当js引擎查找对象的属性时，先查找对象本身是否存在该属性，如果不存在，会在查自己的原型对象上找，
+		 * 如果自己的原型对象上没有，会继续在原型对象的原型对象上找，直到Object.prototype的原型对象为null
+		 *
+		 * 
+		 */
+			function Person(name,age){
+				this.name = name
+				this.age = age
+				this.eat = function(){
+					console.log("构造函数中的eat方法")
+				}
+			}
+			//给原型对象添加eat方法
+			Person.prototype.eat= function(){
+				 console.log("原型对象中的吃方法")
+			}
+			
+			
+			
+			//给原型对象的原型对象添加eat方法
+			Person.prototype.__proto__.eat = function(){
+				 console.log("xxxxx")
+			}
+			
+			
+			var obj1 = new Person("zhangSan",18)
+			
+			//obj1.eat()
+		
+			console.dir(obj1.__proto__) //Person.prototype
+			console.dir(obj1.__proto__.__proto__)//Object.prototype
+			console.dir(obj1.__proto__.__proto__.__proto__)//null
+			
+			
+		</script>
+	</body>
+</html>

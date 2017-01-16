@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		var body =document.body
+	//	for(var i=0;i<1000;i++){
+	//		
+	//		body.innerHTML += '<input type="button" name="" id="" value="按钮" />'
+	//	}
+	//	
+	
+/*	var str = ""
+	for(var i=0;i<1000;i++){
+		
+		str += '<input type="button" name="" id="" value="按钮" />'
+		
+	}
+	
+	body.innerHTML = str*/
+	for(var i=0;i<1000;i++){
+		
+		var btn = document.createElement("input")
+		btn.type = "button"
+		btn.value ="按钮"
+		
+		
+		body.appendChild(btn)
+		
+		btn.style.height= "100px"
+		
+		
+	}
+	
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				margin: 0;
+			}
+			header{
+				line-height: 50px;
+				background-color: orange;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+			input{
+				margin:0px 20px 20px 20px;
+				height: 30px;
+				border:1px solid orange;
+				width:calc(100% - 40px);
+			}
+			
+			input[type=button]{
+				background-color: orange;
+			}
+			
+			p{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		 <header>存款收益计算器</header>
+		 <form action="">
+		 	<input type="text" placeholder="存款本金"/>
+		 	<input type="text" placeholder="存款利率"/>
+		 	<input type="text" placeholder="存款期数"/>
+		    <input type="button" value="计算">
+		 </form>
+		 <p>计算结果在此显示</p>
+		  
+		  <script type="text/javascript">
+		       //根据元素标签名，获取所有的input标签元素。得到的是一个类似数组的集合
+		  	   var inputs = document.getElementsByTagName("input")
+			   //根据索引将每个input元素取出来	 
+		  	   var benJin = inputs[0]
+		  	   var liLv = inputs[1]
+		  	   var qiShu = inputs[2]
+		  	   var btn = inputs[3]
+			   //获取p标签元素	 
+		  	   var p = document.getElementsByTagName("p")[0]
+		  	  
+		  	   console.dir(benJin)
+		  	  
+		  	   //给按钮绑定事件
+		  	   btn.onclick = function(){
+		  	   	  if(benJin.value==""){
+		  	   	  	  alert("请输入本金")
+				    //使用return，结束当前方法，程序不再向下执行  
+		  	   	  	  return
+		  	   	  }
+		  	   	  if(liLv.value==""){
+		  	   	  	  alert("请输入利率")
+		  	   	  	  return
+		  	   	  }
+		  	   	  if(qiShu.value==""){
+		  	   	  	  alert("请输入期数")
+		  	   	  	  return
+		  	   	  }
+					   								//存在隐形数据类型转换
+		  	   	  var shouYi =Number(benJin.value) + benJin.value*liLv.value*qiShu.value
+		  	       
+		  	       p.innerHTML ="你收益是" + shouYi
+		  	   }
+		  
+		  	   //console.log(inputs)
+		  </script>
+		  
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				display: block;
+				width: 200px;
+				margin: 20px auto;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		
+	
+		<input type="button" value="下一张"/>
+		 
+		<img src="image/fl-3.png" alt="" />
+		 
+		<script type="text/javascript">
+			//1.图片名字数组
+			var  imgNameArr =["image/fl-3.png","image/fl-4.png","image/fl-4c.png","image/fl-4s.png","image/fl-5.png","image/fl-dx.png",]
+			
+			//2.获取下一个按钮
+			var btns = document.getElementsByTagName("input")
+			var nextBtn = btns[0]
+			
+			//3.获取img对象
+			var img = document.querySelector("img")
+			
+			//定义index变量作为索引，从数组中取图片的路径
+			var index = 0
+			
+			//下一个按钮
+			nextBtn.onclick = function(){
+				
+				/*图片路径数组最大索引值为imgNameArr.length-1，
+				 * 如果此时index==imgNameArr.length-1,说明已经是最后一张了
+				 * 下面的代码就没有必要执行了
+				 */
+				if(index==imgNameArr.length-1){
+					alert("已经是最后一张了")
+					return
+				}	
+				
+				//每次点击按钮，索引值+1，向前走一张图片
+				index++;
+				
+				
+				//img.src =
+				img.setAttribute("src",imgNameArr[index])
+				
+			}
+			
+			
+		</script> 
+		 
+		
+	</body>
+</html>

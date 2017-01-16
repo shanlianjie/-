@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    body{
+		    	   display: flex;
+		    	   justify-content: space-around;
+		    } 
+			input{
+				width: 80px;
+				height: 50px ;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<input type="button"  value="红" class="red"/>
+		<input type="button"  value="绿" class="green"/>
+		<input type="button"  value="蓝" class="blue"/>
+	    <script type="text/javascript">
+	    	  
+	    	  //1.找到三个按钮
+	    	  var btns = document.getElementsByTagName("input") //伪数组
+	    	  
+	    	  //2.给每一个按钮注册点击事件
+	    	  for(var i=0; i<btns.length;i++){
+	    	  	   var btn = btns[i]
+	    	  	   btn.onclick = function(){
+	    	  	   	   
+	    	  	   	   //alert("pppp")
+	    	  	   	   
+	    	  	   	   /*获取点击的按钮class属性的值，class是JS中的关键词，
+	    	  	   	    * class标签属性，在js中对应的名字为className*/
+	    	  	   	   //console.log(this.className)
+	    	  	   	     console.dir(this["className"])
+	    	  	   
+	    	           //3.让body的颜色变红 
+	    	  	   	   //document.body 获取body标签元素
+	    	  	   	   document.body.style.backgroundColor = this.className
+	    	  	   	  
+	    	  	   }
+	    	  }
+	    	  
+	    	 
+	    	
+	    	
+	    </script>
+	</body>
+</html>

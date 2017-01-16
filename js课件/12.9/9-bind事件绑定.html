@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<input type="button" value="新建div" id="add"/>
+		<div></div>
+		
+		<script>
+		//简单事件绑定
+//			$("div").click(function(){
+//				
+//				console.log("div被点击了")
+//			})
+			
+//			$("div").mouseover(function(){
+//				
+//				console.log("div被进入了")
+//			})
+		
+		//bind(事件类型，[eventData],事件处理函数)
+		$("div").bind("click mouseover",function(){
+			 console.log("bind被触发了")
+		})
+		
+		//点击按钮，创建新的div
+		$("#add").click(function(){
+			$(document.body).append("<div>我是新创建的div</div>")
+		})
+	
+	  //注释：bind绑定事件有个缺点：新创建的元素，没有事件。
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>artTemplate入门</title>
+		<script src="artTemplate.js"></script>
+	</head>
+
+	<body>
+		<!--
+			使用artTemplate可以实现动态的HTML页面渲染效果。
+			用法：1,引入artTemplate.js
+			2,定义模板(需要使用script标签定义模板;修改type属性:text/html;设置id属性;使用{{}}定义表达式)
+			3,渲染模板:template(模板id,数据)
+		-->
+
+		<!--each相当于是一个循环语句，each是一对，有一个开始的{{each}}还有一个结束的{{/each}}-->
+		<script type="text/html" id="myTemplate">
+
+			<h1 calss={{title}}>{{title}}</h1>
+			<ol>
+				{{each course as value index}}
+
+				<li>取出的元素:{{value}},索引号:{{index}}</li>
+
+				{{/each}}
+			</ol>
+			<p>名字是<strong>{{obj.name}}</strong>,年龄:<strong>{{obj.age}}</strong></p>
+		</script>
+		<!--	
+	
+		<h1>data.title</h1>
+		
+		<ol>
+			for(var i = 0;i<data.course.length;i++){
+				<li>data.course[i]</li>
+			}
+			
+		</ol>-->
+	</body>
+
+	<script type="text/javascript">
+		var data = {
+			title: '这是一个标题',
+			course: ['HTML5', 'CSS3', 'JavaScript', 'artTemplate'],
+			obj: {
+				name: 'roy',
+				age: 28
+			}
+		}
+
+		//使用artTemplate提供的template()方法来渲染模板
+		//参数1：模板的id
+		//参数2：渲染的数据
+		//返回值是渲染的模板内容
+		var html = template('myTemplate', data)
+
+		document.body.innerHTML = html
+	</script>
+
+</html>

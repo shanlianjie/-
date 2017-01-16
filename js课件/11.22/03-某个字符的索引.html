@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			var str = "我是好人，雷锋是好人，大家都是好人，是吗"
+			
+			//indexOf（） 从前向后找
+			//获取某一字符在字符串中的索引，返回查找到的第一个索引位置
+			//如果字符串中没有搜索的字符，返回值是-1
+			//NO1:要搜索的字符串
+			//NO2:从哪个索引值开始查找
+			var index = str.indexOf("好人",17)
+			console.log(index)
+			
+			//怎么获取str字符串中的所有“好人”的索引？
+			     var s = "好人"	
+			     //location变量表示从哪个位置开始查找
+			     var location =0
+			     //查找“好人”的索引，直到找不到为止
+			     while( str.indexOf(s,location) != -1 ){
+			     	
+			     	//获取“好人”的索引
+			     	index = str.indexOf(s,index)
+			     	console.log(index)
+			     	
+			     	//每次找到“好人”之后，查找位置的location变量值向前增加
+			     	location = index +s.length
+			     }
+
+
+      //lastIndexOf()  从后向前找
+               console.log( str.lastIndexOf("好人",11) )
+         
+		</script>
+
+	</body>
+</html>

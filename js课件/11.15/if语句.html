@@ -1,0 +1,165 @@
+<br /><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    //if 语句
+   /* if(条件){
+        条件成立做的事
+    }*/
+
+  /*  if(条件){
+         //条件成立的时候执行的代码
+    }else{
+        //else 否则
+        //条件不成立的时候执行的代码
+    }
+    */
+   /* if(条件){
+         //条件成立的时候执行的代码
+    }
+    else if(条件2){
+         //条件成立的时候执行的代码
+    }
+     else if(条件3){
+          //条件成立的时候执行的代码
+    }
+    else{
+        //条件不成立的时候执行的代码
+    }*/
+
+    //if(条件表达式)，只要条件表达式运行出来的是一个“非零”的结果，条件就是成立的
+    //条件表达式：
+    // 1.关系表达式（== 或者 === “等于”、<"小于"、> <= >=）
+    //2.逻辑表达式（&& 逻辑与 表示“并且”的意思、 ||逻辑或 表示“或者的意思”、 ！逻辑非  表示“区反”）
+    //3.变量、数字
+
+
+
+    //关系表达式作为条件
+
+    var time = 12
+
+
+    console.log(time === 12)
+
+    if(time == 12){
+        console.log("十二点了该去吃饭了")
+    }
+    var money =8000
+
+    if(money >= 8000){
+        console.log("国外游")
+    }
+
+    //逻辑表达式作为条件
+    //短路操作，首先看第一个条件是否成立，然后再决定看另外的条件
+
+    var week = 5
+
+        time = 18
+        if(week ==5 && time>=18){
+            console.log("才能回家")
+        }
+
+        var math = 77
+        var chinese =98 
+        if(math>90 || chinese > 90){
+            console.log("才能玩")
+             
+        }
+         alert(555)
+         //以数字作为条件的表达式
+         if(1){
+             console.log(22222)
+         }
+         if(0.5){
+             console.log(0.5)
+         }
+         //不输出结果
+         if(0){
+             console.log(123131)
+         }
+
+         //以变量作为条件的结果
+         var a1 = 9
+         var a2 = "我"
+         var a3 = ""  //字符串，字符串内容为空。条件为假
+         var a4 = " " //字符串内容为"空格"。条件为真
+         var a5 = undefined      //undefined 条件为假
+         var a6 = null      //null 条件为假
+         var a7 = true
+         if('a7'){
+             console.log("xxxxx")
+         }
+
+         // ! 逻辑非， 表示"取反"的意思
+         // ! 可以将其他类型的数据 隐式的转换成 boolean类型
+            var sex = true
+            var b1 = "gg"
+            var b2 = null
+            var b3
+            console.log(!b3)
+            console.log(typeof (!b1))
+
+
+          // if(){} eles{}  
+            var d = 8
+            if(d>10){
+                console.log("值大于10")
+            }
+            else{
+                console.log("值小于等于10")
+            }
+
+
+        //if elseif elseif else
+        // score 分数 >=90优秀；>=80并且<90中等；>=60并且<80及格；<60不及格
+
+        var score = 57
+     //    if(score>=90){
+    //        console.log("优秀")
+   //     }
+  //      if(score>=80 && score<90){
+ //           console.log("中等")
+//        }
+
+ /*       if(score>90){
+            console.log("优秀")
+        }
+        else if(score>=80 && score<90){
+            console.log('中等')
+        }
+        else if(score>=60 && score<80){
+            console.log('及格')
+        }
+        else{
+            console.log('不及格')
+        }*/
+
+
+//下面是上面的简化写法  ， 程序在执行代码时，是从上往下执行的，上面满足了，下面就不会判断了。
+         if(score>90){
+            console.log("优秀")
+        }
+        else if(score>=80){
+            console.log('中等')
+        }
+        else if(score>=60){
+            console.log('及格')
+        }
+        else{
+            console.log('不及格')
+        }
+       
+      
+
+</script>
+
+
+</body>
+</html>

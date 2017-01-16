@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Person(name,age){
+				this.name = name
+				this.age = age
+			}
+			/*
+			Person.prototype.eat = function(){
+				console.log("我吃饭了")
+			}
+			Person.prototype.sleep = function(){
+				console.log("我睡觉了")
+			} //。。跑 、 玩。。。。*/
+			
+			
+			//将原来的原型对象覆盖掉
+          	Person.prototype ={
+				//自己写的充当原型对象的对象，手动添加constructor，指向Person构造函数
+				constructor:Person,
+				eat:function(){
+					console.log("我吃饭了")
+				}
+			}
+			
+			
+			var obj1 = new Person("zhangSan",18)
+			var obj2 = new Person("lisi",55)
+			
+			//函数也是一个对象，添加在函数身上的属性 叫做静态属性（静态方法）--与之相对应--实例属性（实例方法）
+			Person.sky = function(){
+				console.log("天空的方法")
+			}
+
+			//Person.sky()
+			//obj1.constructor.sky()
+			
+			//覆盖原型对象，存在问题？存在
+			//一旦原型对象被重置，原型对象的constructor属性值的就会变为该对象的构造函数
+			//obj1的构造函数不再是Person,而是Object
+			console.log(obj1.constructor) //Object()
+			
+			//获取构造函数的名字
+			//console.dir(obj1.constructor.name)
+			
+			/*
+			//$.fn === $.prototype
+			$.fn.eat = function(){ //对象
+				
+			}
+			
+			$.eat = function(){
+				
+			}
+			$.eat()*/
+			
+		</script>
+	</body>
+</html>

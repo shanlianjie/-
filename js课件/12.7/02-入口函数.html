@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--引入jquery的js文件-->
+		<script src="jquery-3.1.1.js"></script>
+		<script>
+		//入口函数
+		//入口函数的执行：等待DOM树加载完成，并且所依赖的外部资源也要加载完成的时候才会调用
+			window.onload = function(){
+				console.log("我是js的入口函数")
+			}
+			
+	   //入口函数第一种写法
+	   //jQuery的入口函数等待DOM树加载完成就会执行，不需要等待图片以及文件等外部资源加载完毕
+	   $(document).ready(function(){
+	   	    console.log("jquey的入口函数1")
+	   })
+		
+	   //入口函数第二种写法	
+	   $(function(){
+	   	   console.log("jquey的入口函数2")
+	   })
+	 	
+			
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>我是好人</li>
+			<li>我是好人</li>
+			<li>我是好人</li>
+		</ul>
+		<img src="http://www.5djiaren.com/uploads/2016-11/04-182647_50.jpg" alt="" />
+		<img src="http://img3.3lian.com/2014/c1/29/d/26.jpg" alt="" />
+	</body>
+</html>

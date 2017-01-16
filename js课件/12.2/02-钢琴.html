@@ -1,0 +1,137 @@
+<html>
+
+	<head>
+		<!--intial-scale:页面首次被显示是可视区域的缩放级别，取值1.0则页面按实际尺寸显示，无任何缩放
+        maximum-scale=1.0, minimum-scale=1.0;可视区域的缩放级别，
+        maximum-scale用户可将页面放大的程序，1.0将禁止用户放大到实际尺寸之上。
+        user-scalable:是否可对页面进行缩放，no 禁止缩放-->
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta charset="utf-8">
+		<meta name="author" content="常伟">
+		<title>钢琴</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			body {
+				margin: 0;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: radial-gradient(#666, #000);
+				overflow: hidden;
+			}
+			
+			main {
+				width: 100%;
+				height: 100%;
+				max-width: 800px;
+				max-height: 400px;
+				border: 18px solid #333;
+				border-top-width: 40px;
+				border-bottom-width: 13px;
+				border-radius: 10px;
+				background-image: url(keys.png);
+				background-size: 100% 100%;
+				display: flex;
+				box-shadow: 0 0 20px #999;
+			}
+			
+			div {
+				height: 100%;
+				flex-grow: 1;
+			}
+			
+			div:active,
+			div.active {
+				background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(150, 150, 150, 0.3));
+			}
+		</style>
+	</head>
+
+	<body>
+		<audio src="notes/1.oga"></audio>
+		<audio src="notes/2.oga"></audio>
+		<audio src="notes/3.oga"></audio>
+		<audio src="notes/4.oga"></audio>
+		<audio src="notes/5.oga"></audio>
+		<audio src="notes/6.oga"></audio>
+		<audio src="notes/7.oga"></audio>
+		<audio src="notes/8.oga"></audio>
+		<audio src="notes/9.oga"></audio>
+		<main>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</main>
+		<script type="text/javascript">
+			var audios = document.querySelectorAll("audio")
+			var divs = document.querySelectorAll("main div")
+
+			for(var i = 0; i < divs.length; i++) {
+				var div = divs[i]
+					//增加一个自定义属性，记录自己在数组中索引
+				div.index = i
+				div.onmousedown = function() {
+					
+					playSound(this.index)
+
+					this.classList.add("active")
+				}
+
+				div.onmouseup = function() {
+					this.classList.remove("active")
+				}
+			}
+			
+			//记录上一次触发keydown事件的ev.keycode
+			var code = 0
+			window.onkeydown = function(ev) {
+				
+				//键盘按下不松开，keydown事件会连续触发，控制
+				if(code == ev.keyCode){
+					 return
+				}
+					code = ev.keyCode
+				
+				//1~9数字键 对应的ASCII编码值 是 49~57
+				
+
+				if(ev.keyCode >= 49 && ev.keyCode <= 57) {
+					
+					//调用自己封装的函数， 播放音频
+					playSound(ev.keyCode - 49)
+
+					var div = divs[ev.keyCode - 49]
+					div.classList.add("active")
+				}
+
+			}
+
+			window.onkeyup = function() {
+				//按键抬起时，将code清空
+				code = 0
+				for(var i = 0; i < divs.length; i++) {
+
+					divs[i].classList.remove("active")
+				}
+			}
+
+			function playSound(index) {
+
+				var audio = audios[index]
+				audio.load()
+				audio.play()
+			}
+		</script>
+	</body>
+
+</html>

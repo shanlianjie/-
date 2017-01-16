@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				position: absolute;
+				left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="向前走" />
+		<div></div>
+		<script type="text/javascript">
+
+			//效果：每点击一次按钮，div向前移动一点	
+
+			//找元素
+			var btn = document.getElementsByTagName("input")[0]
+			var div = document.getElementsByTagName("div")[0]
+			
+			btn.onclick = function(){
+				
+				//1.获取div当前的位置值
+				var position = div.offsetLeft
+				
+				//2.在原来位置的值的基础上，加上一个步长
+				var step = 10
+				position += step
+				
+				//3.将修改后的值，重新赋值给div的left属性
+				div.style.left = position + "px" //不要忘记加上单位 “px”
+				
+			}
+			
+			
+		</script>
+		
+	</body>
+</html>

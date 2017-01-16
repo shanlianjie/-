@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="myUl">
+			<li>1111</li>
+			<li id="secondLi">2222</li>
+			<li>3333</li>
+			<li>44444</li>
+		</ul>
+		<script type="text/javascript">
+			
+			//获取ul对象
+			var ul = document.getElementById("myUl")
+			
+			var first = ul.firstChild   //获取第一个子节点
+				first = ul.firstElementChild //获取第一个元素类型的子节点
+			
+		    var last = ul.lastChild //获取最后个子节点
+		        last = ul.lastElementChild//获取最后一个元素类型的子节点
+		        
+		       
+		    //兄弟
+		    var li = document.getElementById("secondLi")
+		    
+		    //上一个兄弟
+		    var previous = li.previousSibling
+		        previous = li.previousElementSibling
+		    //下一个兄弟    
+		    var next = li.nextSibling
+		        next = li.nextElementSibling
+		        
+		    console.log(next)
+		       
+	  //父节点（只有一个父节点）       
+			//console.log(ul.parentNode.parentNode.parentNode)//document
+			console.log(ul.parentElement.parentElement.parentElement) //html
+			
+			
+		</script>
+		
+	</body>
+</html>

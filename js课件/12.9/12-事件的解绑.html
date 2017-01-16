@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height:200px ;
+				background-color: red;
+			}
+			p{
+				background-color: blue;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<div>
+			<p>我是p元素</p>
+			<span>我是span</span>
+		</div>
+		<script>
+//			$("p").bind("click mouseover",function(){
+//				alert("p被触发了")
+//			})
+			
+			//$("p").unbind("mouseover")
+			//$("p").unbind() //如果参数没有值，所有的事件都解绑
+
+
+			
+//			$("div").delegate("p","click mouseover",function(){
+//				 alert("p被触发了")
+//			})
+			
+			//$("div").undelegate("p","mouseover")
+			//$("div").undelegate() //如果参数没有值，所有的事件都解绑
+
+			
+			
+//			$("p").on("click mouseover",function(){
+//				 alert("p被触发了")
+//			})
+			
+			//$("p").off("mouseover")
+			//$("p").off()
+			
+			
+			$("div").on("click mouseover","p,span",function(){
+				 alert("p被触发了")
+			})
+			
+			$("div").on("click",function(){
+				 alert("div被点击了")
+			})
+			
+			//移除所有div上的代理事件
+			$("div").off("click mouseover","**")
+			
+			//事件解绑：$("p").unbind()、$("div").undelegate()、$("p").off() 
+		</script>
+	</body>
+</html>

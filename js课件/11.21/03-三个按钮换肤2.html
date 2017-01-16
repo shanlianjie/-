@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    body{
+		    	   display: flex;
+		    	   justify-content: space-around;
+		    } 
+			input{
+				width: 80px;
+				height: 50px ;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button"  value="红" myIndex="1"/>
+		<input type="button"  value="绿" myIndex="2"/>
+		<input type="button"  value="蓝" myIndex="3"/>
+		
+	    <script type="text/javascript">
+	    	  
+	    	  //1.找到三个按钮
+	    	  var btns = document.getElementsByTagName("input") //伪数组
+	    	  
+	    	  //2.给每一个按钮注册点击事件
+	    	  for(var i=0; i<btns.length;i++){
+	    	  	   var btn = btns[i]
+	    	  	   
+	    	  	   btn.onclick = function(){
+	    	  	   	   
+	    	  	   	   //获取标签属性 对象.getAttribute("属性名")
+	    	  	   	   console.log(this.getAttribute("myIndex"))
+	    	  	   	   
+	    	  	   	   //1.获取按钮的index属性值
+	    	  	   	   var index = this.getAttribute("myIndex")
+	    	  	   	   
+	    	  	   	   //2.判断，根据index的值，设置body的背景颜色
+	    	  	   	   switch (index){
+	    	  	   	   	case '1':{
+	    	  	   	   		 document.body.style.backgroundColor = "red"
+	    	  	   	   	}
+	    	  	   	   		break;
+	    	  	   	    	case '2':{
+	    	  	   	   		 document.body.style.backgroundColor = "green"
+	    	  	   	   	}
+	    	  	   	   		break;
+	    	  	   	   	case '3':{
+	    	  	   	   		 document.body.style.backgroundColor = "blue"
+	    	  	   	   	}
+	    	  	   	   		break;
+	    	  	
+	    	  	   	   	default:
+	    	  	   	   		break;
+	    	  	   	   }
+	    	  	   	  
+	    	  	   }
+	    	  }
+	    	  
+	    	 
+	    	
+	    	
+	    </script>
+	</body>
+</html>

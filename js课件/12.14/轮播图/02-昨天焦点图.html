@@ -1,0 +1,183 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title></title>
+		<script src=""></script>
+		<style>
+			body,
+			ul,
+			ol {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			img {
+				border: none;
+				vertical-align: top;
+			}
+			
+			#box {
+				width: 490px;
+				height: 150px;
+				position: relative;
+				margin: 30px auto;
+				/*overflow: hidden;*/
+			}
+			
+			ul {
+				width: 5000px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 1;
+				/*overflow: hidden;*/
+			}
+			
+			ul li {
+				width: 490px;
+				float: left;
+			}
+			
+
+			#arr {
+            display: none;
+            }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+            z-index: 2;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+		</style>
+		<script>
+	
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li style="display:block"><img src="images/1.jpg" alt="" /></li>
+				<li><img src="images/2.jpg" alt="" /></li>
+				<li><img src="images/3.jpg" alt="" /></li>
+				<li><img src="images/4.jpg" alt="" /></li>
+				<li><img src="images/5.jpg" alt="" /></li>
+			</ul>
+			 <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+		</div>
+		<script>
+			var box = document.getElementById("box")
+			var ul = box.children[0]
+			var ulLis = ul.children
+			var arr = document.getElementById("arr")
+			var left = document.getElementById("left")
+			var right = document.getElementById("right")
+			var width = box.offsetWidth
+			
+			
+			//box hover的时候，箭头出现；离开的时候，左右箭头消失
+			box.onmouseover = function(){
+				arr.style.display = "block"
+			}
+			
+			box.onmouseout = function(){
+				arr.style.display = "none"
+			}
+			
+			
+			 var index = 0
+			
+			right.onclick = function(){
+				if(index<4){
+					index++
+				}
+				//目标位置  与图片的索引有关 和 盒子的宽度
+				var target = -index*width
+				animateSlow(ul,{"left":target})
+			}
+			
+			left.onclick = function(){
+				if(index>0){
+					index--
+				}
+				//目标位置  与图片的索引有关 和 盒子的宽度
+				var target = -index*width
+				animateSlow(ul,{"left":target})
+			}
+			
+			
+			
+			//任意对象 任意值属性  修改到目标位置
+			function animateSlow(obj, json, callback) {
+				clearInterval(obj.timer)
+				obj.timer = setInterval(function() {
+					var flag = true //先假设可以销毁定时器
+					for(var k in json) {
+
+						if(k == "opacity") {
+							var attr = k //"width"
+							var target = json[k] * 100 //目标值
+							var position = parseFloat(getComputedStyle(obj, null)[attr])
+							position = position * 100
+							var step = (target - position) / 20
+							step = step > 0 ? Math.ceil(step) : Math.floor(step)
+							position += step
+							obj.style[attr] = position / 100
+
+						} else {
+							var attr = k //"width"
+							var target = json[k] //目标值
+							var position = parseInt(getComputedStyle(obj, null)[attr])
+							var step = (target - position) / 10
+							step = step > 0 ? Math.ceil(step) : Math.floor(step)
+
+							position += step
+
+							obj.style[attr] = position + "px"
+						}
+						//如果达到目标位置，清除定时器
+						if(position != target) {
+							flag = false //只要任何一个属性没有达到目标位置，flag = false,表示不能清除定时器
+						}
+					}
+
+					//for循环走完，flag的值都没有变成false，说明所有的属性都达到了目标位置，可以清除定时器了
+					if(flag) {
+						clearInterval(obj.timer)
+							//console.log("定时器被销毁了")
+						if(callback) {
+							callback(obj)
+						}
+					}
+				}, 30)
+			}
+		</script>
+		
+	</body>
+
+</html>

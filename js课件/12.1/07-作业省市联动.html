@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<label for="">请选择省份</label>
+		<select name="" id="province" value="">
+
+		</select>
+		<label for="">请选择城市</label>
+		<select name="" id="city">
+
+		</select>
+
+		<script type="text/javascript">
+			//var provine = ["河南省","河北省","安徽省"]
+			//var city =[["郑州，“开封"],["石家庄","邯郸"],["芜湖","合肥"]]
+
+			var arr = [{
+				name: "河南省",
+				city: ["郑州", "开封", "安阳", "洛阳", "信阳"]
+			}, {
+				name: "河北省",
+				city: ["石家庄", "邯郸", "秦皇岛", "保定"]
+			}, {
+				name: "安徽省",
+				city: ["芜湖", "合肥", "铜陵"]
+			}]
+
+			//
+			var province = document.getElementById("province")
+			var city = document.getElementById("city")
+
+			//创建省份中的option
+			for(var i = 0; i < arr.length; i++) {
+				var option = document.createElement("option")
+					//0 1 2
+				option.value = i
+				var textNode = document.createTextNode(arr[i].name)
+				option.appendChild(textNode)
+				province.appendChild(option)
+
+			}
+			
+			//初始的时候展示河南城市
+			createCityOptions(0)
+
+			function createCityOptions(index) {
+				var smallArr = arr[index].city
+				for(var i = 0; i < smallArr.length; i++) {
+					var option = document.createElement("option")
+					var textNode = document.createTextNode(smallArr[i])
+					option.appendChild(textNode)
+					city.appendChild(option)
+				}
+			}
+
+			province.onchange = function() {
+
+				//先将原来生成的那一组城市全部删除
+				//city.innerHTML = ""
+
+				//方法一
+				//				var length = city.children.length
+				//				for (var i=0;i<length;i++) {
+				//					var option = city.children[0]
+				//					console.log(option.innerText)
+				//					city.removeChild(option)
+				//					
+				//				}
+
+				//方法二：倒着删除
+				var length = city.children.length
+				for(var i = length - 1; i >= 0; i--) {
+					var option = city.children[i]
+						//console.log(option.innerText)
+					city.removeChild(option)
+				}
+
+				//console.log(this.value) 
+				
+				createCityOptions(this.value)
+			}
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+		<style>
+			div{
+				width:200px;
+				height: 200px;
+				background-color: red;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="滑入" id="down"/>
+		<input type="button" value="滑出" id="up"/>
+		<input type="button" value="滑入与滑出" id="both"/>
+		<div></div>
+		<script>
+			//滑入
+			$("#down").click(function(){
+				
+				//slideDown() 不写参数，依然有动画效果 默认是normal，与show()方法不同
+				
+				//$("div").slideDown()
+				//$("div").slideDown(2000)
+				//$("div").slideDown("fast")
+				
+				//$("div").slideDown(时间，回调函数)
+				
+				$("div").slideDown(1000,function(){
+					  alert("显示完了")
+				})
+				
+			})
+			
+			//滑出
+			$("#up").click(function(){
+				
+				$("div").slideUp(2000,function(){
+					alert("滑出动画执行完了")
+				})
+				
+			})
+			
+			//滑入与滑出
+			$("#both").click(function(){
+				
+				$("div").slideToggle(1000,function(){
+					alert("动画执行完了")
+				})
+			})
+			
+			//滑出与滑出动画： 改变的是 height
+		</script>
+	</body>
+</html>

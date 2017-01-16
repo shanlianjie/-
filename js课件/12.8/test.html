@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+		<style type="text/css">
+			td {
+				width: 40px;
+				background: green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form>
+			<input type="button" value="Input Button" />
+			<input type="checkbox" />
+
+			<input type="checkbox" />
+			<input type="file" />
+			<input type="hidden" />
+
+			<input type="image" />
+			<input type="password" />
+			<input type="radio" />
+			<input type="checkbox" />
+			<input type="reset" />
+			<input type="submit" />
+			<input type="text" />
+
+			<select>
+				<option>Option
+					<option/>
+			</select>
+			<textarea></textarea>
+			<button>Button</button>
+		</form>
+
+		<script>
+		// $("form input:checkbox").wrap('<span></span>')
+		 //$("form input:checkbox").wrapAll('<span></span>')
+			console.dir($("form input:checkbox").wrapAll('<span></span>').parent().css({background:"yellow", border:"3px red solid"}))
+		</script>
+	</body>
+
+</html>

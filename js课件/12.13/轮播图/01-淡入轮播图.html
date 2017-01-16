@@ -1,0 +1,177 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title></title>
+		<style>
+			body,
+			ul,
+			ol {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			img {
+				border: none;
+				vertical-align: top;
+			}
+			
+			#box {
+				width: 470px;
+				height: 150px;
+				position: relative;
+				margin: 30px auto;
+				overflow: hidden;
+			}
+			
+			ul {
+				width: 470px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 1;
+			}
+			
+			ul li {
+				width: 490px;
+				display: none;
+				opacity: 0;
+			}
+			
+			ol {
+				z-index: 2;
+				width: 120px;
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+			
+			ol li {
+				width: 20px;
+				height: 20px;
+				float: left;
+				margin: 0 2px;
+				display: inline;
+				background: #fff;
+				color: #f60;
+				line-height: 20px;
+				text-align: center;
+			}
+			
+			ol .active {
+				background: #f60;
+				color: #fff;
+			}
+			
+			
+		</style>
+		<script>
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li style="display:block;opacity: 1;"><img src="images/1.jpg" alt="" /></li>
+				<li><img src="images/2.jpg" alt="" /></li>
+				<li><img src="images/3.jpg" alt="" /></li>
+				<li><img src="images/4.jpg" alt="" /></li>
+				<li><img src="images/5.jpg" alt="" /></li>
+			</ul>
+			<ol>
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ol>
+		</div>
+
+		
+
+		<script>
+			//找元素
+			var box = document.querySelector("#box")
+			var ulLis = box.children[0].children
+			var olLis = box.children[1].children
+
+			//给ol中的所有li注册mouseover事件
+			for(var i = 0; i < olLis.length; i++) {
+				olli = olLis[i]
+					//添加自定义属性，记录li自己在集合中索引
+				olli.index = i
+				olli.onmouseover = function() {
+					//自己高亮显示，其它的非高亮显示
+					for(var j = 0; j < olLis.length; j++) {
+						olLis[j].classList.remove("active")
+					}
+					this.classList.add("active")
+
+					//与其索引对应的图片显示，其它的图片隐藏
+					for(var j = 0; j < ulLis.length; j++) {
+						ulLis[j].style.opacity = 0
+						ulLis[j].style.display = "none"
+					}
+
+					var _this = this
+					animateSlow(ulLis[this.index], {
+						"opacity": 1
+					})
+					ulLis[this.index].style.display = "block"
+
+				}
+			}
+
+			//任意对象 任意值属性  修改到目标位置
+			function animateSlow(obj, json, callback) {
+				clearInterval(obj.timer)
+				obj.timer = setInterval(function() {
+					var flag = true //先假设可以销毁定时器
+					for(var k in json) {
+
+						if(k == "opacity") {
+							var attr = k //"width"
+							var target = json[k] * 100 //目标值
+							var position = parseFloat(getComputedStyle(obj, null)[attr])
+							position = position * 100
+							var step = (target - position) / 20
+							step = step > 0 ? Math.ceil(step) : Math.floor(step)
+							position += step
+							obj.style[attr] = position / 100
+
+						} else {
+							var attr = k //"width"
+							var target = json[k] //目标值
+							var position = parseInt(getComputedStyle(obj, null)[attr])
+							var step = (target - position) / 10
+							step = step > 0 ? Math.ceil(step) : Math.floor(step)
+
+							position += step
+
+							obj.style[attr] = position + "px"
+						}
+						//如果达到目标位置，清除定时器
+						if(position != target) {
+							flag = false //只要任何一个属性没有达到目标位置，flag = false,表示不能清除定时器
+						}
+					}
+
+					//for循环走完，flag的值都没有变成false，说明所有的属性都达到了目标位置，可以清除定时器了
+					if(flag) {
+						clearInterval(obj.timer)
+							//console.log("定时器被销毁了")
+						if(callback) {
+							callback(obj)
+						}
+					}
+				}, 30)
+			}
+		</script>
+	</body>
+
+</html>

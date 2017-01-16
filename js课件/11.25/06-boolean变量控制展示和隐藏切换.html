@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<input type="button" value="隐藏"/>
+		<div>请点击按钮，控制我的显示和隐藏</div>
+		
+		<script type="text/javascript">
+			
+			//获取按钮和div
+			var btn = document.querySelector("input")
+			var div = document.querySelector("div")
+			
+			//用boolean变量，记录当前div是“展示”还是“隐藏”状态
+			
+			var isShow = true
+			
+			//给按钮注册点击事件
+			btn.onclick = function(){
+				
+				if(isShow){ //当前是展示状态， 变为隐藏
+					div.style.display = "none"
+					
+					//将按钮的标题变为展示
+					this.value = "展示"
+					
+					//boolean值改变，变为隐藏状态
+					//isShow = false
+					
+				}else{ //当前是隐藏的，变为“展示”
+					
+					div.style.display = "block"
+					
+					this.value = "隐藏"
+					
+					//isShow = true
+				}
+				
+				//每次点击按钮，都要改变boolean型变量的值
+			    isShow = !isShow
+			}
+			
+		</script>
+		
+	</body>
+</html>

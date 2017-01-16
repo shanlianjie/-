@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" name="" id="" value="影藏" />
+	<div>请点击按钮，控制我的显示和影藏</div>
+	
+	<script type="text/javascript">
+		//获取按钮和div
+		var btn =document.querySelector("input")
+		var div =document.querySelector("div")
+		//用boolean变量，记录当前div是“展示”还是“影藏”状态
+		var isShow = true
+		
+		//给按钮注册点击事件
+		btn.onclick = function(){
+			
+			if(isShow){//当前是转身状态，变为影藏
+				div.style.display="none"
+				
+				//将按钮的标签变为展示
+				this.value = "展示"
+				
+				
+				//boolean值改变，变为影藏状态
+			//	isShow = false
+			}else{//当前是影藏的，变为展示
+				
+				div.style.display="block"
+				
+				this.value="影藏"
+				
+			//	isShow=true
+			}
+			
+			//每次点击按钮，都有改变boolean型变量值
+			isShow=!isShow
+		}
+		
+		
+	</script>
+</body>
+</html>

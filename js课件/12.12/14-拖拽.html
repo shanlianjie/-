@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			$("div").mousedown(function(ev){
+				var distanceX = ev.offsetX
+				var distanceY = ev.offsetY
+				
+			  $(document).mousemove(function(ev){
+				console.log("移动了")
+				 var left = ev.pageX - distanceX
+				 var top = ev.pageY - distanceY
+				 $("div").offset({left:left,top:top})
+			  })
+			  
+			  $(document).mouseup(function(){
+			  	  $(document).off()
+			  })
+			})
+			
+		</script>
+	</body>
+</html>

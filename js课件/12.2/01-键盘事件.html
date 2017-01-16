@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+		//键盘按下的时候触发	（按下按键不松开，会被多次调用）
+		window.onkeydown = function(ev){
+			
+			//ev.key 获取的是事件中 按下的按键的名称
+			//ev.keyCode 获取的是按下的按键 对应的ASCII编码值
+			//ev.which 和ev.keyCode 类似
+			//console.log(ev.key +"|" + ev.keyCode + "|" +ev.which)
+		}
+		
+		//键盘按键抬起的时候触发
+		window.onkeyup = function(ev){
+			
+			//console.log(ev.key +"|" + ev.keyCode + "|" +ev.which)
+		    
+//		 	if(ev.keyCode==65 && ev.ctrlKey){
+//		 		//alert("同时按下了a键和ctrl键")
+//		 	}
+		 	
+		 	//同时按下ctrl、alt、shift、s
+		 	if(ev.keyCode==83 && ev.ctrlKey && ev.altKey && ev.shiftKey){
+		 		alert("同时按下了ctrl、alt、shift 和 s键")
+		 	}
+		    
+		   // console.log(ev)
+		}
+		
+		
+		//键盘按键 按下不松开时 触发（连续触发，可以被触发多次）
+		//control、alt、shift、windows、tab、capslock、delete等按键无效
+		window.onkeypress = function(ev){
+	
+			//console.log(ev.key +"|" + ev.keyCode + "|" +ev.which)
+			
+		}
+			
+		</script>		
+	</body>
+</html>

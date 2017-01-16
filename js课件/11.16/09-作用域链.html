@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	   <script type="text/javascript">
+	/*
+	
+	 作用域链：如果使用一个变量，首先查看 使用该变量代码处 所在的作用域是否有该变量的声明，如果没有，就查找该作用域
+	 的父级作用域是否有声明这个变量，逐层向上查找，直到全局作用域。如果全局作用域也没有声明该变量，就在全局作用域
+	 创建该变量
+	*/
+	  
+	  //例子1 	
+	   	var name = "zhangSan"
+	   	function fn1 (){
+	   		 name = "liSi" 
+	   /*此处对变量name赋值，在fn1函数作用域内没有声明变量name,就会查找fn1的父作用域（全局作用域）
+	     在全局作用域中有声明变量name，所以此处的name变量就是全局作用域中的name变量 */			
+	   	}
+	   	fn1()
+	   	console.log(name) //liSi
+	   	
+	  //例子2 	
+	   	var name1 = "zhangSan"
+	   	function fn1 (){
+	   		var name1 = "liSi"	//在函数内声明的变量是局部变量，只能在该函数内使用
+	   		console.log(name1) //liSi
+			/*此处对变量name1赋值，在fn1函数作用域内存在声明变量的name1,
+			此处的name1和全局作用域中name1变量不是两个不同的变量 */   
+	   	}
+	   	fn1()
+	   	console.log(name1) //zhangSan
+	   	
+	 //例子3  	
+	   	var name2 = "zhangSan"
+	   	function fn1 (){
+	   		var name2 = "liSi"	
+	   		console.log(name2) //"liSi"
+	   		var c //局部变量
+	   		function fn2(){
+	   			 var name2 = "王五"
+	   			 console.log(name2) //"王五"
+					
+	   			 c = 99 //c变量前没有加var,c不是个全局变量。
+	   			 /*当前fn2作用域没有声明变量c,就看父作用域fn1有没有声明变量c.fn1作用域有声明变量c,
+				 所以我们此处使用变量c其实是fn1函数中声明的那个变量c,函数内声明的变量是局部变量*/
+	   		}
+	   		fn2()
+	   		console.log(name2) //"liSi"
+	   		console.log(c)
+	   	}
+	   	fn1()
+	   	console.log(name2) //"zhangSan"
+
+	   </script>	
+		
+	</body>
+</html>

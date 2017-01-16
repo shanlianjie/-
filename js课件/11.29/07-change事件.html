@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text"  id="txtInput"/>
+		<input type="checkbox" /> 学习
+		<input type="checkbox" checked/> 打游戏
+		<input type="checkbox" /> 看电视
+		
+		<select name="" id="downMenu">
+			<option value="apple">苹果</option>
+			<option value="banana" selected>香蕉</option>
+			<option value="li">梨</option>
+		</select>
+		
+        <script type="text/javascript">
+        	   
+        	   var inputs = document.getElementsByTagName("input")
+        	   
+        	   var checkboxArr = []
+        	   //遍历所有的inputs，筛选出checkbox类型的input
+        	   for (var i=0;i<inputs.length;i++) {
+        	   	  var input = inputs[i]
+        	   	  
+        	   	  //判断input元素是否是checkbox
+        	   	  if(input.type =="checkbox"){
+        	   	    		
+        	   	    	  //将checkbox 加入数组	
+        	   	      checkboxArr.push(input)
+        	   	      //给checkbox注册change事件
+        	   	      input.onchange = function(){
+        	   	      	
+        	   	      	 alert("值发生变化了"+this.checked)
+        	   	      }
+        	   	      
+        	   	  }
+        	   }
+        	   
+        	   //eg: 普通文本输入框 onchange
+        	   var txtInput = document.getElementById("txtInput")
+        	   //文本框失去焦点的时候，文本框的值与上一次的值不一样 值改变了 就会触发onchange事件
+        	   txtInput.onchange = function(){
+        	   	  alert("值发生变化了"+this.value)
+        	   }
+        	   
+        	   //eg: 下拉菜单 onchange
+        	   var downMenu = document.getElementById("downMenu")
+        	    downMenu.onchange = function(){
+        	    	
+        	    	   alert("值改变了"+this.value)
+        	    	
+        	    }
+
+        </script>
+	</body>
+</html>

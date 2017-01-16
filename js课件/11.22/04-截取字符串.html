@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//截取字符串的方法
+			var str = "今天很冷，大家多穿点衣服"
+			
+			
+			//slice(m,n):代表从索引m位置开始截取，截取到索引号n(不包含n)
+			//slice(m):代表从索引m位置，一直截取到字符串的最后
+			//slice(-m):从末尾位置开始截取，截取长度为m
+			var a = str.slice(2,5)
+				a = str.slice(2)
+				a = str.slice(-4)
+				a = str.slice(2,-4)
+				
+		   //substring(m,n):代表从索引m位置开始截取，截取到索引号n(不包含n)		
+		   //substring(m):代表从索引m位置，一直截取到字符串的最后		
+		   //substring(-m): -m取成0，获得的是完整的字符串	
+			    a = str.substring(2,4)
+		   //   a = str.substring(4,2)
+		        a=  str.substring(2)
+		        a = str.substring(-2)
+		        
+		   //substr(m,n): 代表从索引m位置开始，n表示截取字符串长度     
+		   //substr(m):代表从索引m位置，一直截取到字符串的最后
+		   //substr(-m):从末尾位置开始截取，截取长度为m
+		        a = str.substr(2,4)
+		        a = str.substring(2)
+		        a = str.substr(-2)
+				
+			console.log(a)
+			
+		</script>
+	</body>
+</html>

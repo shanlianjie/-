@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			setInterval(function(){
+				//console.log("匿名函数")
+			},50)
+			
+			document.onclick = function(){
+				//console.log("匿名函数")
+				console.log(window)
+			}
+			
+			var aFun = function(){
+				//console.log("匿名函数")
+			}
+			
+			//匿名函数 自执行时 需要在前面加一个“;”，否则会有语法错误
+			;(function(a,b){
+				console.log("匿名函数自调用")
+				console.log(a+b)
+			})(3,4)
+			
+			;(function(){
+				console.log(9999)
+			}())
+			
+           //大多数使用密名函数的场景：将匿名函数作为一个函数的参数来使用，
+           //此时该函数充当的其实就是一个回调函数
+		</script>
+	</body>
+</html>

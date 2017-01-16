@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<button>按钮</button>
+	<div>请点击按钮，控制我的显示和影藏</div>
+	
+	<script type="text/javascript">
+		
+		//获取按钮和div
+		var btn = document.querySelector("button")
+		var div = document.querySelector("div")
+		
+		var num = 0
+		btn.onclick = function(){
+			if(num==0){
+				div.style.display="none"
+				this.innerText="展示"
+				num = 1
+			}
+			else{
+				div.style.display="block"
+				this.innerText="展示"
+				num = 0
+			}
+		}
+		
+	</script>
+</body>
+</html>

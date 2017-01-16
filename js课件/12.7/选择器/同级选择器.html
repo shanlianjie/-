@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<ul id="ul">
+			<li>111111</li>
+			<li>111111</li>
+			<li>111111</li>
+			<li>111111</li>
+		</ul>
+		<div id="div1">我是一个div</div>
+		<section>我是一个section</section>
+		<p>我是一个p</p>
+		<script>
+			console.log($("#ul").next("#div2"))
+			console.log($("#ul").nextAll("section"))
+			console.log($("#ul").nextUntil("p"))
+			console.log($("#div1").siblings("ul"))
+			
+		/*
+		 * siblings()获取指定元素的所有同胞元素
+		 * 
+		 * siblings(selector)获取所有同胞元素中的某一个
+		 * next()获取指定元素的下一个同胞元素
+		 * 
+		 * prev()上一个
+		 * 
+		 * nextAll()获取指定元素之后的所有同胞元素
+		 * 
+		 * prevAll()...之前的....
+		 * 
+		 * nextUntil()获取指定元素之后的同胞元素直到某一个同胞为止，不包含该同胞元素
+		 * 
+		 * prevUntil()略
+		 */
+			
+			
+		</script>
+	</body>
+</html>

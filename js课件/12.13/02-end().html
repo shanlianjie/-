@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul class="first">
+				<li class="foo">list item 1</li>
+				<li>list item 2</li>
+				<li class="bar">list item 3</li>
+			</ul>
+		</div>
+
+		<script>
+			//end（） 回到上一个过滤出来的对象
+			$("#box").find(".first").find(".foo").end().end()
+			console.log($("#box").find(".first").find(".foo").end().end())
+		</script>
+	</body>
+
+</html>

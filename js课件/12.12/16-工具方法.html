@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		
+	  <script>
+	  	//$("div").css()、  $("div").height() 、$("div").html()
+		//$.方法（）
+		
+		//1.jQuery.trim( str ) 去掉字符串起始和结尾的空格。
+		var str = " abc "
+	        str = $.trim(str)
+	  	//console.log("|"+str+"|")
+	  	
+	  	//2.jQuery.inArray( value, array [, fromIndex ] ) 获取某一个值在数组中的索引
+	  	var arr = ["a","b","c","d"]
+	    var index	= $.inArray("b",arr)
+	    //console.log(index)
+	  	
+	  	//3.jQuery.proxy 可以改变函数中this的指向 ,会返回一个新的函数
+	  	//$.proxy（函数名，this的新指向，其它参数）
+	  	function fn1(a,b){
+	  		//console.log(this)
+	  		//console.log(a+" " + b)
+	  	}
+	  	
+	  	//$.proxy(fn1 ,document)(3,4)
+	  	
+	  	$.proxy(fn1 ,document,3)(5)
+	  
+	  	$(document).click($.proxy(fn1,document,6,8))
+	  	
+	  	//4.jQuery.parseJSON( json )  接受一个标准格式的 JSON 字符串，并返回解析后的 JavaScript 对象
+	  	var jsonStr = '{"name":"John"}'
+	    var obj = $.parseJSON(jsonStr)
+	  	//console.log(typeof jsonStr)
+	  	console.dir(obj.name)
+	  	
+	  </script>
+		
+	</body>
+</html>

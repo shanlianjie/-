@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+	   		*{
+	   			margin: 0;
+	   			padding: 0;
+	   		}
+	   		body{
+	   			height: 2000px;
+	   			width: 1500px;
+	   		}
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				margin: 40px 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script type="text/javascript">
+			var div = document.querySelector("div")
+
+			//IE678 事件对象 是window身上的属性 window.event
+			//window.event
+			
+			div.onclick = function(ev){
+				//兼容写法
+				var ev = ev || window.event
+				
+				//console.log(ev.offsetX + "|"+ev.offsetY )
+				console.log(ev.clientX + "|"+ev.clientY)
+				console.log(ev.pageX + "|"+ev.pageY)
+				//console.log(ev.screenX + "|"+ev.screenY)
+				
+				/*
+				 * offsetX和offsetY 鼠标点击的位置（x,y）坐标，相对于自身
+				 * clientX和clientY 相对于浏览器窗口可视区域
+				 * pageX 和 pageY   相对于页面的
+				 * screenX和screenY 相对于设备的屏幕
+				 * 
+				 */
+				
+			}
+		</script>
+	</body>
+</html>

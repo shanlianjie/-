@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box{
+				width: 400px;
+				height: 500px;
+				border: 1px solid gray;
+				margin: 100px auto;
+			}
+			
+			a{	
+				display: inline-block;	
+				padding: 0 30px;
+				line-height: 50px;
+				text-align: center;
+				background-color: gray;
+			}
+			
+			.current{
+				background-color: pink;
+			}
+			
+			.content li{
+				height: 450px;
+				list-style: none;
+				display: none;
+			}
+			
+		   .content .current{
+				display: block;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="header">
+				<a href="#" class="current">新闻</a>
+				<a href="#">娱乐</a>
+				<a href="#">科技</a>
+				<a href="#">体育</a>
+			</div>
+			<div class="content">
+				<ul>
+					<li class="current">我是新闻模块</li>
+					<li>我是娱乐模块</li>
+					<li>我是科技模块</li>
+					<li>我是体育模块</li>
+				</ul>
+			</div>	
+		</div>
+		
+		<script type="text/javascript">
+			
+			var as = document.getElementsByTagName("a")
+			
+			var lis = document.querySelectorAll(".content li")
+			
+			for (var i=0;i<as.length;i++) {
+				
+				var a = as[i]
+				
+				//给a标签增加一个自定义属性，各自记录自己在数组中的索引
+				a.index = i
+				
+				//给a注册点击事件
+				a.onclick = function(){
+				
+		  //对导航菜单的控制	
+					//1.让所有的a标签去掉高亮显示
+					for (var j=0;j<as.length;j++) {
+						
+						as[j].classList.remove("current")
+					}
+					
+					//2.让点击的a高亮显示
+					this.classList.add("current")
+					
+		  //对内容的控制			
+					//让所有的li去掉current类样式
+					for(var j=0;j<lis.length;j++){
+						
+						lis[j].classList.remove("current")
+		
+					}
+					
+					//让点击的a标签对应的li添加current类样式
+					//点击的a标签在其伪数组中的索引 与 对应的li标签在lis伪数组中的索引是一样的
+					var li = lis[this.index]
+					li.classList.add("current")
+					
+				}
+				
+			}
+			
+			
+		</script>	
+	</body>
+</html>

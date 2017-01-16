@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<input type="button" name="" id="" value="" />
+	
+	
+	<script type="text/javascript">
+		
+		var btn = document.getElementsByTagName("input")[0]
+
+		var ps = document.getElementsByTagName("p")
+
+		var content = ["第一名", "第二名", "第三名", "第四名", "第五名"]
+		
+		
+		
+
+		  	
+		  	var i = 0
+	    	  	
+
+	    	  	  
+	    	  	 
+	    	  	 
+	    	  	   btn.onclick = function(){
+	    	  	   	
+					if(i>=5){
+						return
+					}
+	    	  	   	
+	    	  	   	    ps[i].innerHTML = content[i]
+	    	  	   	    
+	    	  	   	   
+	    	  	   	
+	    	  	      console.log(content[i])
+	    	  	      
+	    	  	      
+	    	  	  i++
+
+	    	  	   
+		}
+	</script>
+</body>
+</html>

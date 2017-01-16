@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<input type="button" value="自定义动画" id="btn"/>
+		<div></div>
+		<script>
+			$("#btn").click(function(){
+				
+//				$("div").animate({
+//					"width":"400px",
+//					"height":"400px"
+//				},1000,function(){
+//					alert("动画执行完了")
+//				})
+
+//				$("div").animate({
+//					"width":"400px"
+//				},1000,function(){
+//					$("div").animate({
+//						"height":"400px"
+//					},1000,function(){
+//						$("div").animate({
+//							"width":"100px"
+//						},1000)
+//					})
+//				})
+
+				$("div").animate({
+					"width":"400px"
+				},1000).animate({
+					"height":"400px"
+				},1000).animate({
+					"width":"100px"
+				},1000)
+	
+			})
+			
+		</script>
+	</body>
+</html>

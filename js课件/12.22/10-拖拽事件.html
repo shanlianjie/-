@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#container{
+				width: 200px;
+				height: 300px;
+				border: 2px solid blue;
+			}
+			#source{
+				margin-top: 20px;
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#">我是超链接</a>
+		<img src="1.png" alt="" />
+		<!--
+			图片和超链接 默认就可以被拖拽。
+		 * 其他的标签元素，如果想有被拖拽的效果，必须添加draggable属性，值为true
+		-->
+		<div id="container">容器</div>
+		<div id="source" draggable="true">被拖动的元素</div>
+		
+		<script>
+		
+		   var sourceEle = document.getElementById("source")
+		    //1.拖拽开始的时候，在被拖拽的元素身上触发。设置拖拽操作需要的数据
+		    sourceEle.ondragstart =function(ev){
+		     	 //console.log("被拖拽的元素---dragstart")
+		     	 /*
+		     	  * dataTransfer对象 用于存储拖动过程中的需要的数据
+		     	  * setData(数据类型key,value).数据类型一般写"text","text/plan"
+		     	  */
+		     	 ev.dataTransfer.setData("text",ev.target.id)
+		     	 var img = document.createElement("img")
+		     	 img.src ="1.png"
+		     	 //给光标设置自定义图片
+		     	 ev.dataTransfer.setDragImage(img,25,25)
+		     }
+		    //2.会被连续触发多次
+		    sourceEle.ondrag = function(ev){
+		    	     console.log("被拖拽的元素---drag")
+		    }
+		    //3.拖拽结束的时候触发
+		    sourceEle.ondragend = function(){
+		    	     console.log("被拖拽的元素---dragend")
+		    }
+		    
+		    //发生在容器身上的一些事件
+		    var containerEle = document.getElementById("container")
+		    
+		    //1.拖拽鼠标 进入容器元素的时候触发。可以给容器元素添加视觉效果
+		    containerEle.ondragenter = function(ev){
+		    		this.style.boxShadow = "0 0 20px black"
+		    	   console.log("容器身上----dragenter")
+		    	 
+		    }
+		    
+		    //2.容器元素身上 连续触发
+		    containerEle.ondragover = function(ev){
+		    		//阻止事件的默认行为。 只有阻止了dragover的事件的默认行为，drop事件才能被触发
+		    		ev.preventDefault()
+		    	   console.log("容器身上----dragover")
+		    }
+		    
+		    //3.鼠标离开容器元素的时候触发。 将给容器元素添加的视觉效果去掉
+		    containerEle.ondragleave = function(){
+		    	   console.log("容器身上----dragleave")
+		    	   this.style.boxShadow = ""
+		    }
+		    
+		    //4.鼠标在容器元素身上松开的时候触发。收集数据，做一些操作
+		    containerEle.ondrop = function(ev){
+		    	   ev.preventDefault()
+		    	   //获取被拖拽的元素的id
+		    	   var aID = ev.dataTransfer.getData("text")
+		    	   //根据id找到被拖拽的元素，并且将其添加到容器元素中
+		    	   this.appendChild(document.getElementById(aID))
+		    	   //清理数据
+		    	   ev.dataTransfer.clearData()
+		    	   console.log("容器身上----drop")
+		    }
+		    
+		    
+		</script>
+	</body>
+</html>

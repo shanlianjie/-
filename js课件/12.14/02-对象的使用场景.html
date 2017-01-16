@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//使用场景一：把对象作为数据的容器
+			//因为对象本身就是一个容器，所以可以用来组织数据
+			//这些数据就作为一个整体存在
+			var name = "天堂"
+			var price = 14.5
+			var place = "芜湖市"
+
+			var obj1 = {
+				name: "天堂",
+				price: 195,
+				place: "芜湖市"
+			}
+
+			function mySum() {
+
+			}
+
+			function myChengFa() {
+
+			}
+
+			function myChuFa() {
+
+			}
+
+			function playBasketball() {
+
+			}
+
+			function playFootball() {
+
+			}
+
+			//使用场景二：把对象作为方法的容器
+			//存放一系列相关方法
+			//      	Math.floor()
+			//      	Math.ceil()
+			//      	Math.abs()
+			var obj2 = {
+				math: {
+					myChengFa: function(a, b) {
+						return a * b
+					},
+					myChuFa: function() {}
+				},
+				player: {
+					playBasketball: function() {},
+					playFootball: function() {}
+				}
+			}
+
+			var result = obj2.math.myChengFa(3, 4)
+			console.log(result)
+
+			//对象可以保存数据（属性）和方法，把对象和方法作为一个整体;
+			//对象可以作为一个相对独立的程序单元，可以独立运行，降低对外部的依存度
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 400px;
+				height: 400px;
+				background-color: red;
+				display: none;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<input type="button" value="开始动画" id="start"/>
+		<input type="button" value="停止动画" id="stop"/>
+		<div></div>
+		<script>
+			//开始动画
+			$("#start").click(function(){
+				
+				$("div").slideDown(4000).slideUp(4000)
+				
+			})
+
+			//停止动画
+			$("#stop").click(function(){
+				//stop() 默认是false false
+				//NO1:clearQueue  是否清除动画队列 true false
+				//NO2:jumpToEnd   是否跳转到动画的结尾 true false
+				
+				//$("div").stop(true,true)
+				//$("div").stop(true,false)
+				//$("div").stop(false,true)
+				//$("div").stop(false,false)
+				
+				  $("div").stop(false,true)
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img {
+				display: block;
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" value="切换图片" />
+		<input type="button" value="停止" />
+		<img src="img/1.jpg" alt="" />
+		<script type="text/javascript">
+			var inputs = document.getElementsByTagName("input")
+			var img = document.querySelector("img")
+
+			//数组中的存的是图片的路径
+			var arr = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/fl-3.png", ]
+
+			var timer = null
+			var num = 0
+
+			//自动切换图片    
+			//注意：在按钮绑定的方法中 开启定时器 注意避免“开启多个定时器的问题”
+			inputs[0].onclick = function() {
+
+				//方法一：每次点击按钮，先清除原来的定时器，再重新开
+				//clearInterval(timer) //null undefine  都是不会出错的
+
+				//方法二：通过timer变量的值，判断当前有没有开启定时器，如果已经有定时器了，就不再开了	
+				//如果timer有值，说明已经存在定时器就再开了	
+				if(timer) {
+					return
+				}
+				//开启定时器
+				timer = setInterval(function() {
+					num++
+					num = num % arr.length
+					img.src = arr[num]
+
+				}, 1000)
+				console.log("timer" + timer)
+			}
+
+			//停止
+			inputs[1].onclick = function() {
+
+				//清除定时器
+				clearInterval(timer)
+
+				//定时器已经销毁了，将timer的值赋值为null,表示当前没有定时器了
+				timer = null
+			}
+		</script>
+	</body>
+
+</html>

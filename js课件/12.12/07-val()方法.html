@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<input type="text"/>
+		<select name="" id="fruit" multiple>
+			<option value="pingGuo">苹果</option>
+			<option value="xiangJiao">香蕉</option>
+			<option value="li">梨子</option>
+		</select>
+		<script>
+			
+			//对value属性赋值
+			$("input").val("我是好人啊啊啊")
+			
+			//获取value属性值
+			var result = $("input").val()
+			//console.log(result)
+			
+			
+			console.log($("#fruit").val())
+			$("#fruit").val("li")
+			
+		</script>
+	</body>
+</html>

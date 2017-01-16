@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				 width:200px;
+				 height: 200px;
+				 border: 5px solid black;
+				 padding: 30px;
+				 margin: 30px;
+			}
+			span{
+				line-height: 40px;
+				padding: 10px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div>
+		
+		</div>
+		
+		<input type="text" />
+		<input type="button" value="按钮" />
+		
+		<script type="text/javascript">
+		
+		    var oDiv = document.getElementsByTagName("div")[0]
+		      //  oDiv.innerHTML ="<span>我</span><span>我</span><span>我</span><span>我</span><span>我</span><span>我</span><span>我</span><span>我</span><span>我</span><span>我</span><span>我</span><span>我</span><span>我</span><span>我</span>"
+		
+			
+			//获取按钮和文本框
+			var inputs = document.getElementsByTagName("input")
+			var textInput = inputs[0]
+			var btn = inputs[1]
+			
+			//给按钮注册点击事件
+			btn.onclick = function (){
+				//1.获取文本框中的值
+				var str = textInput.value;
+				//2.对字符进行分割
+				var  arr = str.split("")
+				
+				//3.遍历数组，对每一个字符包裹span标签
+				var strNewSpans =""
+				for(var i=0;i<arr.length;i++){
+					  var ch ='<span>'+arr[i]+'</span>'
+				     strNewSpans += ch
+				}
+				//console.log(strNewSpans)
+				oDiv.innerHTML += strNewSpans
+				
+//				//设置span的背景颜色
+//			var colorArr = ["red","green","blue","yellow"]
+//			var spans = document.getElementsByTagName("span")
+//			for(var i=0;i<spans.length;i++){
+//				span = spans[i]
+//				span.style.backgroundColor = colorArr[i%4]
+//			}
+		}
+
+		</script>
+	</body>
+</html>

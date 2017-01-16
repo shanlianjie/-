@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body {
+				margin: 0;
+			}
+			
+			html,
+			body {
+				height: 100%;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<script>
+			/**
+			 * 椭圆的参数方程：(x0,y0)是椭圆中心点的坐标
+			 *  x = x0 + a*cos$
+			 *  y = y0 + b*sin$
+			 */
+			var body = document.body
+
+			//椭圆中心点的x、y坐标
+			var x0 = body.offsetWidth * 0.5
+			var y0 = body.offsetHeight * 0.5
+
+			var a = 300 //椭圆的长半轴
+			var b = 150 //椭圆的短半轴
+
+			for(var i = 0; i < 8; i++) {
+				var div = document.createElement("div")
+				document.body.appendChild(div)
+				div.style.width = "25px"
+				div.style.height = "50px"
+				div.style.backgroundColor = "pink"
+				div.innerText = i
+				div.style.position = "absolute"
+				//var angle = i*45
+				div.angle = i * 45
+				var x = x0 + a * Math.cos(div.angle * Math.PI / 180)
+				var y = y0 + b * Math.sin(div.angle * Math.PI / 180)
+				var left1 = x - div.offsetWidth / 2
+				var top1 = y - div.offsetHeight / 2
+				console.log(top1)
+				div.style.left = left1 + "px"
+					//console.log(div.offsetHeight)
+				div.style.top = top1 + "px"
+
+			}
+
+			var divs = document.getElementsByTagName("div")
+			//var speed = 1
+			function step() {
+				//speed -= 0.5
+				for(var i = 0; i < divs.length; i++) {
+					var div = divs[i]
+					div.angle += 1
+					var x = x0 + a * Math.cos(div.angle * Math.PI / 180)
+					var y = y0 + b * Math.sin(div.angle * Math.PI / 180)
+					var left1 = x - div.offsetWidth / 2
+					var top1 = y - div.offsetHeight / 2
+					console.log(top1)
+					div.style.left = left1 + "px"
+					div.style.top = top1 + "px"
+					div.style.borderRadius = "50%"
+
+					//div.style.transform ="rotate("+180+div.angle+speed+"deg)"
+
+				}
+       				requestAnimationFrame(step)
+			}
+
+			requestAnimationFrame(step)
+		</script>
+	</body>
+
+</html>

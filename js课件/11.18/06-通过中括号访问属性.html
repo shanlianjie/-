@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+  /*
+   * 两种方式用于访问一个对象的属性，它们分别是点符号和括号:
+   * 1.object.property
+     2.object["property"]
+   点符号表示法，属性名必须是一个有效的JavaScript标识符，例如，一串字母数字字符，也包括下划线及美元符号，但不能以数字作为开头。比如，object.$1是合法的，而 object.1是无效不合法的。
+   括号表示法,。该字符串不一定是一个合法的标识符；它可以是任意值，例如，"1foo"，"!bar!"， 甚至是一个空格。
+  */
+			
+			var person1 =new Object()
+			person1.$name = "zhangSan"
+			console.log( person1["$name"] )
+			
+			person1["sex"] = true
+			
+			person1["123"] = "aa"
+			person1[""] = "bb"
+			person1[null] = "cc"
+			person1[99] ="pp"
+			
+			console.log(person1["123"])
+			console.log(person1)
+			
+		//字面方式创建对象
+		      var dog = {
+		      	  name:"旺财",
+		      	  "sex":false,
+		      	   1:"aa",
+		      	   null:"bb"
+		      }
+			console.log(dog)
+			
+			
+		</script>	
+	</body>
+</html>

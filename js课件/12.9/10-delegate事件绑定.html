@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			p{
+				background-color: blue;
+				margin-bottom: 10px;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<input type="button" value="新建div" id="add"/>
+		<div id="div1">
+			 <p>我是p元素</p>
+			 <section><p>我是p元素</p></section>
+			 <span>我是span</span>
+		</div>
+		<p>我是div外部的p</p>
+		
+		<script>
+		//父元素.delegate( selector, eventType, handler(eventObject) )
+		//点击父元素的后代，并且父元素的后代必须匹配上选择器 才能触发事件
+		$("#div1").delegate("p","click mouseover",function(){
+			   alert("被触发了")
+		})
+		
+		
+		//点击按钮，创建新的div
+		$("#add").click(function(){
+			$("#div1").append("<p>我是新创建的p</p>")
+		})
+
+		//新创建的p元素的也能有事件了。 利用的是 事件的 冒泡原理
+
+		</script>
+	</body>
+</html>

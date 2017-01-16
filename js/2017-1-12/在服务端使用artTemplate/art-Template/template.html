@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>渲染后的动态页面</title>
+	</head>
+	<body>
+		
+		<!--
+			在服务端使用artTemplate不能使用script标签来定义模板，因为script是html的代码，而服务端不能识别该标签。
+			在服务端使用文件定义模板，识别模板是根据文件的名称来区分模板的。
+		-->
+		
+		
+			{{if contents.length == 0}}
+				<h1>没有推荐内容</h1>
+			{{else}}
+				<h1>推荐的网站和书籍:</h1>
+				<ul>
+				{{each contents as aContent}}
+					{{if aContent.type == 'book'}}
+						{{include 'books' aContent}}
+					{{else}}
+						{{include 'websit' aContent}}
+					{{/if}}
+				{{/each}}
+				</ul>
+			{{/if}}
+		
+	</body>
+</html>

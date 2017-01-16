@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="11.jpg" alt="" />
+		<img src="11.jpg" alt="" />
+		<img src="11.jpg" alt="" />
+		
+		<script type="text/javascript">
+			
+			var imgs = document.getElementsByTagName("img")
+			
+			for (var i=0;i<imgs.length;i++) {
+				
+				var img = imgs[i]
+				
+				//添加一个自定义属性isBaoMa,每个对象添加该属性，通过isBaoMa这个属性，各自记录各自是否是“宝马”
+				img.isBaoMa = true
+				
+				//给img注册点击事件
+				img.onclick = function(){
+					
+					if(this.isBaoMa){
+						this.src = "12.jpg"
+					}else{
+						this.src = "11.jpg"
+					}
+
+					//每次切换之后，改变isBaoMa的属性值
+					this.isBaoMa = !this.isBaoMa
+				}
+				
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

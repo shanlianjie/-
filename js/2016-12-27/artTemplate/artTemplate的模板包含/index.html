@@ -1,0 +1,88 @@
+   <!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>artTemplate模板包含</title>
+		<script src="../artTemplate入门/artTemplate.js"></script>
+	</head>
+
+	<body>
+		<!--子模板-->
+		<script type="text/html" id="books">
+			<p><strong>《{{name}}》</strong></p>
+			<img src={{img}} />
+			<p>{{description}}</p>
+		</script>
+		
+		<!--子模版-->
+		<script type="text/html" id="website">
+			
+			<a href={{url}}>{{name}}</a>
+			<p>{{description}}</p>
+		</script>
+		
+		<!--定义总模板
+			使用include 实现模板包含：
+			{{include  '子模板id'  渲染数据}}
+		-->
+		<script type="text/html" id="myTemplate">
+			{{if content.length <= 0}}
+				<h1>没有推荐内容</h1>
+			{{else}}
+				<h1>{{title}}</h1>
+				
+				{{each content as aContent}}
+				
+					 {{if aContent.type == 'book'}}
+					 
+					   {{include 'books' aContent}}
+					   
+					 {{else}}
+					 
+					 	{{include 'website' aContent}}
+					 	
+					 {{/if}}
+				{{/each}}
+				
+			{{/if}}
+		</script>
+	</body>
+
+	<script type="text/javascript">
+		var data = {
+			title: '推荐的书籍和网站',
+			content: [{
+				type: 'book',
+				img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1649041760,126031643&fm=116&gp=0.jpg',
+				name: 'HTML5开发指南',
+				description: '在人类历史的进程中，书籍的作用确实是无与伦比、不可替代的。书能够影响人的心灵，人的心灵和人的气质又是相通的。一个人要想把自己打扮得可爱、漂亮或者具有吸引力，就来读书吧!'
+			}, {
+				type: 'website',
+				name: 'MDN',
+				url:'https://developer.mozilla.org',
+				description: 'Mozilla 开发者网络(MDN)提供有关开放网络技术(Open Web)的信息,包括 HTML、CSS 和万维网及 HTML5 应用的 API。它还记录了 Mozilla 产品的文档,例如 Firefox ...'
+			}, {
+				type: 'book',
+				img: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1117480023,4278520551&fm=116&gp=0.jpg',
+				name: 'JavaScript高级编程',
+				description: 'JavaScript 是属于网络的脚本语言! JavaScript 被数百万计的网页用来改进设计、验证表单、检测浏览器、创建cookies,以及更多的应用。 JavaScript 是因特网上最流行的...'
+			},
+			{
+				type: 'website',
+				name: 'W3C',
+				url:'https://www.w3cschool.com',
+				description: 'Mozilla 开发者网络(MDN)提供有关开放网络技术(Open Web)的信息,包括 HTML、CSS 和万维网及 HTML5 应用的 API。它还记录了 Mozilla 产品的文档,例如 Firefox ...'
+			}]
+		}
+		
+		
+		//渲染模板
+		var html =  template('myTemplate',data)
+		
+		document.body.innerHTML = html
+		
+		
+	</script>
+
+</html>

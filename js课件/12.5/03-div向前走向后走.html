@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="向前走" />
+		<input type="button" value="向后走" />
+		<div></div>
+		
+		<script type="text/javascript">
+			var btns = document.getElementsByTagName("input")
+			var div = document.getElementsByTagName("div")[0]
+			
+			//向前走
+			var timer = null
+			btns[0].onclick  = function(){
+				clearInterval(timer)
+				timer = setInterval(function(){
+					
+					var target = 400 //目标位置
+					
+					var step = 10//步长
+					
+					var position = div.offsetLeft
+					position += step
+					
+					if(position>=target){
+						position = target
+						clearInterval(timer)
+					}
+					div.style.left = position + "px"
+
+				},30)
+			}
+			
+			
+			//向后走
+			btns[1].onclick  = function(){
+				clearInterval(timer)
+				timer = setInterval(function(){
+					
+					var target = 10 //目标位置
+					
+					var step = -10//步长
+					
+					var position = div.offsetLeft
+					position += step
+					
+					if(position <=target){
+						position = target
+						clearInterval(timer)
+					}
+					div.style.left = position + "px"
+
+				},30)
+			}
+			
+		</script>
+		
+	</body>
+</html>

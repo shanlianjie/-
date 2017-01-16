@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+
+	<body>
+		<ul>
+			<li class="active">我是一个li <span>我是span</span> </li>
+			<li>我是一个li</li>
+			<li class="active">我是一个li</li>
+			<li>我是一个li</li>
+			<li>我是一个li</li>
+		</ul>
+
+		<div id="div1">
+			<p>我是一个段落</p>
+			<span>我是一个span</span>
+		</div>
+
+		<script>
+			/*
+			 * eq(n)
+			 * 获取jquery对象中的第n个元素(n从0开始)
+			 * 返回值：jquery对象
+			 * */
+			//$("ul li").eq(1).css("color","red")
+
+			/*
+			 * .filter()
+			 * 过滤掉对象中不符合的元素（保留符合符合条件的元素对象）
+			 * 参数： css选择器 jquery对象 过滤函数
+			 * 返回值：jquery对象
+			 * */
+			//$("li").filter(".active").css("background-color", "#FFC0CB")
+
+			//console.dir($("#div1>*").filter($("span")))
+			
+			//对于每个元素，如果函数返回true ，该元素将被包含在筛选集合中;否则，将被排除在外
+			 var a = $("#div1>*").filter(function(index) {
+				//this 指的是DOM对象
+				//index为元素在集合中的的索引
+				if(index == 0) {
+					return true
+				}
+			})
+
+			/*
+			 * has()
+			 * 顾虑掉不符合条件的元素
+			 * 保留含有某子标签的元素
+			 * */
+			$("li").has("span").css("color", "yellow")
+
+			/*
+			 * not()
+			 * 移除符合条件的
+			 * */
+			console.dir($("#div1>*").not("p"))
+			
+			//first()找到第一个指定的元素
+			console.log($("li").first())
+			
+			//last()找到最后一个指定的元素
+			console.log($("li").last())
+			
+		</script>
+	</body>
+
+</html>

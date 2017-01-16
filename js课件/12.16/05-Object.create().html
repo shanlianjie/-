@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		    //Object.creat（）方法是用来创建一个对象的
+			//创建出来的对象 的原型对象 就是方法中的参数
+			//newObj的原型对象 是 obj
+			//var newObj = Object.creat(obj)
+			
+			var p1 = {
+				name:"zhangSan",
+				age:18
+			}
+			
+			var newP = Object.create(p1)
+			console.log(newP.__proto__ === p1) //验证
+			
+		</script>
+	</body>
+</html>

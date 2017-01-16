@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				border: 1px solid blue;
+			}
+			span{
+				background-color: gray;
+			}
+			p{
+				color: yellow;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<span>我是span1 <a href="#">百度</a></span>
+		<span>我是span1</span>
+		<p>我是p元素</p>
+		<span>我是span1</span>
+		<script>
+			// $("span").wrap("<div></div>")
+			
+			// $("span").wrapAll("<div></div>")
+			
+			//$("span").wrapInner("<div></div>")
+			
+			//$("a").unwrap() //unwrap() 删除包裹其的父级元素
+			
+			$("p").unwrap() //body是删不掉的
+			
+			
+		</script>
+		
+	</body>
+</html>

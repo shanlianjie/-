@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+
+	<body>
+		<div id="div">
+			<p id="p" style="position: relative;">
+				<span>我是个span</span>
+			</p>
+			<span>我是body中的span</span>
+		</div>
+		<script>
+			/*
+			 * parent()找到指定元素的直接父元素
+			 * parents()找到指定元素的所有上级元素，即所有的父元素
+			 * 
+			 * parents(selector)代表找到指定元素的所有父元素中的某一个父元素
+			 * 
+			 * parentsUntil()找到指定元素的某一部分父元素,参数值是一个父元素选择器，表示找到该父元素为止，不包含该父元素
+			 * 
+			 * offsetParent()找到距离指定元素最近的有定位的父级元素，如果父级元素都没有定位，则是html
+			 */
+			console.log($("span").parent("div"))
+			console.log($("span").parents())
+			console.log($("span").offsetParent())
+		</script>
+
+	</body>
+
+</html>

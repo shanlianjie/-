@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div {
+			width: 50px;
+			height: 50px;
+			background: lightcoral;
+			float: left;
+			margin: 20px;
+			font: 15px/50px "microsoft yahei";
+			text-align: center;
+		}
+	</style>
+	</head>
+
+	<body>
+		<div>div-1</div>
+		<div>div-2</div>
+		<div>div-3</div>
+		<div>div-4</div>
+		<div>div-5</div>
+		<div>div-6</div>
+		<div>div-7</div>
+		<div>div-8</div>
+		<div>dvi-9</div>
+		<div>div-10</div>
+	</body>
+	<script>
+		var divs = document.getElementsByTagName("div");
+		for(var i = 0; i < divs.length; i++) {
+
+			var f = (function(j) {
+				return function() {
+					alert(j)
+				}
+			})(i)
+
+			divs[i].onclick = f
+		}
+		/* 闭包理解：
+		 * a、闭包是指有权限访问另一个函数作用域的变量的函数，创建闭包的常见方式就是在一个函数内部创建另一个函数，也就是创建一个内部函数，创建一个闭包环境，让返回的这个内部函数保存要引用的变量，以便在后续执行时可以保持对这个变量的引用。
+
+		   b、只要存在调用内部函数的可能，JavaScript就需要保留被引用的函数。而且JavaScript运行时需要跟踪引用这个内部函数的所有变量，直到最后一个变量废弃，JavaScript的垃圾收集器才能释放相应的内存空间。
+
+           c、Javascript语言特有的"链式作用域"结构（chain scope），子对象会一级一级地向上寻找所有父对象的变量。
+
+           d、如果一个内部函数被调用且引用了它的外部变量那么它就是一个闭包。
+		 */
+	</script>
+
+</html>

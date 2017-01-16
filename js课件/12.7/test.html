@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+
+	<body>
+		<ul>
+			<li><strong>list</strong> item 1 - one strong tag</li>
+			<li><strong>list</strong> item <strong>2</strong> - two <span>strong tags</span></li>
+			<li>list item 3</li>
+			<li>list item 4</li>
+			<li>list item 5</li>
+			<li>list item 6</li>
+		</ul>
+		<script>
+						var lis = $("ul").children()
+						for (var i=0;i<lis.length;i++) {
+							
+							var li = lis[i] //DOM
+							
+							//上下文选择器
+							//在li中搜索“strong”
+							console.dir($("strong",li))
+							
+						}
+
+
+			
+		</script>
+
+	</body>
+
+</html>

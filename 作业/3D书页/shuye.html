@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        section{
+            margin: 100px 500px 100px 500px;;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
+        }
+        div{
+            width: 300px;
+            height: 500px;
+            position: absolute;
+            opacity: 0.6;
+            transform-origin: 0% 0%;
+            
+        }
+        section div:nth-child(1){
+            background-color: gray;
+            transform: rotateY(-30deg);
+            transition-duration: 3s;
+            
+        }
+         section div:nth-child(2){
+            background-color: red;
+            transform: rotateY(-25deg);
+        }
+         section div:nth-child(3){
+            background-color: blue;
+            transform: rotateY(-20deg);
+        }
+         section div:nth-child(4){
+            background-color: pink;
+            transform: rotateY(-15deg);
+        }
+         section div:nth-child(5){
+            background-color: yellow;
+            transform: rotateY(-10deg);
+        }
+         section div:nth-child(6){
+            background-color: orange;
+            transform: rotateY(-5deg);
+        }
+        div:nth-child(1):active{
+            transform: rotateY(-180deg);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div><p>首页</p></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+</html>

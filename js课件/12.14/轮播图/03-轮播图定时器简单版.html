@@ -1,0 +1,174 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title></title>
+		<style>
+			body,
+			ul,
+			ol {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			img {
+				border: none;
+				vertical-align: top;
+			}
+			
+			#box {
+				width: 490px;
+				height: 150px;
+				position: relative;
+				margin: 30px auto;
+				/*overflow: hidden;*/
+			}
+			
+			ul {
+				width: 2500px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 1;
+			}
+			
+			ul li {
+				width: 490px;
+				float: left;
+			}
+			
+			ol {
+				z-index: 2;
+				width: 120px;
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+			
+			ol li {
+				width: 20px;
+				height: 20px;
+				float: left;
+				margin: 0 2px;
+				display: inline;
+				background: #fff;
+				color: #f60;
+				line-height: 20px;
+				text-align: center;
+			}
+			
+			ol .active {
+				background: #f60;
+				color: #fff;
+			}
+			
+			#arr {
+				display: none;
+			}
+			
+			#arr span {
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				left: 5px;
+				top: 50%;
+				margin-top: -20px;
+				background: #000;
+				cursor: pointer;
+				line-height: 40px;
+				text-align: center;
+				font-weight: bold;
+				font-family: '黑体';
+				font-size: 30px;
+				color: #fff;
+				opacity: 0.3;
+				border: 1px solid #fff;
+				z-index: 2;
+			}
+			
+			#arr #right {
+				right: 5px;
+				left: auto;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li><img src="images/1.jpg" alt="" /></li>
+				<li><img src="images/2.jpg" alt="" /></li>
+				<li><img src="images/3.jpg" alt="" /></li>
+				<li><img src="images/4.jpg" alt="" /></li>
+				<li><img src="images/5.jpg" alt="" /></li>
+			</ul>
+			<ol>
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ol>
+			<div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+		</div>
+		<script>
+			//给所有的按钮注册mouseover事件
+			var olLis = $("#box ol li")
+			var ulLis = $("#box ul li")
+			var width = $("#box").width()
+
+			//展示的图片的索引
+			var picIndex = 0
+
+			olLis.mouseover(function() {
+				//让所有的按钮取消高亮
+				olLis.removeClass("active")
+					//让当前的按钮高亮
+				$(this).addClass("active")
+
+				picIndex = olLis.index($(this))
+				var target = -picIndex * width
+				$("ul").stop().animate({
+					left: target + "px"
+				})
+			})
+
+			var timer = setInterval(run, 1000)
+
+			//鼠标放在盒子上，清除定时器
+			$("#box").mouseover(function() {
+				clearInterval(timer)
+			})
+
+			$("#box").mouseout(function() {
+				timer = setInterval(run, 1000)
+			})
+
+			function run() {
+				if(picIndex == 4) {
+					picIndex = 0 //走到头了，重新开始
+				} else {
+					picIndex++
+				}
+
+				//让按钮跟着走
+				//1.先让所有的按钮取消高亮
+				olLis.removeClass("active")
+					//2.让picIndex索引对应的按钮高亮
+				olLis.eq(picIndex).addClass("active")
+
+				var target = -picIndex * width
+				$("ul").stop().animate({
+					left: target + "px"
+				})
+			}
+		</script>
+	</body>
+
+</html>

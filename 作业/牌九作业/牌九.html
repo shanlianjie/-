@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		html {
+			height: 100%;
+		}
+		
+		body {
+			margin: 0;
+			height: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.content {
+			width: 150px;
+			height: 420px;
+			background-color: black;
+			border-top: 6px solid rgb(211, 211, 211);
+		}
+		
+		.content>div {
+			width: 40px;
+			height: 40px;
+			background-color: rgb(253, 253, 253);
+			border: 1px solid gray;
+			margin: 3px auto;
+			border-radius: 5px;
+			padding: 4px 4px;
+			box-sizing: border-box;
+			display: flex;
+		}
+		
+		span {
+			width: 9px;
+			height: 9px;
+			border-radius: 5px;
+			background-color: black;
+			display: block;
+		}
+		
+		.yi {
+			height: 100%;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.er {
+			justify-content: space-between;
+		}
+		
+		.er>span:nth-child(2) {
+			align-self: flex-end;
+		}
+		
+		.san {
+			justify-content: space-between;
+		}
+		
+		.san>span:nth-child(2) {
+			align-self: center;
+		}
+		
+		.san>span:nth-child(3) {
+			align-self: flex-end;
+		}
+		
+		.si {
+			justify-content: space-between;
+		}
+		.si>div{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		.wu {
+			flex-wrap: wrap;
+
+
+			justify-content: space-between;
+		}
+		
+		.wu>div {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		
+		.wu-x{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		.wu>div:nth-child(2){
+			justify-content: center;
+		}
+		.liu {
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		
+		.liu-x{
+			
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		
+		.qi {
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-content: space-between;
+		}
+		
+		.qi-x {
+			display: flex;
+			justify-content: space-around;
+			width: 100%;
+		}
+		
+		.ba {
+			justify-content: space-between;
+			flex-wrap: wrap;
+			align-content: space-between;
+		}
+		
+		.ba>div {
+			
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		.jiu {
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-content: space-between;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="content">
+
+		<div class="yi">
+			<span></span>
+		</div>
+		<div class="er">
+			<span></span>
+			<span></span>
+		</div>
+		<div class="san">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="si">
+			<div>
+				<span></span>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<div class="wu">
+			<div class="wu-x">
+				<span></span>
+				<span></span>
+			</div>
+			<div class="wu-x">
+				<span></span>
+			</div>
+			<div class="wu-x">
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<div class="liu">
+			<div class="liu-x">
+				<span></span>
+				<span></span>
+			</div>
+			<div class="liu-x">
+				<span></span>
+				<span></span>
+			</div>
+			<div class="liu-x">
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<div class="qi">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<div class="qi-x">
+				<span></span>
+			</div>
+		</div>
+		<div class="ba">
+			<div>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<div class="jiu">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+</body>
+
+</html>

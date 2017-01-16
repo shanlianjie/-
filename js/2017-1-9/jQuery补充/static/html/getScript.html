@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery的getScript方法</title>
+		<script src="jquery.js"></script>
+		<!--<script src="test.js"></script>-->
+	</head>
+	<body>
+		<button>getScript</button>
+	</body>
+	
+	<script type="text/javascript">
+	
+		/*
+		 * getScript()用来加载指定的脚本文件，同时会直接执行该脚本。
+		 */
+		$('button').click(function(){
+			
+			$.getScript('test.js',function(response,statusText,xhr){
+				alert('请求结束了')
+			})
+		})
+		
+	</script>
+</html>

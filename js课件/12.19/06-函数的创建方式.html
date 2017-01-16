@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			//1.函数的声明
+			function fn1(){
+				
+			}
+			fn1()
+			
+			//2.函数的表达式
+			var a = function fn2(){
+				//函数名fn2,只能在函数内部使用，不能在外部使用
+				console.log(11111)
+				console.log(fn2 === a)
+			}
+			
+			//fn2() //fn2不能在外部使用
+			a()
+			
+			//3.new Function()
+			//注意点：
+			//1、所有的参数都是字符串
+			//2、最后一个参数是函数体，除此之外其它所有参数，全部是形参
+			//3、所有的参数 可以全部省略
+			var fn3 = new Function("a","b","return a+b")
+			var result = fn3(3,5)
+			console.log(result)
+			
+			//函数也是一个对象，所有的函数 都是Funtion的实例
+			console.log( fn3 instanceof Function)
+			console.log( Array instanceof Function)
+			console.log(String instanceof Function)
+			console.log(Number instanceof Function)
+			console.log(Function instanceof Function )
+			
+			//结论：
+			//1.所有的函数都是Funtion的实例, 函数也是对象
+			//2.所有的函数(把函数当成一个对象来看) 都继承自 Function.prototype
+			//3.Function也继承自Function.prototype，也是由Function创建出来的
+			
+			
+			console.log(Array.__proto__ === Function.prototype)
+			console.log(Function.prototype.__proto__ === Object.prototype)
+			
+			function Person(){}
+			
+			console.log(Person.__proto__ === Function.prototype)
+			console.log("ppppp")
+			console.log(Object.__proto__ === Function.prototype)
+			
+		</script>
+	</body>
+</html>

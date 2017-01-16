@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			p{
+				background-color: blue;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<div>
+			<p>我是一个p元素</p>
+			<p>我是一个p元素</p>
+			<p>我是一个p元素</p>
+		</div>
+		<script>
+			$("div").on("click","p",function(ev){
+				//console.log(this) //p，在事件冒泡过程中的当前DOM元素
+				//console.dir(ev.target)//p, 点击在谁身上，target就是谁
+				//console.dir(ev.currentTarget)//p，this是谁，currentTarget就是谁
+				//console.dir(ev.delegateTarget)//div
+				
+				console.dir($("div"))
+				console.dir(ev.target)
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>

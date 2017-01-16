@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+
+			//全局对象window调用函数，window可以省略不写
+			//	window.alert()
+
+  //eg1:			
+		   function fn1(){
+		   	  //谁调用这个函数，this指的就是谁
+		   	  console.log(this)
+		   }
+		   window.fn1() //window是个全局对象
+	
+	//eg2:
+		   var person = {
+		   	   name:"zhangSan",
+		   	   eat:function(){
+		   	   	//eat函数是由person调用的，所以这个this指的就是person
+		   	   	 console.log(this)
+		   	   }
+		   }
+		   //person调用eat()函数
+		   person.eat()
+		   
+   //eg3: 构造函数中的this
+          function Student(name,age, sex){
+          	  //构造函数中的this,就是new出来的那个对象
+          	  this.name = name
+          	  this.age = age
+          	  this.sex = sex
+          	  console.log("111",this)
+              //加了new之后，this的指向发生了变换，由原来的指向window,变成了指向新建出来的student对象
+          }
+  
+          var st1 =new window.Student("zhangSan",15,true)
+		   
+		   
+			
+			
+		</script>
+	
+	</body>
+</html>

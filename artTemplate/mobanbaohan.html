@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="new_file.js"></script>
+</head>
+<body>
+
+	<script type="text/html" id="books">
+//		<p><strong>{{name}}</strong></p>
+//		<img src={{img}}/>
+		<p>{{description}}</p>
+	</script>
+	
+	<script type="text/html" id="website">
+		<p><strong>{{name}}</strong></p>
+		<!--<a href={{img}}></a>-->
+	    <p>{{description}}</p>
+	</script>
+	
+	<script type="text/html" id="myTemplate">
+		{{if content.length <=0}}
+			<h1>没有推荐的内容</h1>
+		{{else}}
+			<h1>{{title}}</h1>
+			
+			{{each content as aContent}}
+				{{if aContent.type == 'book'}}
+					{{include 'books' aContent}}
+					
+				{{else}}
+					{{include 'website' aContent}}
+				{{/if}}	
+			{{/each}}
+			
+		         
+	</script>
+	
+	
+	<script type="text/javascript">
+		
+		var data ={
+			title:'推荐的书籍和网站',
+			content:[{
+				type:'book',
+				img:'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1482828514&di=1c671de511f6a54a49941ef64dbb1e9d&src=http://www.meiwenting.com/uploads/userup/12856/1433916228-4A8.jpg',
+				name:'HTML开发指南',
+				description:"这是一个很好的书"
+			
+			},{
+				type:'网站',
+				img:'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1482828514&di=1c671de511f6a54a49941ef64dbb1e9d&src=http://www.meiwenting.com/uploads/userup/12856/1433916228-4A8.jpg',
+				name:'HTML开发指南网站',
+				description:"这是一个很不错的网站"
+			
+			}]
+		}
+		
+	     var html=	template('myTemplate',data)
+ 	     document.body.innerHTML = html
+		
+	</script>
+</body>
+</html>

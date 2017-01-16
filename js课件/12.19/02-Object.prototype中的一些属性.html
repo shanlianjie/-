@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			console.dir(Object.prototype)
+			
+			function Person(name,age){
+				this.name = name
+				this.age = age
+			}
+			
+			var obj1 = new Person("zhangSan",18)
+			
+			//1.hasOwnProperty()
+			//语法：obj.hasOwnProperty("属性名")，如果该属性是继承过来的属性，返回值为false
+			//has 有; own 自己的；Property 属性
+		    var result = obj1.hasOwnProperty("constructor") //false
+		    		result = obj1.hasOwnProperty("name") //true
+		    
+		    
+		    //2.语法：obj2.isPrototypeOf(obj1)  判断obj2 是否是 obj1的原型对象(是否在obj1的原型链上)
+		    		result = Person.prototype.isPrototypeOf(obj1) //true
+		    	 	result = Object.prototype.isPrototypeOf(obj1) //true
+		      	
+		     
+		    //3.语法：obj.propertyIsEnumerable("属性名")
+		    //判断属性是否是可枚举的
+		       result =  obj1.propertyIsEnumerable("constructor") //false
+		       result =  obj1.propertyIsEnumerable("name") //true
+		       console.log(result)
+		    
+		    //4.toString() 将对象转换成字符串。自定义对象会转成[object object]
+		    var num = new Number(9)
+		    		num = num.toString()
+		    		
+		    var arr = [1,5,7,9]	
+		    		arr = arr.toString()
+		    		
+		    		obj1 = obj1.toString() // [object object]
+		    		
+		    var date = new Date()
+		    	var	date1 = date.toString()
+
+			console.log(date1)
+			console.log(date.toLocaleString())
+			//console.log(date.toLocaleDateString())
+			//console.log(date.toLocaleTimeString())
+			
+		</script>
+	</body>
+</html>

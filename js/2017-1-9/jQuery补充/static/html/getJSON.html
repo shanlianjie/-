@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery的getJSON</title>
+		<script src="jquery.js"></script>
+	</head>
+	<body>
+		<button>getJSON</button>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * jQuery的getJSON()方法是用来获取json文件的方法.同时会把读取到的json内容解析为js对象
+		 * 该方法有三个参数：
+		 * 参数1：json文件的url.(required)
+		 * 参数2：发送的数据(optional)
+		 * 参数3：回调函数(required)
+		 */
+		$('button').click(function(){
+			
+			$.getJSON('test.json',function(response,statusText,xhr){
+				alert(response.name)
+			})
+		})
+		
+		
+	</script>
+</html>

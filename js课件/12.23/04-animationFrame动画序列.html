@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 1%;
+				height: 50px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div></div>
+		<input type="button" value="开始" />
+		<input type="button" value="停止" />
+		<script>
+			var div = document.querySelector("div")
+			var btns = document.getElementsByTagName("input")
+			var beginBtn = btns[0]
+			var stopBtn = btns[1]
+
+			var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+				window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+			var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+
+			var progress = 1
+
+			function fn1() {
+				progress += 1
+				div.style.width = progress + "%"
+				div.innerText = progress + "%"
+				console.log("xxxxxx")
+				if(progress < 100) {
+					frame = requestAnimationFrame(fn1)
+				}
+			}
+			/*
+			 * 使用requestAnimationFrame有什么好处？
+			 * 1.浏览器可以优化并行的动画动作，更合理的重新排列动作序列，并把能够合并的动作放在一个渲染周期内完成，从而呈现出更流畅的动画效果
+			 * 2.如果在一个浏览器标签页里运行一个动画，当这个标签页不可见时，
+                 浏览器会暂停它，这会减少CPU，内存的压力，节省电池电量
+			 */
+			
+			//开始按钮
+			var frame = null
+			beginBtn.onclick = function() {
+				frame = requestAnimationFrame(fn1)
+			}
+
+			//停止按钮
+			stopBtn.onclick = function() {
+
+				cancelAnimationFrame(frame)
+
+			}
+		</script>
+	</body>
+
+</html>

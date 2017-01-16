@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		
+		<input type="button" value="添加一行" />
+
+		<table id="table1" border="1px solid black" width="300px">
+
+			<thead>
+				<tr>
+					<th>编号</th>
+					<th>名字</th>
+					<th>性别</th>
+					<th>年龄</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>zhangSan</td>
+					<td>男</td>
+					<td>18</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>小红</td>
+					<td>男</td>
+					<td>18</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>zhangSan</td>
+					<td>男</td>
+					<td>18</td>
+				</tr>
+			</tbody>
+			
+		</table>
+
+		<p>我是好人</p>
+
+		<script type="text/javascript">
+			var table = document.getElementById("table1")
+
+			//var result = table.children[1].children[1].children[1].innerText
+			var result = table.tBodies[0].rows[1].cells[1].innerText
+			
+			console.log(result)
+			/*
+			 * tHead :表格头
+			 * tBodies: 表格正文
+			 * tFoot: 表格尾
+			 *     rows: 行
+			 *     cells: 单元格
+			 * 
+			 */
+			
+			//1.获取按钮
+			var btn = document.querySelector("input")
+			
+			var tbody = table.tBodies[0]
+			
+			//点击按钮添加一行
+			btn.onclick = function(){
+				
+			  //插入一行	
+			  //参数： 在哪个索引位置插入
+			  var tr = tbody.insertRow(1)
+				
+			  //行中插入单元格	
+			  //参数： 在哪个索引位置插入
+			  var cell1=	 tr.insertCell(0)
+			  cell1.innerText = "我我"
+			  
+			  var cell2 = tr.insertCell(0)
+			  cell2.innerText = "好不"
+			  
+			}
+			
+			
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * jQuery的$.extend()和$.fn.extend()
+			 * $.extend()在jQuery中有两个作用：1,用来合并对象，对对象进行copy;2,用来扩展静态方法。
+			 * 
+			 * $.extend()合并对象有三个参数：
+			 * 参数1：是否是深拷贝.默认false。
+			 * 参数2：要合并到的目标对象
+			 * 参数3：被合并的对象
+			 */
+			
+			var obj1 = {
+				name:'roy',
+				age:28
+			}
+			
+			var obj2 = {
+				city:'郑州',
+				isMale:true,
+				innerObj:{
+					height:180,
+					weight:100
+				}
+			}
+			
+			//把obj2合并到obj1
+			//$.extend(obj1,obj2)
+			
+			//console.log(obj1)
+			
+			//下边两句修改对象属性的操作，city属性的值改变不会影响obj1的值，而height属性的值修改会影响obj1的值。
+			//因为此处使用的浅拷贝，对于js来讲浅拷贝不会拷贝对象内部嵌套的对象，只是引用该内部对象，而对于拷贝的对象的属性会直接copy。(简单来讲浅复制只复制一级属性，深复制会复制内部嵌套属性)
+			//obj2.innerObj.height = 190
+			
+			//obj2.city = '芜湖'
+			
+			
+			//深复制，true代表深复制.
+			//深复制不仅会复制一级属性也会复制嵌套的属性。
+			$.extend(true,obj1,obj2)
+			
+			obj2.innerObj.height = 200
+			
+			console.log(obj1)
+			
+			/*
+			 * 深拷贝和浅拷贝
+			 * 深拷贝：是指对一个对象进行复制/copy的时候，不仅复制对象本身(即复制对象的内存地址)，并且也复制对象内的属性。
+			 * 浅拷贝：是指复制一个对象的时候，只复制对象的内存地址，对于对象内部属性不做copy。
+			 * 在js中它的特点是，使用深拷贝用来拷贝对象内部嵌套的对象的属性。浅拷贝不会拷贝嵌套对象属性。
+			 */
+			
+			/*
+			 * $.extend()的另外一个作用就是对jQuery扩展静态方法,扩展以后就可以使用$.xxx()或是jQuery.xxx()来调用了
+			 */
+			
+			$.extend({hello:function(){
+				
+				alert('我扩展了一个hello方法')
+			}})
+			
+			$.hello()
+			
+			
+			/*
+			 * $.fn.extend()用来给jQuery扩展实例方法
+			 */
+			$.fn.extend({
+				hi:function(){
+					
+					alert('我扩展了一个hi方法')
+				}
+			})
+			
+			//$.hi()
+			$('div').hi()
+			/*
+			 * jQuery内部是这样实现这两个方法的：
+			 * $.extend = $.fn.extend = function(){}
+			 * 之所以可以这麽实现的原因在于虽然指向同一个函数，但是函数this的值是不一样的。
+			 */
+			
+			
+			/*
+			 * jQuery可以链式调用：
+			 * $('div').click().css().stop().show()
+			 * 之所以可以链式调用原因在于：在每一个函数内部都返回了一个this对象，该this就是jQuery对象。
+			 */
+			
+			/*
+			 * jQuery还有一个回溯机制。
+			 * 使用end()方法可以回溯到之前筛选到的DOM对象。他的原理在于jQuery有一个栈结构，使用pushStack()方法往栈结构添加dom对象，使用prevObject让压栈的DOM出栈来找到上一个DOM对象。
+			 */
+		</script>
+	</body>
+</html>

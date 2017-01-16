@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="常伟">
+        <title>IFrame解决方案</title>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            html{
+                height: 100%;
+            }
+            body{
+                margin: 0;
+                height: 100%;
+                display: flex;
+                /*flex-direction: column;*/
+                /*flex-direction: row-reverse;*/
+                justify-content: space-between;
+                background-color: #eee;
+            }
+            iframe{
+                height: 100%;
+                width: calc(100% - 200px);
+                border: 5px solid red;
+            }
+            section{
+                line-height: 40px;
+                width: 200px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <a href="https://www.baidu.com" target="down">百度搜索</a><br>
+            <a href="http://news.baidu.com" target="down">百度新闻</a><br>
+            <a href="http://mp3.baidu.com" target="down">百度音乐</a><br>
+            <a href="http://map.baidu.com" target="down">百度地图</a>
+        </section>
+        <iframe id="down" name="down" src="https://www.baidu.com" frameborder="0"></iframe>
+        
+    </body>
+</html>

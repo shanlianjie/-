@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<body>
+		<script type="text/javascript">
+			
+			function Person (name,age){
+				this.name = name
+				this.age = age
+			}
+			
+			function fn1(person){
+				 person.name = "liSi"
+				 console.log(person.name) //liSi
+			}
+			
+			var person1 = new Person("zhangSan",18)
+			fn1(person1)  //person = person1
+			
+			console.log(person1.name) //liSi
+			
+		</script>
+	</body>
+</html>

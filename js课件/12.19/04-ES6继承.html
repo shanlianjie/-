@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			class Baby {
+				constructor(name, age) {
+					this.name = name
+					this.age = age
+				}
+
+				drink(adrink) {
+					console.log("我在喝" + adrink)
+				}
+
+				sleep() {
+					console.log("baby在睡觉")
+				}
+			}
+
+			//Child 类 继承与 Baby类
+			//Child（子类）；Baby（父类）；
+			class Child extends Baby {
+				constructor(name, age, height) {
+					//调用父类中的constructor方法
+					super(name, age)
+					this.height = height
+				}
+
+				play(toy) {
+					console.log("我在玩" + toy)
+				}
+			}
+
+			var xiaoQiang = new Child("xiaoQiang", 12, 180)
+			var xiaoHua = new Child("小花", 15, 162)
+			xiaoQiang.drink("伊利牛奶")
+			xiaoQiang.play("布娃娃")
+			console.log(xiaoQiang.name)
+			console.log(xiaoQiang.height)
+			console.log(xiaoQiang.play === xiaoHua.play)
+		</script>
+	</body>
+
+</html>

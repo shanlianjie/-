@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+		<script>
+			//入口函数
+			//			 window.onload = function(){ 
+			//			 	alert("所有内容都加载完了")
+			//			 }
+
+			//			 window.onload = function(){
+			//			 	 alert("pppppp")
+			//			 }
+
+			$(document).ready(function() {
+				alert("jquery的入口函数1")
+			})
+
+			$(document).ready(function() {
+				alert("jquery的入口函数222")
+			})
+		</script>
+	</head>
+
+	<body>
+		<ul id="ul">
+			<li>我是第1个li</li>
+			<li>我是第2个li</li>
+			<li>我是第3个li</li>
+		</ul>
+		<script>
+			//			var ul = document.getElementById("ul1")
+			//			
+			//			ul.onclick = function(){
+			//				alert("ul被点击了")
+			//			}
+
+			
+			$("ul1").click(function() {
+				alert("ul被点击了")
+			})
+
+			console.log("11111")
+			console.log("22222")
+
+			//			var lis = ul.children
+			//			for (var i=0;i<lis.length;i++) {
+			//				var li = lis[i]
+			//				if(i%2==0){
+			//					li.style.backgroundColor = "red"
+			//				}else{
+			//					li.style.backgroundColor = "green"
+			//				}
+			//			}
+
+			//			$("li:odd").css("background-color","red")
+			//			$("li:even").css("background-color","green")
+
+			/*
+			 * 原生js的缺点：
+			 * 1.兼容性问题
+			 * 2.API,使用起来麻烦
+			 * 3.容错性比较差，容易报错，影响后续代码的执行
+			 * 4.入口函数只能写一个，否则后面的会将前面的覆盖
+			 */
+		</script>
+	</body>
+
+</html>

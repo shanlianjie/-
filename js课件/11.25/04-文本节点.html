@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>今天星期五，明天要放假了，我要去买衣服</p>
+		
+		
+		<script type="text/javascript">
+			
+			var p = document.querySelector("p")
+			
+			//console.log(p.childNodes.length)
+			
+			var textNode = p.childNodes[0]
+			
+			//取出文本节点中的内容
+			//1.data 2.nodeValue 3.textContent 4.wholeText
+			console.log(textNode.data)
+			console.log(textNode.nodeValue)
+			console.log(textNode.textContent)
+			console.log(textNode.wholeText)
+			
+			//在结尾处追加新文本
+			textNode.appendData("abc")
+			
+			//在某个索引位置插入数据  NO1:索引位置 NO2:替换的值
+			//textNode.insertData(3,"tt")
+			
+			//替换指定区域的文本  NO1:索引位置 NO2.长度 NO3.用来替换的值
+			//textNode.replaceData(5,2,"rrrr")
+			
+			//删除指定区域的文本 NO1:参数位置 NO2：长度
+			//textNode.deleteData(2,3)
+			
+			 //获取文本节点字符的个数
+			 //alert(textNode.length)
+			 
+			  textNode.remove()
+			
+			console.dir(textNode.data)
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

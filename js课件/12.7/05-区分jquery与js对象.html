@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<ul>
+			<li>我是第1li</li>
+			<li>我是第2li</li>
+			<li>我是第3li</li>
+		</ul>
+		<script>
+//			 var lis = $("ul").children()
+//			 for (var i=0;i<lis.length;i++) {
+//			 	var li = lis[i] //DOM对象
+//			 	li.style.backgroundColor = "red"
+//			 }
+				
+			//jQuery是一个DOM对象的集合，对jQuery对象进行设置，其实就是对jQuery集合中的每一个DOM对象进行设置	
+		    $("li").css("background-color","red")		
+		</script>
+	</body>
+</html>

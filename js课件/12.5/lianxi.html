@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+		}
+		
+	</style>
+</head>
+<body>
+	<div></div>
+	<script type="text/javascript">
+	
+	var div =document.querySelector("div")
+	var body =document.querySelector("body")
+	var timer = null
+		window.onkeydown = function(ev){
+			clearInterval(timer)
+			if(ev.keyCode==37){
+				timer = setInterval(function(){				
+					var step = -10					
+					var position = div.offsetLeft
+					position += step	
+					if(position<=0){
+						position =  0
+						clearInterval(timer)
+					}
+					
+					div.style.left = position + "px"
+				},30)
+			}
+			
+		    
+		    if(ev.keyCode==39){
+		    	timer = setInterval(function(){				
+					var step = 10					
+					var position = div.offsetLeft
+					position += step	
+					if(position>=body.offsetWidth - 100){
+						position =  body.offsetWidth - 100
+						clearInterval(timer)
+					}
+					
+					div.style.left = position + "px"
+				},30)
+		    }
+			
+		    
+		    if(ev.keyCode==38){
+		    	timer = setInterval(function(){				
+					var step = -10					
+					var position = div.offsetTop
+					position += step	
+					if(position<=0){
+						position =  0
+						clearInterval(timer)
+					}
+					div.style.top = position + "px"
+				},30)
+		    }
+			
+		    
+		    if(ev.keyCode==40){
+		    	timer = setInterval(function(){				
+					var step = 10					
+					var position = div.offsetTop
+					position += step	
+					if(position>=client().height - 100){
+						position =  client().height - 100
+						clearInterval(timer)
+					}
+					div.style.top = position + "px"
+				},30)
+		    }
+			
+		    
+		}
+		function client(){
+		    	
+		    	   return{
+		    	   	width:window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+		    	   	height: window.innerHeight || document.documentElement.clientHeight || document.body.clientWidth
+		    	   }
+		    }
+	</script>
+</body>
+</html>

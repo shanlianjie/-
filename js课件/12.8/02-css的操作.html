@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.1.js"></script>
+
+	</head>
+
+	<body>
+		<ul>
+			<li>1111</li>
+			<li>2222</li>
+			<li>333</li>
+			<li>44444</li>
+		</ul>
+		<script>
+			//css(name,value)
+			//name   css属性名
+			//value  属性值
+			//$("li").css("color","red")
+			//$("li").css("font-size","30px")
+
+			//同时设置多个样式
+			//css(obj)
+			$("li").css({
+				"color": "red",
+				"fontSize": "25px",
+				"background-color": "gray",
+				borderBottom: "1px solid blue"
+			})
+
+			$("li:eq(0)").css("font-size", "40px")
+
+			//获取样式
+			//css(name)， name css属性名
+			//注意：如果获取的时候有多个元素，返回的是第一个元素的样式
+			var size = $("li").css("font-size")
+			console.log(size)
+		</script>
+	</body>
+
+</html>

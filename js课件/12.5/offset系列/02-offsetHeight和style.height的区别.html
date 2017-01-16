@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div{
+				width: 100px;
+				
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="div" style="height: 100px;"></div>
+		
+		<script type="text/javascript">
+			
+			var div = document.getElementById("div")
+			
+			console.log(div.style.height) //style.height 只能获取行内样式
+			console.log(div.offsetHeight) //offsetHight 可以获取任意位置的高度
+			
+			//div.style.height = "200px"  //可以对style.height 进行 赋值
+			  div.offsetHeight = "200px"  //offsetHeight 是只读的，只能获取值，不能赋值
+			
+			
+			
+			/*
+			 * style.height 与 offsetHeight 区别：
+			 * 1. style.height  获取的是字符串 100px 而且带单位
+			 * 2. offsetHeight  获取的是数字，没有单位的
+			 * 3. 可以对style.height 进行 赋值 
+			 * 4. offsetHeight 是只读的，只能获取值，不能赋值
+			 * 5. style.height  获取的是内容高， offsetHeight的组成：内容高 + padding + border
+			 * 
+			 */
+			
+			  //offsetHight 和 offsetWidth
+		</script>
+
+	</body>
+</html>

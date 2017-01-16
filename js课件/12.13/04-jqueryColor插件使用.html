@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--先引入jquery.js文件-->
+		<script src="jquery-3.1.1.js"></script>
+		<!--再引入插件的js文件-->
+		<script src="jquery.color.js"></script>
+		<style>
+			 div{
+			 	width: 100px;
+			 	height: 100px;
+			 	background-color: red;
+			 }
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			$("div").click(function(){
+				$(this).animate({
+					//对颜色字符串的支持不好，eg:ligthgray
+					backgroundColor:"#d3d3d3"
+				},1000)
+			})
+			
+		
+			
+		</script>
+	</body>
+</html>

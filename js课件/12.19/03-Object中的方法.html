@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			function Person(name, age) {
+				this.name = name
+				this.age = age
+
+			}
+			var p1 = new Person("xiaoHong", 4)
+
+			var obj = {
+				name: "zhangSan",
+				age: 18
+			}
+
+			//0.定义添加属性的方法
+			Object.defineProperty(obj, "height", {
+				value: 180,
+				writable: true,
+				configurable: true,
+				enumerable: false
+			})
+
+			//1.freeze 冷冻
+			//freeze(对象) 对象无法（添加、修改、删除属性）
+			//Object.freeze(obj)
+
+			//判断对象是否被冷冻。true 被冷冻了。false,没有被冷冻
+			var result = Object.isFrozen(obj)
+				//console.log(result)
+
+			//2.prevent 阻止；Extensions 扩张
+			//阻止对象的扩展 （不可以添加，可以 修改、删除）
+			// Object.preventExtensions(obj)
+
+			//判断对象是否可以扩展	
+			// result = Object.isExtensible(obj)	
+
+			//3.seal 密封 不能添加、删除，可以修改
+			// Object.seal(obj)
+			//判断对象 是否被密封 
+			result = Object.isSealed(obj)
+				/*
+			obj.name = "liSi"
+			delete obj.age
+			obj.color = "red"
+			console.dir(obj)*/
+
+			//通过for-in 可以遍历出来的属性， 都是可枚举属性	
+			for(var k in obj) {
+
+				console.log(k)
+			}
+
+			//4.返回值是一个数组，数组中存放的是可枚举的属性
+			result = Object.keys(obj)
+
+			//5.返回值也是一个数组，数组中存放的是自己的属性,不论是否可枚举
+			result = Object.getOwnPropertyNames(obj)
+
+			//getPrototypeOf（）和setPrototypeOf（）是ES6的方法
+			//获取某一个对象的原型对象
+			//result = Object.getPrototypeOf(obj)	
+			//console.log(result === Object.prototype)
+
+			result = Object.getPrototypeOf(p1)
+			console.dir(result) //Person.prototype
+
+			//语法：Object.setPrototypeOf(obj, prototype)
+			//将一个指定的对象的原型设置为另一个对象或者null
+			Object.setPrototypeOf(obj, new Array())
+
+			console.log(obj.__proto__)
+
+			//console.dir(Object)
+		</script>
+	</body>
+
+</html>

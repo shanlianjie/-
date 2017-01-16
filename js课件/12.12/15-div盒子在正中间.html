@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    *{
+		    	 margin: 0;
+		    	 padding: 0;
+		    }
+		    body{
+		    		width: 2000px;
+		    		height: 2000px;
+		    }
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+		<script src="jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			var left1 = ($(window).width() - $("div").width())/2
+			var top1 = ($(window).height() - $("div").height())/2
+	
+			$("div").css({left:left1,top:top1})
+			
+			
+			$(window).on("scroll resize",function(){
+				
+				left1 = ($(window).width() - $("div").width())/2
+				top1 = ($(window).height() - $("div").height())/2
+				
+				$("div").css({left:left1 + $(window).scrollLeft(),top:top1 + $(window).scrollTop()})
+			})
+			
+		</script>
+	</body>
+</html>

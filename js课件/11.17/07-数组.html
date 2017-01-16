@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script type="text/javascript">
+		 /*
+		 *  数组，是一种常用的数据结构，用来存储数据（数据的集合、容器），
+		    数组中的数据是 有序的。 索引值从0开始的
+		 * */
+
+//怎么创建数组？		
+		//使用new创建一个数组
+		//1.Array() 是用来创建数组的对象的构造函数
+		 var  arr = new Array()
+		 
+		//2.通过字面量方式创建数组 
+		 	  arr = []
+		
+		
+	    //创建数组，并且初始化数组中的数据，在数组中的数据称为元素，元素与元素之间用逗号","隔开	
+		 arr = ["好人",1,"hello"]	
+		 
+		 arr = new Array("zhangSan","hello",70,true,"hello","world")
+		 
+         //获取数组中元素的个数
+		 //console.log(arr.length)
+		 
+		 //根据数据在数组中索引值取数据，索引是从“0”开始的
+		 //格式： 数组[引值]
+		 //如果数组中没有对应索引值的元素，获取结果就是undefine
+		 var a = arr[0]
+		 
+		 //将索引为0的元素，修改数据为“liSi”
+		 arr[0] = "liSi"
+		 //也可以通过这种方式添加元素
+		// arr[7] = "xiaohong"
+		 //通过修改length属性，将length属性值减小，也可以实现删除数据的目的
+		// arr.length =2
+
+		//获取某一个元素在数组中的索引。
+		//如果数组中有多个“hello”字符串，该方法获取的是第一个“hello”在数组中的索引.
+		//如果数组中不存在指定的元素，获取的索引值为-1
+		  var index =  arr.indexOf("hello")
+		  console.log("index",index)
+		
+		 /*splice()方法可以实现数组中元素的 添加、 删除、 修改
+		  *splice()方法可以中可以有多个参数
+		  * NO1:表示索引号，从哪个元素开始操作数组元素
+		  * NO2.操作的元素的个数
+		  * NO3.用来将第2个参数 替换（或增加）的数据
+		  * NO4..
+		  */
+		 
+		 //删除
+//		  console.log(arr)
+//		  arr.splice(2,2) 
+//		  console.log(arr)
+			
+		  //	修改
+//        console.log(arr)
+//		  arr.splice(2,1,"xx","pp") 
+//		  console.log(arr)
+          
+          //增加
+//        console.log(arr)
+//		  arr.splice(2,0,"aa","bb","cc") 
+//		  console.log(arr)
+
+		  //push（） 和 pop（）操作
+		  //push()操作 向数组中的最后位置添加元素（1个或多个）,方法的返回值是数组中的元素个数length
+		var lastLength = arr.push("最后一个")
+		  // pop()操作 删除数组中的最后一个元素，并且方法的返回值就是这个被删除的元素
+		var  lastItem = arr.pop()
+		
+	
+		 //unshift() 和 shift 操作
+		 //unshift()操作 向数组中的最开始位置添加元素（1个或多个）,方法的返回值是数组中的元素个数length
+	    var firstLength= arr.unshift("aa","bb")
+	     //shift()操作 删除数组中的第一个元素，并且方法的返回值就是这个被删除的元素
+	    var firstItem = arr.shift()   
+		  
+		 // console.log(firstLength)
+		 
+		//数组的合并,合并之后生成一个新的数组
+	  	var newArr=  arr.concat(["1","2"],["99","999"])
+		  
+		 
+		//将数组元素组成字符串，每个元素之间用逗号隔开 
+		var str = newArr.toString()
+		
+		
+		//将数组中的元素组成字符串，每个元素之间用指定符号隔开
+		var str1 =newArr.join("*")
+		console.log(newArr)
+		console.log(str1,typeof str1)
+		
+		//数组当然也可以存放数组数据，数组是可以嵌套的
+		
+		var arr4 = [
+		 ["html","css","js"],
+		 ["php","ios","python"],
+		 ["雷锋","刘胡兰","焦裕禄"],
+		 "hao123"
+		]
+		//怎么取出“ios”?
+		var txt = arr4[1][1]
+		 
+		console.log(txt)
+		
+			
+		</script>
+		
+	</body>
+</html>

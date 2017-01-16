@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<input type="button" name="" id="" value="A" />
+	<input type="button" name="" id="" value="A" />
+	<input type="button" name="" id="" value="A" />
+	
+	
+	<script type="text/javascript">
+		var btns = document.getElementsByTagName("input")
+		
+		var arr =["A","B","C","D"]
+		for(var i=0;i<btns.length;i++){
+			
+			var btn = btns[i]
+			
+			btn.dataset.index = 0
+			
+			    btn.onclick = function(){
+				
+				var a = ++this.dataset.index
+				
+				console.log(a)
+				
+				this.value=arr[a]
+				
+				if (this.dataset.index == arr.length-1){
+					this.dataset.index = -1
+				}
+			}
+			
+		}
+		
+		
+	</script>
+</body>
+</html>
